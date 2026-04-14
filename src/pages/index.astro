@@ -1,11 +1,401 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+  title="Real-Time Dashboards for Building Materials Distributors"
+  description="We build data pipelines and operational dashboards for building materials distributors — on top of SAP, NetSuite, and existing ERPs. No rip and replace."
+>
+
+  <!-- SECTION 1: Hero -->
+  <section class="min-h-screen flex items-center bg-slate-950">
+    <div class="max-w-6xl mx-auto px-6 py-20">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight max-w-4xl">
+        Your purchasing team shouldn't live in Excel.
+      </h1>
+      <p class="mt-6 text-lg md:text-xl text-slate-300 leading-relaxed max-w-3xl">
+        We build real-time dashboards and data pipelines for building materials distributors — on top of the ERP you already have. No rip and replace.
+      </p>
+      <div class="mt-10 flex flex-col sm:flex-row gap-4">
+        <a href="#case-study" class="inline-block bg-blue-600 hover:bg-blue-500 text-white font-semibold px-8 py-4 rounded-lg text-center transition-colors">
+          See How It Works
+        </a>
+        <a href="https://links.zenprocess.ai/widget/booking/rcoKJifJJA46bRI9fTEr" target="_blank" rel="noopener noreferrer" class="inline-block border border-slate-500 hover:border-white text-white font-semibold px-8 py-4 rounded-lg text-center transition-colors">
+          Book a Discovery Call
+        </a>
+      </div>
+      <p class="mt-12 text-sm text-slate-500">
+        Built for companies running SAP &nbsp;|&nbsp; NetSuite &nbsp;|&nbsp; and similar ERPs
+      </p>
+    </div>
+  </section>
+
+  <!-- SECTION 2: Problem Statement -->
+  <section class="bg-slate-900 py-20 md:py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-12">Sound familiar?</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-8">
+          <div class="mb-4">
+            <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125v-3.75m16.5 3.75v3.75c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125v-3.75" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Your ERP has the data. You just can't get to it.</h3>
+          <p class="text-slate-300 leading-relaxed">
+            Getting a report means exporting to Excel, cleaning for 2 hours, and hoping the numbers match. Your ERP is a black box to everyone except the one person who knows the queries.
+          </p>
+        </div>
+
+        <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-8">
+          <div class="mb-4">
+            <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5a17.92 17.92 0 01-8.716-2.247m0 0A8.966 8.966 0 003 12c0-1.264.26-2.466.732-3.558" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Overseas and domestic lead times in the same spreadsheet.</h3>
+          <p class="text-slate-300 leading-relaxed">
+            Your purchasing team manages suppliers with 90-120 day lead times alongside domestic suppliers shipping in 3-5 days. Reorder logic lives in someone's head — not in a system.
+          </p>
+        </div>
+
+        <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-8">
+          <div class="mb-4">
+            <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">You find out about stockouts after the customer calls.</h3>
+          <p class="text-slate-300 leading-relaxed">
+            No proactive alerts. No early warning system. Inventory exceptions are caught manually — if they're caught at all. Multi-warehouse visibility is a myth.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: Case Study Preview -->
+  <section id="case-study" class="bg-slate-950 py-20 md:py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-12">What we built for a national building materials distributor</h2>
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
+
+        <div class="space-y-5">
+          <div class="flex items-start gap-3">
+            <svg class="w-6 h-6 text-green-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+            </svg>
+            <p class="text-slate-300 text-lg">Multi-warehouse operation, SAP ByDesign, 2,000+ SKUs</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg class="w-6 h-6 text-green-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+            </svg>
+            <p class="text-slate-300 text-lg">Data refreshes every 15 minutes — replaced weekly Excel pulls</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg class="w-6 h-6 text-green-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+            </svg>
+            <p class="text-slate-300 text-lg">0.00% data variance on baseline validation</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg class="w-6 h-6 text-green-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+            </svg>
+            <p class="text-slate-300 text-lg">800+ daily inventory exceptions flagged automatically</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg class="w-6 h-6 text-green-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+            </svg>
+            <p class="text-slate-300 text-lg">Purchasing team uses the dashboard every morning</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg class="w-6 h-6 text-green-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+            </svg>
+            <p class="text-slate-300 text-lg">$60K engagement over 12 weeks — started with a paid audit</p>
+          </div>
+        </div>
+
+        <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-8">
+          <p class="text-sm text-slate-400 uppercase tracking-wider mb-6 font-semibold">Architecture</p>
+          <div class="space-y-0">
+            <div class="bg-slate-700/50 rounded-lg px-5 py-4 text-center font-semibold">SAP ByDesign</div>
+            <div class="flex justify-center py-2">
+              <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
+              </svg>
+            </div>
+            <div class="bg-slate-700/50 rounded-lg px-5 py-4 text-center font-semibold">Fivetran</div>
+            <div class="flex justify-center py-2">
+              <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
+              </svg>
+            </div>
+            <div class="bg-slate-700/50 rounded-lg px-5 py-4 text-center">
+              <p class="font-semibold">Snowflake</p>
+              <p class="text-sm text-slate-400 mt-1">Bronze / Silver / Gold</p>
+            </div>
+            <div class="flex justify-center py-2">
+              <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
+              </svg>
+            </div>
+            <div class="bg-blue-600/20 border border-blue-500/30 rounded-lg px-5 py-4 text-center font-semibold text-blue-300">Streamlit Dashboards</div>
+          </div>
+        </div>
+
+      </div>
+      <div class="mt-12 text-center">
+        <a href="/case-study" class="inline-block bg-blue-600 hover:bg-blue-500 text-white font-semibold px-8 py-4 rounded-lg transition-colors">
+          Read the Full Case Study
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: How It Works -->
+  <section class="bg-slate-900 py-20 md:py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-12">How we work</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-8">
+          <p class="text-5xl font-bold text-blue-500 mb-4">01</p>
+          <h3 class="text-xl font-semibold mb-1">Paid AI Audit</h3>
+          <p class="text-sm text-slate-400 mb-4">2-4 weeks | $10,000-$15,000</p>
+          <p class="text-slate-300 leading-relaxed">
+            We map your data flows, identify bottlenecks, and quantify the ROI of fixing them. You get a detailed report and clear recommendations — whether you hire us to build it or not.
+          </p>
+        </div>
+
+        <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-8">
+          <p class="text-5xl font-bold text-blue-500 mb-4">02</p>
+          <h3 class="text-xl font-semibold mb-1">Phased Implementation</h3>
+          <p class="text-sm text-slate-400 mb-4">8-16 weeks | $20,000-$50,000+</p>
+          <p class="text-slate-300 leading-relaxed">
+            We build the data pipeline and dashboards in phases. Your team starts using real tools within weeks, not months. No disruption to daily operations. Built on top of your existing ERP.
+          </p>
+        </div>
+
+        <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-8">
+          <p class="text-5xl font-bold text-blue-500 mb-4">03</p>
+          <h3 class="text-xl font-semibold mb-1">Your Team Runs On It Daily</h3>
+          <p class="text-sm text-slate-400 mb-4">&nbsp;</p>
+          <p class="text-slate-300 leading-relaxed">
+            We don't build demos. We build systems your purchasing and ops teams actually use. Training, SOPs, and handoff included. You own everything we build.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: Solutions Cards -->
+  <section class="bg-slate-950 py-20 md:py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-12">What we build</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-8">
+          <div class="mb-4">
+            <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Real-Time Operational Dashboards</h3>
+          <p class="text-slate-300 leading-relaxed">
+            Replace Excel reports with live dashboards your team opens every morning. Purchasing, inventory, finance — all from your existing ERP data. Data refreshes every 15 minutes, not every week.
+          </p>
+        </div>
+
+        <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-8">
+          <div class="mb-4">
+            <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Modern Data Pipelines</h3>
+          <p class="text-slate-300 leading-relaxed">
+            Your ERP data flows automatically into a cloud data warehouse. Bronze/Silver/Gold architecture ensures clean, validated data. No more manual exports, no more version conflicts.
+          </p>
+        </div>
+
+        <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-8">
+          <div class="mb-4">
+            <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Proactive Inventory Alerts</h3>
+          <p class="text-slate-300 leading-relaxed">
+            Get notified before a stockout happens. Factor in overseas lead times (90-120 days), domestic suppliers (3-5 days), safety stock levels, and multi-warehouse transfers — automatically.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: ROI Calculator -->
+  <section class="bg-slate-900 py-20 md:py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-12">What's your Excel habit costing you?</h2>
+
+      <div class="max-w-3xl mx-auto bg-slate-800/50 border border-slate-700 rounded-xl p-8 md:p-10">
+        <div class="grid md:grid-cols-2 gap-8 mb-10">
+
+          <div>
+            <label for="warehouses" class="block text-sm font-semibold text-slate-300 mb-2">Number of warehouses</label>
+            <select id="warehouses" class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3" selected>3</option>
+              <option value="4">4</option>
+              <option value="5">5+</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="skus" class="block text-sm font-semibold text-slate-300 mb-2">SKUs managed</label>
+            <select id="skus" class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500">
+              <option value="500">Under 500</option>
+              <option value="2000" selected>500-2,000</option>
+              <option value="5000">2,000-5,000</option>
+              <option value="11000">5,000-11,000</option>
+              <option value="11001">11,000+</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="hours" class="block text-sm font-semibold text-slate-300 mb-2">
+              Hours/week purchasing team in Excel: <span id="hours-value" class="text-blue-400 font-bold">15</span>
+            </label>
+            <input type="range" id="hours" min="5" max="40" value="15" class="w-full accent-blue-500 cursor-pointer" />
+            <div class="flex justify-between text-xs text-slate-500 mt-1">
+              <span>5 hrs</span>
+              <span>40 hrs</span>
+            </div>
+          </div>
+
+          <div>
+            <label for="stockouts" class="block text-sm font-semibold text-slate-300 mb-2">
+              Stockout incidents per month: <span id="stockouts-value" class="text-blue-400 font-bold">5</span>
+            </label>
+            <input type="range" id="stockouts" min="0" max="20" value="5" class="w-full accent-blue-500 cursor-pointer" />
+            <div class="flex justify-between text-xs text-slate-500 mt-1">
+              <span>0</span>
+              <span>20</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="border-t border-slate-600 pt-8">
+          <div class="grid md:grid-cols-3 gap-6 text-center">
+            <div>
+              <p class="text-sm text-slate-400 mb-1">Annual cost of Excel dependency</p>
+              <p id="excel-cost" class="text-3xl font-bold text-white">$35,100</p>
+            </div>
+            <div>
+              <p class="text-sm text-slate-400 mb-1">Estimated stockout revenue loss</p>
+              <p id="stockout-cost" class="text-3xl font-bold text-white">$150,000</p>
+            </div>
+            <div>
+              <p class="text-sm text-slate-400 mb-1">Total annual cost of doing nothing</p>
+              <p id="total-cost" class="text-3xl font-bold text-blue-400">$185,100</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="mt-8 text-center text-slate-400 max-w-2xl mx-auto leading-relaxed">
+        A $10K audit maps every data flow, quantifies every bottleneck, and delivers a detailed ROI report you can act on — with us or without us.
+      </p>
+
+      <div class="mt-8 text-center">
+        <a href="https://links.zenprocess.ai/widget/booking/rcoKJifJJA46bRI9fTEr" target="_blank" rel="noopener noreferrer" class="inline-block bg-blue-600 hover:bg-blue-500 text-white font-semibold px-8 py-4 rounded-lg transition-colors">
+          Book Your AI Audit
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: Credibility Strip -->
+  <section class="bg-slate-950 py-20 md:py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+        <div>
+          <p class="text-2xl font-bold text-white">20+ years</p>
+          <p class="text-slate-400 mt-1">Enterprise IT & CTO leadership</p>
+        </div>
+        <div>
+          <p class="text-2xl font-bold text-white">$27M+</p>
+          <p class="text-slate-400 mt-1">In technology initiatives delivered</p>
+        </div>
+        <div>
+          <p class="text-2xl font-bold text-white">Production-grade</p>
+          <p class="text-slate-400 mt-1">Data systems for building materials distribution</p>
+        </div>
+        <div>
+          <p class="text-2xl font-bold text-white">Houston, TX</p>
+          <p class="text-slate-400 mt-1">&nbsp;</p>
+        </div>
+      </div>
+      <div class="mt-8 text-center">
+        <a href="/about" class="text-blue-400 hover:text-blue-300 font-semibold transition-colors">
+          About us &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: Final CTA -->
+  <section class="bg-slate-900 py-20 md:py-24">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">Stop managing your supply chain in Excel.</h2>
+      <p class="text-lg text-slate-300 leading-relaxed mb-10">
+        A 30-minute discovery call will tell you if we can help. No pitch deck. No pressure. Just an honest conversation about your data.
+      </p>
+      <a href="https://links.zenprocess.ai/widget/booking/rcoKJifJJA46bRI9fTEr" target="_blank" rel="noopener noreferrer" class="inline-block bg-blue-600 hover:bg-blue-500 text-white font-semibold px-8 py-4 rounded-lg transition-colors">
+        Book a Discovery Call
+      </a>
+      <p class="mt-6 text-slate-400">
+        Or email us at <a href="mailto:info@zenprocess.ai" class="text-blue-400 hover:text-blue-300 transition-colors">info@zenprocess.ai</a> | <a href="tel:+18329742818" class="text-blue-400 hover:text-blue-300 transition-colors">(832) 974-2818</a>
+      </p>
+    </div>
+  </section>
+
 </Layout>
+
+<script>
+  function formatCurrency(value: number): string {
+    return '$' + value.toLocaleString('en-US');
+  }
+
+  function calculate(): void {
+    const hours = parseInt((document.getElementById('hours') as HTMLInputElement).value);
+    const stockouts = parseInt((document.getElementById('stockouts') as HTMLInputElement).value);
+
+    const excelCost = hours * 45 * 52;
+    const stockoutCost = stockouts * 2500 * 12;
+    const totalCost = excelCost + stockoutCost;
+
+    (document.getElementById('hours-value') as HTMLElement).textContent = String(hours);
+    (document.getElementById('stockouts-value') as HTMLElement).textContent = String(stockouts);
+    (document.getElementById('excel-cost') as HTMLElement).textContent = formatCurrency(excelCost);
+    (document.getElementById('stockout-cost') as HTMLElement).textContent = formatCurrency(stockoutCost);
+    (document.getElementById('total-cost') as HTMLElement).textContent = formatCurrency(totalCost);
+  }
+
+  document.getElementById('warehouses')?.addEventListener('change', calculate);
+  document.getElementById('skus')?.addEventListener('change', calculate);
+  document.getElementById('hours')?.addEventListener('input', calculate);
+  document.getElementById('stockouts')?.addEventListener('input', calculate);
+
+  calculate();
+</script>

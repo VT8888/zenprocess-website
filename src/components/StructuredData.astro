@@ -1,0 +1,80 @@
+---
+interface Props {
+  type: 'organization' | 'localBusiness' | 'person' | 'service' | 'breadcrumb';
+  data?: Record<string, any>;
+}
+
+const { type, data } = Astro.props;
+
+const schemas: Record<string, object> = {
+  organization: {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "zenprocess.ai",
+    "legalName": "KMV Group LLC",
+    "url": "https://zenprocess.ai",
+    "logo": "https://zenprocess.ai/logo.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+1-832-974-2818",
+      "contactType": "sales",
+      "email": "info@zenprocess.ai"
+    },
+    "sameAs": ["https://linkedin.com/in/vinhtruong"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Houston",
+      "addressRegion": "TX",
+      "addressCountry": "US"
+    }
+  },
+  localBusiness: {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "zenprocess.ai",
+    "telephone": "+1-832-974-2818",
+    "email": "info@zenprocess.ai",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Houston",
+      "addressRegion": "TX",
+      "postalCode": "77019",
+      "addressCountry": "US"
+    },
+    "url": "https://zenprocess.ai",
+    "priceRange": "$$$",
+    "areaServed": "United States",
+    "description": "Data pipelines and operational dashboards for building materials distributors"
+  },
+  person: {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Vinh Truong",
+    "jobTitle": "Founder",
+    "worksFor": { "@type": "Organization", "name": "zenprocess.ai" },
+    "url": "https://zenprocess.ai/about",
+    "sameAs": ["https://linkedin.com/in/vinhtruong"]
+  },
+  service: {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "provider": { "@type": "Organization", "name": "zenprocess.ai" },
+    "areaServed": "United States",
+    ...data
+  },
+  breadcrumb: {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": data?.items?.map((item: { name: string; url: string }, i: number) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": item.name,
+      "item": item.url
+    })) || []
+  }
+};
+
+const schema = schemas[type];
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

@@ -2,6 +2,8 @@
 import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import Analytics from "../components/Analytics.astro";
+import StructuredData from "../components/StructuredData.astro";
 
 interface Props {
   title: string;
@@ -48,6 +50,13 @@ const siteName = "zenprocess.ai";
     <meta name="twitter:title" content={`${title} | ${siteName}`} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+
+    <!-- Structured Data -->
+    <StructuredData type="organization" />
+    <StructuredData type="localBusiness" />
+
+    <!-- Analytics -->
+    <Analytics />
 
     <!-- Google Fonts: Be Vietnam Pro + IBM Plex Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

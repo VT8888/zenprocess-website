@@ -1,0 +1,407 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Case Study: Excel to Real-Time Dashboards"
+  description="A multi-warehouse building materials distributor went from weekly Excel pulls to 15-minute data refresh with 0.00% variance."
+>
+  <!-- Breadcrumb -->
+  <nav class="bg-slate-950 pt-8 pb-4">
+    <div class="max-w-4xl mx-auto px-6">
+      <ol class="flex items-center gap-2 text-sm text-slate-400">
+        <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+        <li class="text-slate-600">/</li>
+        <li class="text-slate-300">Case Study</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="bg-slate-950 pt-8 pb-16 md:pb-24">
+    <div class="max-w-4xl mx-auto px-6">
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6">
+        How a National Building Materials Distributor Replaced Excel with Real-Time Operational Intelligence
+      </h1>
+      <p class="text-lg md:text-xl text-slate-300 leading-relaxed">
+        Multi-warehouse, SAP ByDesign, 2,000+ SKUs — from manual spreadsheets to a live operational dashboard in 12 weeks.
+      </p>
+    </div>
+  </section>
+
+  <!-- Client Snapshot -->
+  <section class="bg-slate-950 pb-16 md:pb-24">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="bg-slate-800 border border-slate-700 rounded-xl overflow-hidden">
+        <div class="px-6 py-4 border-b border-slate-700">
+          <h2 class="text-lg font-semibold text-white">Client Snapshot</h2>
+        </div>
+        <div class="divide-y divide-slate-700">
+          <div class="grid grid-cols-[140px_1fr] md:grid-cols-[180px_1fr]">
+            <div class="px-6 py-3.5 text-sm font-medium text-slate-400 bg-slate-800/50">Industry</div>
+            <div class="px-6 py-3.5 text-sm text-slate-200">Building materials distribution (stair &amp; railing components)</div>
+          </div>
+          <div class="grid grid-cols-[140px_1fr] md:grid-cols-[180px_1fr]">
+            <div class="px-6 py-3.5 text-sm font-medium text-slate-400 bg-slate-800/50">Operation</div>
+            <div class="px-6 py-3.5 text-sm text-slate-200">Multi-warehouse, national distribution</div>
+          </div>
+          <div class="grid grid-cols-[140px_1fr] md:grid-cols-[180px_1fr]">
+            <div class="px-6 py-3.5 text-sm font-medium text-slate-400 bg-slate-800/50">ERP</div>
+            <div class="px-6 py-3.5 text-sm text-slate-200">SAP ByDesign</div>
+          </div>
+          <div class="grid grid-cols-[140px_1fr] md:grid-cols-[180px_1fr]">
+            <div class="px-6 py-3.5 text-sm font-medium text-slate-400 bg-slate-800/50">SKUs</div>
+            <div class="px-6 py-3.5 text-sm text-slate-200">2,000+ across wood, iron, stainless, aluminum</div>
+          </div>
+          <div class="grid grid-cols-[140px_1fr] md:grid-cols-[180px_1fr]">
+            <div class="px-6 py-3.5 text-sm font-medium text-slate-400 bg-slate-800/50">Engagement</div>
+            <div class="px-6 py-3.5 text-sm text-slate-200">12 weeks ($10-12K audit + $50K Phase 1 implementation)</div>
+          </div>
+          <div class="grid grid-cols-[140px_1fr] md:grid-cols-[180px_1fr]">
+            <div class="px-6 py-3.5 text-sm font-medium text-slate-400 bg-slate-800/50">Result</div>
+            <div class="px-6 py-3.5 text-sm text-slate-200 font-medium text-blue-400">Real-time dashboards replacing 100% of manual Excel reporting</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE PROBLEM -->
+  <section class="bg-slate-900 py-16 md:py-24">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold mb-12">The Problem</h2>
+
+      <div class="space-y-12">
+        <div>
+          <h3 class="text-xl md:text-2xl font-semibold mb-4 text-white">Data was locked inside SAP</h3>
+          <p class="text-lg text-slate-300 leading-relaxed">
+            The company ran SAP ByDesign across four distribution centers — a solid ERP for transactions and record-keeping. But getting data out of SAP for operational decisions was a different story. There was no real-time reporting. No live dashboards. No way for the purchasing team, finance, or operations leadership to see what was happening across the business without manually exporting data to Excel.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl md:text-2xl font-semibold mb-4 text-white">The purchasing team lived in spreadsheets</h3>
+          <p class="text-lg text-slate-300 leading-relaxed mb-6">
+            Two full-time purchasing professionals were spending hours every day managing inventory exceptions in Excel. Their daily routine:
+          </p>
+          <ul class="space-y-3 text-lg text-slate-300">
+            <li class="flex items-start gap-3">
+              <span class="mt-2.5 w-1.5 h-1.5 rounded-full bg-slate-500 shrink-0"></span>
+              <span>Export data from SAP into spreadsheets</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-2.5 w-1.5 h-1.5 rounded-full bg-slate-500 shrink-0"></span>
+              <span>Manually identify which of 800+ items were below safety stock</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-2.5 w-1.5 h-1.5 rounded-full bg-slate-500 shrink-0"></span>
+              <span>Cross-reference incoming purchase orders against current inventory levels</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-2.5 w-1.5 h-1.5 rounded-full bg-slate-500 shrink-0"></span>
+              <span>Track overseas suppliers (90-120 day lead times) alongside domestic suppliers (3-5 days) — in the same spreadsheet</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-2.5 w-1.5 h-1.5 rounded-full bg-slate-500 shrink-0"></span>
+              <span>Manage stock transfers between warehouses manually</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-2.5 w-1.5 h-1.5 rounded-full bg-slate-500 shrink-0"></span>
+              <span>Flag exceptions and anomalies by hand</span>
+            </li>
+          </ul>
+          <p class="text-lg text-slate-300 leading-relaxed mt-6">
+            This wasn't a technology failure — SAP was working fine for transactions. This was a <span class="text-white font-medium">data accessibility problem</span>.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl md:text-2xl font-semibold mb-4 text-white">Stockouts were discovered after the damage was done</h3>
+          <p class="text-lg text-slate-300 leading-relaxed">
+            Without proactive alerts, the team learned about inventory problems reactively — often when a customer called to ask where their order was. There was no early warning system. No automated threshold monitoring.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE APPROACH -->
+  <section class="bg-slate-950 py-16 md:py-24">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold mb-12">The Approach</h2>
+
+      <div class="space-y-16">
+        <!-- Step 1 -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="flex items-center justify-center w-8 h-8 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold shrink-0">1</span>
+            <h3 class="text-xl md:text-2xl font-semibold text-white">Paid AI Audit (2-3 weeks)</h3>
+          </div>
+          <p class="text-lg text-slate-300 leading-relaxed mb-6">
+            Before building anything, we mapped the entire data landscape:
+          </p>
+          <ul class="space-y-3 text-lg text-slate-300">
+            <li class="flex items-start gap-3">
+              <span class="mt-2.5 w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0"></span>
+              <span>Every data flow in and out of SAP ByDesign</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-2.5 w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0"></span>
+              <span>Every manual process the purchasing and finance teams relied on</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-2.5 w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0"></span>
+              <span>Every spreadsheet being used as a workaround</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-2.5 w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0"></span>
+              <span>The actual cost of the current approach</span>
+            </li>
+          </ul>
+          <p class="text-lg text-slate-300 leading-relaxed mt-6">
+            The audit produced a detailed report with prioritized recommendations and ROI projections.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="flex items-center justify-center w-8 h-8 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold shrink-0">2</span>
+            <h3 class="text-xl md:text-2xl font-semibold text-white">Data Pipeline Architecture</h3>
+          </div>
+          <p class="text-lg text-slate-300 leading-relaxed mb-8">
+            We designed and built a modern data pipeline that sits on top of SAP ByDesign — no ERP customization, no system replacement, no disruption to daily operations.
+          </p>
+
+          <!-- Architecture Diagram -->
+          <div class="flex flex-col items-center gap-0">
+            <!-- SAP ByDesign -->
+            <div class="w-full max-w-md bg-slate-800 border border-slate-700 rounded-lg px-6 py-4 text-center">
+              <p class="text-sm font-medium text-slate-400 mb-1">Source System</p>
+              <p class="text-lg font-semibold text-white">SAP ByDesign</p>
+              <p class="text-sm text-slate-400">4 warehouses</p>
+            </div>
+
+            <!-- Connector -->
+            <div class="flex flex-col items-center py-1">
+              <div class="w-0.5 h-6 bg-blue-500"></div>
+              <svg class="w-4 h-4 text-blue-500 -mt-1" viewBox="0 0 16 16" fill="currentColor"><path d="M8 12l-4-4h8l-4 4z"/></svg>
+              <span class="text-xs text-blue-400 font-medium mt-0.5">automated extraction</span>
+            </div>
+
+            <!-- Fivetran -->
+            <div class="w-full max-w-md bg-slate-800 border border-slate-700 rounded-lg px-6 py-4 text-center">
+              <p class="text-sm font-medium text-slate-400 mb-1">Integration Layer</p>
+              <p class="text-lg font-semibold text-white">Fivetran</p>
+              <p class="text-sm text-slate-400">18+ active tables</p>
+            </div>
+
+            <!-- Connector -->
+            <div class="flex flex-col items-center py-1">
+              <div class="w-0.5 h-6 bg-blue-500"></div>
+              <svg class="w-4 h-4 text-blue-500 -mt-1" viewBox="0 0 16 16" fill="currentColor"><path d="M8 12l-4-4h8l-4 4z"/></svg>
+            </div>
+
+            <!-- Snowflake -->
+            <div class="w-full max-w-md bg-slate-800 border border-slate-700 rounded-lg px-6 py-4">
+              <div class="text-center mb-4">
+                <p class="text-sm font-medium text-slate-400 mb-1">Data Warehouse</p>
+                <p class="text-lg font-semibold text-white">Snowflake</p>
+              </div>
+              <div class="space-y-2">
+                <div class="flex items-center gap-3 bg-slate-900/50 rounded-md px-4 py-2.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-amber-600 shrink-0"></span>
+                  <div>
+                    <span class="text-sm font-medium text-white">Bronze Layer</span>
+                    <span class="text-sm text-slate-400 ml-2">Raw data, as-is from SAP</span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3 bg-slate-900/50 rounded-md px-4 py-2.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-slate-400 shrink-0"></span>
+                  <div>
+                    <span class="text-sm font-medium text-white">Silver Layer</span>
+                    <span class="text-sm text-slate-400 ml-2">Cleaned, validated, standardized</span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3 bg-slate-900/50 rounded-md px-4 py-2.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-yellow-500 shrink-0"></span>
+                  <div>
+                    <span class="text-sm font-medium text-white">Gold Layer</span>
+                    <span class="text-sm text-slate-400 ml-2">Business-ready metrics and KPIs</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Connector -->
+            <div class="flex flex-col items-center py-1">
+              <div class="w-0.5 h-6 bg-blue-500"></div>
+              <svg class="w-4 h-4 text-blue-500 -mt-1" viewBox="0 0 16 16" fill="currentColor"><path d="M8 12l-4-4h8l-4 4z"/></svg>
+            </div>
+
+            <!-- Streamlit -->
+            <div class="w-full max-w-md bg-slate-800 border border-slate-700 rounded-lg px-6 py-4">
+              <div class="text-center mb-4">
+                <p class="text-sm font-medium text-slate-400 mb-1">Presentation Layer</p>
+                <p class="text-lg font-semibold text-white">Streamlit Dashboards</p>
+              </div>
+              <div class="flex flex-wrap justify-center gap-3">
+                <span class="bg-blue-500/20 text-blue-400 text-sm font-medium px-3 py-1.5 rounded-md">Purchasing</span>
+                <span class="bg-blue-500/20 text-blue-400 text-sm font-medium px-3 py-1.5 rounded-md">Finance</span>
+                <span class="bg-blue-500/20 text-blue-400 text-sm font-medium px-3 py-1.5 rounded-md">Operations</span>
+              </div>
+              <p class="text-center text-sm text-slate-400 mt-3">Refreshes every 15 minutes</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="flex items-center justify-center w-8 h-8 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold shrink-0">3</span>
+            <h3 class="text-xl md:text-2xl font-semibold text-white">Purchasing Dashboard (First Deliverable)</h3>
+          </div>
+          <p class="text-lg text-slate-300 leading-relaxed mb-6">
+            The purchasing dashboard was prioritized because it addressed the most painful daily workflow:
+          </p>
+          <ul class="space-y-3 text-lg text-slate-300">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-blue-500 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>Real-time inventory levels across all warehouses</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-blue-500 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>Automated exception flagging</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-blue-500 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>Lead time intelligence (overseas vs domestic)</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-blue-500 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>Multi-warehouse transfer visibility</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-blue-500 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>Proactive alerts before stockouts</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE RESULTS -->
+  <section class="bg-slate-900 py-16 md:py-24">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold mb-12">The Results</h2>
+
+      <!-- Results Table -->
+      <div class="bg-slate-800 border border-slate-700 rounded-xl overflow-hidden mb-12">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left">
+            <thead>
+              <tr class="border-b border-slate-700">
+                <th class="px-6 py-4 text-sm font-semibold text-slate-300 bg-slate-800/80">Metric</th>
+                <th class="px-6 py-4 text-sm font-semibold text-slate-300 bg-slate-800/80">Before</th>
+                <th class="px-6 py-4 text-sm font-semibold text-slate-300 bg-slate-800/80">After</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-700/50">
+              <tr class="bg-slate-800/30">
+                <td class="px-6 py-4 text-sm font-medium text-white">Data refresh</td>
+                <td class="px-6 py-4 text-sm text-slate-400">Weekly Excel exports</td>
+                <td class="px-6 py-4 text-sm text-blue-400 font-medium">Every 15 minutes</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 text-sm font-medium text-white">Data accuracy</td>
+                <td class="px-6 py-4 text-sm text-slate-400">Manual, error-prone</td>
+                <td class="px-6 py-4 text-sm text-blue-400 font-medium">0.00% variance on validation</td>
+              </tr>
+              <tr class="bg-slate-800/30">
+                <td class="px-6 py-4 text-sm font-medium text-white">Inventory exceptions</td>
+                <td class="px-6 py-4 text-sm text-slate-400">Managed manually (800+ items)</td>
+                <td class="px-6 py-4 text-sm text-blue-400 font-medium">Flagged automatically</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 text-sm font-medium text-white">Stockout detection</td>
+                <td class="px-6 py-4 text-sm text-slate-400">Reactive (customer calls)</td>
+                <td class="px-6 py-4 text-sm text-blue-400 font-medium">Proactive alerts</td>
+              </tr>
+              <tr class="bg-slate-800/30">
+                <td class="px-6 py-4 text-sm font-medium text-white">Purchasing workflow</td>
+                <td class="px-6 py-4 text-sm text-slate-400">Hours in Excel daily</td>
+                <td class="px-6 py-4 text-sm text-blue-400 font-medium">Dashboard open every morning</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 text-sm font-medium text-white">Multi-warehouse visibility</td>
+                <td class="px-6 py-4 text-sm text-slate-400">Spreadsheet-based</td>
+                <td class="px-6 py-4 text-sm text-blue-400 font-medium">Single unified view</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- What happened after go-live -->
+      <div class="mb-12">
+        <h3 class="text-xl md:text-2xl font-semibold mb-6 text-white">What happened after go-live</h3>
+        <ul class="space-y-3 text-lg text-slate-300">
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-blue-500 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            <span>Purchasing team adopted the dashboard immediately</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-blue-500 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            <span>Finance dashboards built on the same platform</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-blue-500 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            <span>Operations leadership gained visibility they never had</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-blue-500 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            <span>Architecture ready for AI layer (Phase 2)</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- What we didn't do -->
+      <div class="border-l-2 border-slate-700 pl-6">
+        <h3 class="text-lg font-semibold mb-4 text-slate-400 italic">What we didn't do</h3>
+        <ul class="space-y-2 text-slate-400 italic">
+          <li>We didn't replace SAP — we made it more useful</li>
+          <li>We didn't automate anyone out of a job — we gave the team better tools</li>
+          <li>We didn't build a demo — we built a production system</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM CTA -->
+  <section class="bg-slate-950 py-16 md:py-24">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">
+        Your operation probably looks a lot like this.
+      </h2>
+      <p class="text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto mb-10">
+        Most building materials distributors we talk to have the same story: good ERP, locked data, Excel everywhere. A 30-minute discovery call will tell us if we can help yours.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+        <a
+          href="https://links.zenprocess.ai/widget/booking/rcoKJifJJA46bRI9fTEr"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-500 text-white font-semibold px-8 py-4 rounded-lg transition-colors text-lg"
+        >
+          Book a Discovery Call
+        </a>
+      </div>
+      <p class="text-slate-400">
+        Or email <a href="mailto:info@zenprocess.ai" class="text-blue-400 hover:text-blue-300 transition-colors">info@zenprocess.ai</a>
+        <span class="mx-2">|</span>
+        <a href="tel:+18329742818" class="text-blue-400 hover:text-blue-300 transition-colors">(832) 974-2818</a>
+      </p>
+    </div>
+  </section>
+</Layout>
