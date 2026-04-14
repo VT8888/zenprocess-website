@@ -14,12 +14,13 @@ function isActive(href: string): boolean {
 }
 ---
 
-<header class="sticky top-0 z-50 bg-slate-900 border-b border-slate-800">
+<header class="sticky top-0 z-50 bg-[rgba(7,1,25,0.85)] backdrop-blur-xl border-b border-white/10">
   <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="flex h-16 items-center justify-between">
       <!-- Logo -->
-      <a href="/" class="text-xl font-bold text-white tracking-tight">
-        zenprocess<span class="text-blue-500">.ai</span>
+      <a href="/" class="flex items-center gap-2 text-xl font-bold text-white tracking-tight">
+        <img src="/logo.png" alt="zenprocess.ai" class="h-8 w-8" />
+        zenprocess.ai
       </a>
 
       <!-- Desktop Nav -->
@@ -30,8 +31,8 @@ function isActive(href: string): boolean {
             class:list={[
               "text-sm font-medium transition-colors",
               isActive(link.href)
-                ? "text-blue-400"
-                : "text-slate-300 hover:text-white",
+                ? "text-[#22C55E]"
+                : "text-[#f5f4f0]/80 hover:text-white",
             ]}
           >
             {link.label}
@@ -39,7 +40,7 @@ function isActive(href: string): boolean {
         ))}
         <a
           href="tel:+18329742818"
-          class="text-sm font-medium text-slate-300 hover:text-white transition-colors"
+          class="text-sm font-medium text-[#f5f4f0]/80 hover:text-white transition-colors"
         >
           (832) 974-2818
         </a>
@@ -49,7 +50,7 @@ function isActive(href: string): boolean {
       <button
         id="mobile-menu-btn"
         type="button"
-        class="md:hidden text-slate-300 hover:text-white"
+        class="md:hidden text-[#f5f4f0]/80 hover:text-white"
         aria-label="Toggle menu"
         aria-expanded="false"
       >
@@ -63,7 +64,7 @@ function isActive(href: string): boolean {
     </div>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden pb-4">
+    <div id="mobile-menu" class="hidden md:hidden pb-4 bg-[#070119] rounded-b-xl -mx-4 px-4">
       <div class="flex flex-col gap-3 pt-2">
         {navLinks.map((link) => (
           <a
@@ -71,8 +72,8 @@ function isActive(href: string): boolean {
             class:list={[
               "text-sm font-medium py-1 transition-colors",
               isActive(link.href)
-                ? "text-blue-400"
-                : "text-slate-300 hover:text-white",
+                ? "text-[#22C55E]"
+                : "text-[#f5f4f0]/80 hover:text-white",
             ]}
           >
             {link.label}
@@ -80,7 +81,7 @@ function isActive(href: string): boolean {
         ))}
         <a
           href="tel:+18329742818"
-          class="text-sm font-medium text-slate-300 hover:text-white py-1 transition-colors"
+          class="text-sm font-medium text-[#f5f4f0]/80 hover:text-white py-1 transition-colors"
         >
           (832) 974-2818
         </a>

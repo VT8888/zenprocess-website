@@ -1,1 +1,20 @@
 @import "tailwindcss";
+
+:root {
+  --forest-primary: #16A34A;
+  --forest-dark: #15803D;
+  --forest-light: #22C55E;
+  --forest-glow: rgba(22, 163, 74, 0.3);
+  --dark-bg: #000724;
+  --dark-alt: #070119;
+  --text-primary: #f5f4f0;
+  --text-secondary: #978aa1;
+  --text-muted: #6b5e75;
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.05);
+}
+
+body {
+  background-color: var(--dark-bg);
+  color: var(--text-primary);
+}

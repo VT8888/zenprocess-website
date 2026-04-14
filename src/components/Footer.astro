@@ -10,15 +10,16 @@ const navLinks = [
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="bg-slate-950 border-t border-slate-800">
+<footer class="bg-[#070119] border-t border-white/10">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
       <!-- Brand + Description -->
       <div>
-        <a href="/" class="text-lg font-bold text-white tracking-tight">
-          zenprocess<span class="text-blue-500">.ai</span>
+        <a href="/" class="flex items-center gap-2 text-lg font-bold text-white tracking-tight">
+          <img src="/logo.png" alt="zenprocess.ai" class="h-6 w-6" />
+          zenprocess.ai
         </a>
-        <p class="mt-3 text-sm text-slate-400 leading-relaxed">
+        <p class="mt-3 text-sm text-[#978aa1] leading-relaxed">
           AI systems architecture and digital transformation for mid-market companies.
         </p>
       </div>
@@ -29,7 +30,7 @@ const currentYear = new Date().getFullYear();
         <ul class="space-y-2">
           {navLinks.map((link) => (
             <li>
-              <a href={link.href} class="text-sm text-slate-400 hover:text-white transition-colors">
+              <a href={link.href} class="text-sm text-[#978aa1] hover:text-[#22C55E] transition-colors">
                 {link.label}
               </a>
             </li>
@@ -40,24 +41,24 @@ const currentYear = new Date().getFullYear();
       <!-- Contact -->
       <div>
         <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Contact</h3>
-        <ul class="space-y-2 text-sm text-slate-400">
+        <ul class="space-y-2 text-sm text-[#978aa1]">
           <li>
-            <a href="mailto:info@zenprocess.ai" class="hover:text-white transition-colors">
+            <a href="mailto:info@zenprocess.ai" class="hover:text-[#22C55E] transition-colors">
               info@zenprocess.ai
             </a>
           </li>
           <li>
-            <a href="tel:+18329742818" class="hover:text-white transition-colors">
+            <a href="tel:+18329742818" class="hover:text-[#22C55E] transition-colors">
               (832) 974-2818
             </a>
           </li>
           <li>Houston, TX</li>
           <li>
             <a
-              href="https://linkedin.com/company/zenprocess"
+              href="https://www.linkedin.com/in/vttruong/"
               target="_blank"
               rel="noopener noreferrer"
-              class="hover:text-white transition-colors"
+              class="hover:text-[#22C55E] transition-colors"
             >
               LinkedIn
             </a>
@@ -67,15 +68,15 @@ const currentYear = new Date().getFullYear();
     </div>
 
     <!-- Bottom Bar -->
-    <div class="mt-10 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="text-xs text-slate-500">
+    <div class="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-xs text-[#6b5e75]">
         &copy; {currentYear} KMV Group LLC dba zenprocess.ai. All rights reserved.
       </p>
       <div class="flex gap-4">
-        <a href="/privacy" class="text-xs text-slate-500 hover:text-slate-300 transition-colors">
+        <a href="/privacy-policy" class="text-xs text-[#6b5e75] hover:text-[#978aa1] transition-colors">
           Privacy Policy
         </a>
-        <a href="/terms" class="text-xs text-slate-500 hover:text-slate-300 transition-colors">
+        <a href="/terms-of-service" class="text-xs text-[#6b5e75] hover:text-[#978aa1] transition-colors">
           Terms of Service
         </a>
       </div>

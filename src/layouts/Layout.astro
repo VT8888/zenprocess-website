@@ -66,11 +66,19 @@ const siteName = "zenprocess.ai";
       rel="stylesheet"
     />
   </head>
-  <body class="min-h-screen bg-slate-950 text-white font-['Be_Vietnam_Pro',sans-serif] antialiased">
+  <body class="min-h-screen bg-[#000724] text-[#f5f4f0] font-['Be_Vietnam_Pro',sans-serif] antialiased">
     <Header />
     <main>
       <slot />
     </main>
     <Footer />
+
+    <!-- LeadConnector Chat Widget -->
+    <script
+      is:inline
+      src="https://widgets.leadconnectorhq.com/loader.js"
+      data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+      data-widget-id="68ed858fb8dc078db41d9f72"
+    ></script>
   </body>
 </html>
