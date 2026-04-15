@@ -80,5 +80,11 @@ const siteName = "zenprocess.ai";
       data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
       data-widget-id="68ed858fb8dc078db41d9f72"
     ></script>
+    <!-- Fix chat widget overlap on mobile -->
+    <style>
+      @media (max-width: 768px) {
+        chat-widget { bottom: 80px !important; }
+      }
+    </style>
   </body>
 </html>
