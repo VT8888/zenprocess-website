@@ -80,12 +80,22 @@ const siteName = "zenprocess.ai";
       data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
       data-widget-id="68ed858fb8dc078db41d9f72"
     ></script>
-    <!-- Fix chat widget overlap on mobile -->
+    <!-- Fix chat widget: reposition on mobile + delay auto-open -->
     <style>
       @media (max-width: 768px) {
         chat-widget { bottom: 80px !important; }
+        .lc_text_widget_open { display: none !important; }
       }
     </style>
+    <script is:inline>
+      // Delay chat widget popup on mobile — let user see CTAs first
+      if (window.innerWidth <= 768) {
+        setTimeout(() => {
+          const chatBubble = document.querySelector('.lc_text_widget_open');
+          if (chatBubble) chatBubble.style.display = '';
+        }, 30000); // Show after 30 seconds on mobile
+      }
+    </script>
     <!-- Scroll-triggered fade-up observer -->
     <script is:inline>
       const observer = new IntersectionObserver((entries) => {

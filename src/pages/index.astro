@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import DashboardMockup from '../components/DashboardMockup.astro';
 ---
 
 <Layout
@@ -145,32 +146,9 @@ import Layout from '../layouts/Layout.astro';
           </div>
         </div>
 
-        <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-8">
-          <p class="text-sm text-[#978aa1] uppercase tracking-wider mb-6 font-semibold">Architecture</p>
-          <div class="space-y-0">
-            <div class="bg-white/5 rounded-lg px-5 py-4 text-center font-semibold">SAP</div>
-            <div class="flex justify-center py-2">
-              <svg class="w-5 h-5 text-[#16A34A]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
-              </svg>
-            </div>
-            <div class="bg-white/5 rounded-lg px-5 py-4 text-center font-semibold">ETL/ELT</div>
-            <div class="flex justify-center py-2">
-              <svg class="w-5 h-5 text-[#16A34A]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
-              </svg>
-            </div>
-            <div class="bg-white/5 rounded-lg px-5 py-4 text-center">
-              <p class="font-semibold">Data Warehouse</p>
-              <p class="text-sm text-[#978aa1] mt-1">Bronze / Silver / Gold</p>
-            </div>
-            <div class="flex justify-center py-2">
-              <svg class="w-5 h-5 text-[#16A34A]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
-              </svg>
-            </div>
-            <div class="bg-[#16A34A]/20 border border-[#16A34A]/30 rounded-lg px-5 py-4 text-center font-semibold text-[#22C55E]">Custom Dashboards</div>
-          </div>
+        <div>
+          <p class="text-sm text-[#978aa1] uppercase tracking-wider mb-4 font-semibold">What the team sees every morning</p>
+          <DashboardMockup type="purchasing" />
         </div>
 
       </div>
@@ -358,9 +336,13 @@ import Layout from '../layouts/Layout.astro';
         A $10K audit maps every data flow, quantifies every bottleneck, and delivers a detailed ROI report you can act on — with us or without us.
       </p>
 
-      <div class="mt-8 text-center">
-        <a href="https://links.zenprocess.ai/widget/booking/rcoKJifJJA46bRI9fTEr" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#16A34A] hover:bg-[#15803D] text-white font-semibold px-8 py-4 rounded-lg transition-colors shadow-[0_4px_20px_rgba(22,163,74,0.3)]">
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="/book" class="inline-block bg-[#16A34A] hover:bg-[#15803D] text-white font-semibold px-8 py-4 rounded-lg transition-colors shadow-[0_4px_20px_rgba(22,163,74,0.3)]">
           Book Your AI Audit
+        </a>
+        <span class="text-[#6b5e75]">or</span>
+        <a href="mailto:info@zenprocess.ai?subject=ROI%20Analysis%20Request&body=I%27d%20like%20to%20receive%20a%20detailed%20ROI%20analysis%20for%20my%20operation." class="inline-block border border-white/20 hover:border-[#22C55E] text-white font-semibold px-8 py-4 rounded-lg transition-colors">
+          Email Me This Analysis
         </a>
       </div>
     </div>
