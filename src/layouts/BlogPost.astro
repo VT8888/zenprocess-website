@@ -37,12 +37,12 @@ function formatDate(dateStr: string): string {
     <div class="mx-auto max-w-5xl">
 
       <!-- Breadcrumb -->
-      <nav class="mb-8 text-sm text-[#978aa1]">
+      <nav class="mb-8 text-sm text-[var(--text-secondary)]">
         <a href="/" class="hover:text-[#22C55E] transition-colors">Home</a>
         <span class="mx-2">/</span>
         <a href="/resources" class="hover:text-[#22C55E] transition-colors">Resources</a>
         <span class="mx-2">/</span>
-        <span class="text-[#f5f4f0]/60">{title}</span>
+        <span class="text-[var(--text-primary-60)]">{title}</span>
       </nav>
 
       <div class="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-12">
@@ -54,15 +54,15 @@ function formatDate(dateStr: string): string {
               <span class={`inline-block text-xs font-medium px-2.5 py-1 rounded-full ${pillarInfo.bg} ${pillarInfo.text}`}>
                 {pillarInfo.label}
               </span>
-              <time class="text-sm text-[#978aa1]" datetime={date}>
+              <time class="text-sm text-[var(--text-secondary)]" datetime={date}>
                 {formatDate(date)}
               </time>
             </div>
-            <h1 class="text-3xl sm:text-4xl font-bold text-white leading-tight mb-4">
+            <h1 class="text-3xl sm:text-4xl font-bold text-[var(--text-primary)] leading-tight mb-4">
               {title}
             </h1>
-            <p class="text-[#978aa1] text-sm">
-              By <span class="text-white font-medium">{author}</span> — {authorTitle}
+            <p class="text-[var(--text-secondary)] text-sm">
+              By <span class="text-[var(--text-primary)] font-medium">{author}</span> — {authorTitle}
             </p>
           </header>
 
@@ -75,20 +75,20 @@ function formatDate(dateStr: string): string {
         <!-- Sidebar -->
         <aside class="space-y-6 lg:pt-20">
           <!-- Author Box -->
-          <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-5">
+          <div class="bg-[var(--glass-bg)] backdrop-blur-xl border border-[var(--glass-border)] rounded-xl p-5">
             <div class="flex items-center gap-3 mb-3">
               <img
                 src="/vinh-photo.jpg"
                 alt={author}
-                class="w-12 h-12 rounded-full object-cover border border-white/20"
+                class="w-12 h-12 rounded-full object-cover border border-[var(--hover-border)]"
                 loading="lazy"
               />
               <div>
-                <p class="text-sm font-semibold text-white">{author}</p>
-                <p class="text-xs text-[#978aa1]">{authorTitle}</p>
+                <p class="text-sm font-semibold text-[var(--text-primary)]">{author}</p>
+                <p class="text-xs text-[var(--text-secondary)]">{authorTitle}</p>
               </div>
             </div>
-            <p class="text-xs text-[#978aa1] leading-relaxed mb-3">
+            <p class="text-xs text-[var(--text-secondary)] leading-relaxed mb-3">
               20+ years enterprise IT & CTO leadership. Helping building materials distributors unlock operational intelligence.
             </p>
             <a
@@ -102,9 +102,9 @@ function formatDate(dateStr: string): string {
           </div>
 
           <!-- CTA Box -->
-          <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-5">
+          <div class="bg-[var(--glass-bg)] backdrop-blur-xl border border-[var(--glass-border)] rounded-xl p-5">
             <p class="text-sm font-semibold text-white mb-2">Want to discuss your operation?</p>
-            <p class="text-xs text-[#978aa1] mb-4">
+            <p class="text-xs text-[var(--text-secondary)] mb-4">
               See how operational intelligence applies to your distribution business.
             </p>
             <a
@@ -116,7 +116,7 @@ function formatDate(dateStr: string): string {
           </div>
 
           <!-- Related Links -->
-          <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-5">
+          <div class="bg-[var(--glass-bg)] backdrop-blur-xl border border-[var(--glass-border)] rounded-xl p-5">
             <p class="text-sm font-semibold text-white mb-3">Explore More</p>
             <ul class="space-y-2">
               <li>
@@ -144,7 +144,7 @@ function formatDate(dateStr: string): string {
 
 <style is:global>
   .prose-blog h2 {
-    color: white;
+    color: var(--text-primary);
     font-weight: 700;
     font-size: 1.5rem;
     margin-top: 2rem;
@@ -153,7 +153,7 @@ function formatDate(dateStr: string): string {
   }
 
   .prose-blog h3 {
-    color: white;
+    color: var(--text-primary);
     font-weight: 600;
     font-size: 1.25rem;
     margin-top: 1.75rem;
@@ -162,7 +162,7 @@ function formatDate(dateStr: string): string {
   }
 
   .prose-blog p {
-    color: rgba(245, 244, 240, 0.8);
+    color: var(--text-primary-80);
     line-height: 1.75;
     margin-bottom: 1.25rem;
     font-size: 1rem;
@@ -181,7 +181,7 @@ function formatDate(dateStr: string): string {
 
   .prose-blog ul,
   .prose-blog ol {
-    color: rgba(245, 244, 240, 0.8);
+    color: var(--text-primary-80);
     margin-bottom: 1.25rem;
     padding-left: 1.5rem;
     line-height: 1.75;
@@ -203,22 +203,22 @@ function formatDate(dateStr: string): string {
     border-left: 3px solid #22C55E;
     padding-left: 1rem;
     margin: 1.5rem 0;
-    color: rgba(245, 244, 240, 0.7);
+    color: var(--text-primary-70);
     font-style: italic;
   }
 
   .prose-blog code {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--code-bg);
     padding: 0.125rem 0.375rem;
     border-radius: 0.25rem;
     font-size: 0.875rem;
     font-family: 'IBM Plex Mono', monospace;
-    color: #f5f4f0;
+    color: var(--text-primary);
   }
 
   .prose-blog pre {
-    background: rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--pre-bg);
+    border: 1px solid var(--pre-border);
     border-radius: 0.5rem;
     padding: 1rem;
     overflow-x: auto;
@@ -233,16 +233,16 @@ function formatDate(dateStr: string): string {
   }
 
   .prose-blog strong {
-    color: white;
+    color: var(--text-primary);
     font-weight: 600;
   }
 
   .prose-blog em {
-    color: rgba(245, 244, 240, 0.7);
+    color: var(--text-primary-70);
   }
 
   .prose-blog hr {
-    border-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--glass-border);
     margin: 2rem 0;
   }
 

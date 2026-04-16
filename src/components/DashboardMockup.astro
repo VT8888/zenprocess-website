@@ -8,14 +8,14 @@ const { type } = Astro.props;
 ---
 
 {type === 'purchasing' && (
-<div class="bg-[#0d1117] border border-white/10 rounded-xl overflow-hidden shadow-2xl">
+<div class="bg-[var(--bg-alt)] border border-[var(--glass-border)] rounded-xl overflow-hidden shadow-2xl">
   <!-- Dashboard Header -->
-  <div class="flex items-center justify-between px-5 py-3 bg-white/5 border-b border-white/10">
+  <div class="flex items-center justify-between px-5 py-3 bg-[var(--glass-bg)] border-b border-[var(--glass-border)]">
     <div class="flex items-center gap-3">
       <div class="w-3 h-3 rounded-full bg-red-500/60"></div>
       <div class="w-3 h-3 rounded-full bg-yellow-500/60"></div>
       <div class="w-3 h-3 rounded-full bg-green-500/60"></div>
-      <span class="ml-3 text-xs text-[#978aa1] font-mono">Purchasing Dashboard — Live</span>
+      <span class="ml-3 text-xs text-[var(--text-secondary)] font-mono">Purchasing Dashboard — Live</span>
     </div>
     <div class="flex items-center gap-2">
       <span class="w-2 h-2 rounded-full bg-[#16A34A] animate-pulse"></span>
@@ -23,32 +23,32 @@ const { type } = Astro.props;
     </div>
   </div>
   <!-- KPI Row -->
-  <div class="grid grid-cols-4 gap-px bg-white/5 p-4">
-    <div class="bg-[#0d1117] rounded-lg p-3 text-center">
-      <p class="text-xs text-[#978aa1]">Active Exceptions</p>
+  <div class="grid grid-cols-4 gap-px bg-[var(--glass-bg)] p-4">
+    <div class="bg-[var(--bg-alt)] rounded-lg p-3 text-center">
+      <p class="text-xs text-[var(--text-secondary)]">Active Exceptions</p>
       <p class="text-2xl font-bold text-amber-400">47</p>
       <p class="text-xs text-[#16A34A]">-12% vs last week</p>
     </div>
-    <div class="bg-[#0d1117] rounded-lg p-3 text-center">
-      <p class="text-xs text-[#978aa1]">Below Safety Stock</p>
+    <div class="bg-[var(--bg-alt)] rounded-lg p-3 text-center">
+      <p class="text-xs text-[var(--text-secondary)]">Below Safety Stock</p>
       <p class="text-2xl font-bold text-red-400">8</p>
       <p class="text-xs text-red-400">Action required</p>
     </div>
-    <div class="bg-[#0d1117] rounded-lg p-3 text-center">
-      <p class="text-xs text-[#978aa1]">POs In Transit</p>
-      <p class="text-2xl font-bold text-white">124</p>
-      <p class="text-xs text-[#978aa1]">23 overseas</p>
+    <div class="bg-[var(--bg-alt)] rounded-lg p-3 text-center">
+      <p class="text-xs text-[var(--text-secondary)]">POs In Transit</p>
+      <p class="text-2xl font-bold text-[var(--text-primary)]">124</p>
+      <p class="text-xs text-[var(--text-secondary)]">23 overseas</p>
     </div>
-    <div class="bg-[#0d1117] rounded-lg p-3 text-center">
-      <p class="text-xs text-[#978aa1]">Fill Rate</p>
+    <div class="bg-[var(--bg-alt)] rounded-lg p-3 text-center">
+      <p class="text-xs text-[var(--text-secondary)]">Fill Rate</p>
       <p class="text-2xl font-bold text-[#16A34A]">96.4%</p>
       <p class="text-xs text-[#16A34A]">+2.1% MTD</p>
     </div>
   </div>
   <!-- Chart Area -->
   <div class="px-4 pb-4 grid grid-cols-2 gap-3">
-    <div class="bg-white/5 rounded-lg p-3">
-      <p class="text-xs text-[#978aa1] mb-2">Inventory by Warehouse</p>
+    <div class="bg-[var(--glass-bg)] rounded-lg p-3">
+      <p class="text-xs text-[var(--text-secondary)] mb-2">Inventory by Warehouse</p>
       <div class="flex items-end gap-1 h-20">
         <div class="flex-1 bg-[#16A34A]/60 rounded-t" style="height:85%"></div>
         <div class="flex-1 bg-[#16A34A]/60 rounded-t" style="height:65%"></div>
@@ -56,14 +56,14 @@ const { type } = Astro.props;
         <div class="flex-1 bg-amber-500/60 rounded-t" style="height:40%"></div>
       </div>
       <div class="flex gap-1 mt-1">
-        <span class="flex-1 text-[8px] text-[#978aa1] text-center">Houston</span>
-        <span class="flex-1 text-[8px] text-[#978aa1] text-center">Dallas</span>
-        <span class="flex-1 text-[8px] text-[#978aa1] text-center">Atlanta</span>
-        <span class="flex-1 text-[8px] text-[#978aa1] text-center">NJ</span>
+        <span class="flex-1 text-[8px] text-[var(--text-secondary)] text-center">Houston</span>
+        <span class="flex-1 text-[8px] text-[var(--text-secondary)] text-center">Dallas</span>
+        <span class="flex-1 text-[8px] text-[var(--text-secondary)] text-center">Atlanta</span>
+        <span class="flex-1 text-[8px] text-[var(--text-secondary)] text-center">NJ</span>
       </div>
     </div>
-    <div class="bg-white/5 rounded-lg p-3">
-      <p class="text-xs text-[#978aa1] mb-2">Exception Trend (30 days)</p>
+    <div class="bg-[var(--glass-bg)] rounded-lg p-3">
+      <p class="text-xs text-[var(--text-secondary)] mb-2">Exception Trend (30 days)</p>
       <svg viewBox="0 0 200 80" class="w-full h-20">
         <polyline fill="none" stroke="#16A34A" stroke-width="2" points="0,60 20,55 40,65 60,50 80,45 100,55 120,40 140,35 160,30 180,25 200,20" />
         <polyline fill="none" stroke="#16A34A" stroke-width="0" points="0,60 20,55 40,65 60,50 80,45 100,55 120,40 140,35 160,30 180,25 200,20 200,80 0,80" fill="url(#gradient)" opacity="0.1" style="fill: #16A34A;" />
@@ -72,17 +72,17 @@ const { type } = Astro.props;
   </div>
   <!-- Table Preview -->
   <div class="px-4 pb-4">
-    <div class="bg-white/5 rounded-lg overflow-hidden">
-      <div class="grid grid-cols-5 gap-px text-[9px] font-medium text-[#978aa1] px-3 py-2 bg-white/5">
+    <div class="bg-[var(--glass-bg)] rounded-lg overflow-hidden">
+      <div class="grid grid-cols-5 gap-px text-[9px] font-medium text-[var(--text-secondary)] px-3 py-2 bg-[var(--glass-bg)]">
         <span>SKU</span><span>Description</span><span>Status</span><span>Stock</span><span>Lead Time</span>
       </div>
-      <div class="grid grid-cols-5 gap-px text-[9px] text-[#f5f4f0]/70 px-3 py-1.5 border-t border-white/5">
+      <div class="grid grid-cols-5 gap-px text-[9px] text-[var(--text-primary-70)] px-3 py-1.5 border-t border-[var(--table-row-divider)]">
         <span class="font-mono">IR-4401</span><span>Iron Baluster 44"</span><span class="text-red-400">Below Min</span><span>12</span><span>90d</span>
       </div>
-      <div class="grid grid-cols-5 gap-px text-[9px] text-[#f5f4f0]/70 px-3 py-1.5 border-t border-white/5">
+      <div class="grid grid-cols-5 gap-px text-[9px] text-[var(--text-primary-70)] px-3 py-1.5 border-t border-[var(--table-row-divider)]">
         <span class="font-mono">WD-2205</span><span>Oak Handrail 12'</span><span class="text-amber-400">Reorder</span><span>34</span><span>5d</span>
       </div>
-      <div class="grid grid-cols-5 gap-px text-[9px] text-[#f5f4f0]/70 px-3 py-1.5 border-t border-white/5">
+      <div class="grid grid-cols-5 gap-px text-[9px] text-[var(--text-primary-70)] px-3 py-1.5 border-t border-[var(--table-row-divider)]">
         <span class="font-mono">SS-3310</span><span>Stainless Post 36"</span><span class="text-[#16A34A]">OK</span><span>156</span><span>3d</span>
       </div>
     </div>
@@ -91,14 +91,14 @@ const { type } = Astro.props;
 )}
 
 {type === 'overview' && (
-<div class="bg-[#0d1117] border border-white/10 rounded-xl overflow-hidden shadow-2xl">
+<div class="bg-[var(--bg-alt)] border border-[var(--glass-border)] rounded-xl overflow-hidden shadow-2xl">
   <!-- Dashboard Header -->
-  <div class="flex items-center justify-between px-5 py-3 bg-white/5 border-b border-white/10">
+  <div class="flex items-center justify-between px-5 py-3 bg-[var(--glass-bg)] border-b border-[var(--glass-border)]">
     <div class="flex items-center gap-3">
       <div class="w-3 h-3 rounded-full bg-red-500/60"></div>
       <div class="w-3 h-3 rounded-full bg-yellow-500/60"></div>
       <div class="w-3 h-3 rounded-full bg-green-500/60"></div>
-      <span class="ml-3 text-xs text-[#978aa1] font-mono">Operations Overview — Live</span>
+      <span class="ml-3 text-xs text-[var(--text-secondary)] font-mono">Operations Overview — Live</span>
     </div>
     <div class="flex items-center gap-2">
       <span class="w-2 h-2 rounded-full bg-[#16A34A] animate-pulse"></span>
@@ -106,56 +106,56 @@ const { type } = Astro.props;
     </div>
   </div>
   <!-- KPI Row -->
-  <div class="grid grid-cols-4 gap-px bg-white/5 p-4">
-    <div class="bg-[#0d1117] rounded-lg p-3 text-center">
-      <p class="text-xs text-[#978aa1]">Inventory Turns</p>
+  <div class="grid grid-cols-4 gap-px bg-[var(--glass-bg)] p-4">
+    <div class="bg-[var(--bg-alt)] rounded-lg p-3 text-center">
+      <p class="text-xs text-[var(--text-secondary)]">Inventory Turns</p>
       <p class="text-2xl font-bold text-[#16A34A]">8.2x</p>
       <p class="text-xs text-[#16A34A]">+0.7 vs prior year</p>
     </div>
-    <div class="bg-[#0d1117] rounded-lg p-3 text-center">
-      <p class="text-xs text-[#978aa1]">Revenue MTD</p>
-      <p class="text-2xl font-bold text-white">$2.4M</p>
+    <div class="bg-[var(--bg-alt)] rounded-lg p-3 text-center">
+      <p class="text-xs text-[var(--text-secondary)]">Revenue MTD</p>
+      <p class="text-2xl font-bold text-[var(--text-primary)]">$2.4M</p>
       <p class="text-xs text-[#16A34A]">+8% vs plan</p>
     </div>
-    <div class="bg-[#0d1117] rounded-lg p-3 text-center">
-      <p class="text-xs text-[#978aa1]">Gross Margin</p>
-      <p class="text-2xl font-bold text-white">31.2%</p>
-      <p class="text-xs text-[#978aa1]">Target: 30%</p>
+    <div class="bg-[var(--bg-alt)] rounded-lg p-3 text-center">
+      <p class="text-xs text-[var(--text-secondary)]">Gross Margin</p>
+      <p class="text-2xl font-bold text-[var(--text-primary)]">31.2%</p>
+      <p class="text-xs text-[var(--text-secondary)]">Target: 30%</p>
     </div>
-    <div class="bg-[#0d1117] rounded-lg p-3 text-center">
-      <p class="text-xs text-[#978aa1]">Total SKUs</p>
-      <p class="text-2xl font-bold text-white">3,247</p>
-      <p class="text-xs text-[#978aa1]">4 warehouses</p>
+    <div class="bg-[var(--bg-alt)] rounded-lg p-3 text-center">
+      <p class="text-xs text-[var(--text-secondary)]">Total SKUs</p>
+      <p class="text-2xl font-bold text-[var(--text-primary)]">3,247</p>
+      <p class="text-xs text-[var(--text-secondary)]">4 warehouses</p>
     </div>
   </div>
   <!-- Chart Area -->
   <div class="px-4 pb-4 grid grid-cols-3 gap-3">
-    <div class="bg-white/5 rounded-lg p-3">
-      <p class="text-xs text-[#978aa1] mb-2">Revenue by Channel</p>
+    <div class="bg-[var(--glass-bg)] rounded-lg p-3">
+      <p class="text-xs text-[var(--text-secondary)] mb-2">Revenue by Channel</p>
       <div class="flex items-end gap-1 h-16">
         <div class="flex-1 bg-[#16A34A]/60 rounded-t" style="height:90%"></div>
         <div class="flex-1 bg-blue-500/60 rounded-t" style="height:55%"></div>
         <div class="flex-1 bg-amber-500/60 rounded-t" style="height:35%"></div>
       </div>
       <div class="flex gap-1 mt-1">
-        <span class="flex-1 text-[8px] text-[#978aa1] text-center">Wholesale</span>
-        <span class="flex-1 text-[8px] text-[#978aa1] text-center">Retail</span>
-        <span class="flex-1 text-[8px] text-[#978aa1] text-center">Direct</span>
+        <span class="flex-1 text-[8px] text-[var(--text-secondary)] text-center">Wholesale</span>
+        <span class="flex-1 text-[8px] text-[var(--text-secondary)] text-center">Retail</span>
+        <span class="flex-1 text-[8px] text-[var(--text-secondary)] text-center">Direct</span>
       </div>
     </div>
-    <div class="bg-white/5 rounded-lg p-3">
-      <p class="text-xs text-[#978aa1] mb-2">Fill Rate Trend</p>
+    <div class="bg-[var(--glass-bg)] rounded-lg p-3">
+      <p class="text-xs text-[var(--text-secondary)] mb-2">Fill Rate Trend</p>
       <svg viewBox="0 0 200 64" class="w-full h-16">
         <polyline fill="none" stroke="#16A34A" stroke-width="2" points="0,50 30,45 60,40 90,35 120,30 150,20 180,15 200,10" />
       </svg>
     </div>
-    <div class="bg-white/5 rounded-lg p-3">
-      <p class="text-xs text-[#978aa1] mb-2">Warehouse Utilization</p>
+    <div class="bg-[var(--glass-bg)] rounded-lg p-3">
+      <p class="text-xs text-[var(--text-secondary)] mb-2">Warehouse Utilization</p>
       <div class="space-y-2 mt-2">
-        <div><div class="flex justify-between text-[8px] text-[#978aa1]"><span>Houston</span><span>87%</span></div><div class="h-1.5 bg-white/10 rounded-full"><div class="h-full bg-[#16A34A] rounded-full" style="width:87%"></div></div></div>
-        <div><div class="flex justify-between text-[8px] text-[#978aa1]"><span>Dallas</span><span>72%</span></div><div class="h-1.5 bg-white/10 rounded-full"><div class="h-full bg-[#16A34A] rounded-full" style="width:72%"></div></div></div>
-        <div><div class="flex justify-between text-[8px] text-[#978aa1]"><span>Atlanta</span><span>91%</span></div><div class="h-1.5 bg-white/10 rounded-full"><div class="h-full bg-amber-500 rounded-full" style="width:91%"></div></div></div>
-        <div><div class="flex justify-between text-[8px] text-[#978aa1]"><span>NJ</span><span>64%</span></div><div class="h-1.5 bg-white/10 rounded-full"><div class="h-full bg-[#16A34A] rounded-full" style="width:64%"></div></div></div>
+        <div><div class="flex justify-between text-[8px] text-[var(--text-secondary)]"><span>Houston</span><span>87%</span></div><div class="h-1.5 bg-[var(--hover-bg)] rounded-full"><div class="h-full bg-[#16A34A] rounded-full" style="width:87%"></div></div></div>
+        <div><div class="flex justify-between text-[8px] text-[var(--text-secondary)]"><span>Dallas</span><span>72%</span></div><div class="h-1.5 bg-[var(--hover-bg)] rounded-full"><div class="h-full bg-[#16A34A] rounded-full" style="width:72%"></div></div></div>
+        <div><div class="flex justify-between text-[8px] text-[var(--text-secondary)]"><span>Atlanta</span><span>91%</span></div><div class="h-1.5 bg-[var(--hover-bg)] rounded-full"><div class="h-full bg-amber-500 rounded-full" style="width:91%"></div></div></div>
+        <div><div class="flex justify-between text-[8px] text-[var(--text-secondary)]"><span>NJ</span><span>64%</span></div><div class="h-1.5 bg-[var(--hover-bg)] rounded-full"><div class="h-full bg-[#16A34A] rounded-full" style="width:64%"></div></div></div>
       </div>
     </div>
   </div>

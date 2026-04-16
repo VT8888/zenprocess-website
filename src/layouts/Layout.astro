@@ -24,8 +24,16 @@ const siteName = "zenprocess.ai";
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth" data-theme="light">
   <head>
+    <script is:inline>
+      (function() {
+        var t = localStorage.getItem('theme');
+        if (t === 'light' || t === 'dark') {
+          document.documentElement.setAttribute('data-theme', t);
+        }
+      })();
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
@@ -66,7 +74,7 @@ const siteName = "zenprocess.ai";
       rel="stylesheet"
     />
   </head>
-  <body class="min-h-screen bg-[#000510] text-[#f5f4f0] font-['Be_Vietnam_Pro',sans-serif] antialiased">
+  <body class="min-h-screen font-['Be_Vietnam_Pro',sans-serif] antialiased" style="background-color: var(--bg-primary); color: var(--text-primary); transition: background-color 0.3s, color 0.3s;">
     <Header />
     <main>
       <slot />

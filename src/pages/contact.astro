@@ -7,26 +7,26 @@ import Layout from '../layouts/Layout.astro';
   description="30-minute discovery call about your building materials distribution operation. No pitch deck. Call (832) 974-2818."
 >
   <!-- Hero -->
-  <section class="py-20 bg-[#000510]">
+  <section class="py-20 bg-[var(--bg-primary)]">
     <div class="max-w-6xl mx-auto px-6 text-center">
       <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
         Let's talk about your data.
       </h1>
-      <p class="text-lg md:text-xl text-[#f5f4f0]/80 max-w-3xl mx-auto leading-relaxed">
+      <p class="text-lg md:text-xl text-[var(--text-primary-80)] max-w-3xl mx-auto leading-relaxed">
         A 30-minute discovery call is the fastest way to find out if we can help. We'll ask about your ERP, your pain points, and your team's daily workflows — and give you an honest answer.
       </p>
     </div>
   </section>
 
   <!-- Two-Column Layout -->
-  <section class="py-20 bg-[#000510]">
+  <section class="py-20 bg-[var(--bg-primary)]">
     <div class="max-w-6xl mx-auto px-6">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
 
         <!-- Left: Embedded Booking Calendar -->
         <div>
           <h2 class="text-2xl font-bold mb-6">Book a Discovery Call</h2>
-          <div class="bg-white/5 backdrop-blur-xl rounded-xl overflow-hidden border border-white/10">
+          <div class="bg-[var(--glass-bg)] backdrop-blur-xl rounded-xl overflow-hidden border border-[var(--glass-border)]">
             <iframe
               src="https://links.zenprocess.ai/widget/booking/rcoKJifJJA46bRI9fTEr"
               style="border:none;width:100%;height:700px;border-radius:0.75rem;"
@@ -61,7 +61,7 @@ import Layout from '../layouts/Layout.astro';
                   <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                   <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
                 </svg>
-                <span class="text-[#f5f4f0]/80 text-lg">Houston, TX</span>
+                <span class="text-[var(--text-primary-80)] text-lg">Houston, TX</span>
               </div>
               <div class="flex items-center gap-4">
                 <svg class="w-5 h-5 text-[#16A34A] shrink-0" fill="currentColor" viewBox="0 0 24 24">
@@ -78,21 +78,21 @@ import Layout from '../layouts/Layout.astro';
             <ol class="space-y-5">
               <li class="flex items-start gap-4">
                 <span class="flex items-center justify-center w-8 h-8 rounded-full bg-[#16A34A] text-white text-sm font-bold shrink-0">1</span>
-                <span class="text-[#f5f4f0]/80 text-lg"><strong class="text-white">You tell us about your operation</strong> — ERP, warehouses, team size, biggest pain points</span>
+                <span class="text-[var(--text-primary-80)] text-lg"><strong class="text-[var(--text-primary)]">You tell us about your operation</strong> — ERP, warehouses, team size, biggest pain points</span>
               </li>
               <li class="flex items-start gap-4">
                 <span class="flex items-center justify-center w-8 h-8 rounded-full bg-[#16A34A] text-white text-sm font-bold shrink-0">2</span>
-                <span class="text-[#f5f4f0]/80 text-lg"><strong class="text-white">We share relevant experience</strong> — what we've built for similar companies, what worked</span>
+                <span class="text-[var(--text-primary-80)] text-lg"><strong class="text-[var(--text-primary)]">We share relevant experience</strong> — what we've built for similar companies, what worked</span>
               </li>
               <li class="flex items-start gap-4">
                 <span class="flex items-center justify-center w-8 h-8 rounded-full bg-[#16A34A] text-white text-sm font-bold shrink-0">3</span>
-                <span class="text-[#f5f4f0]/80 text-lg"><strong class="text-white">Honest assessment</strong> — we'll tell you if we can help. If we can't, we'll say so.</span>
+                <span class="text-[var(--text-primary-80)] text-lg"><strong class="text-[var(--text-primary)]">Honest assessment</strong> — we'll tell you if we can help. If we can't, we'll say so.</span>
               </li>
             </ol>
           </div>
 
           <!-- Small text -->
-          <p class="text-[#6b5e75] text-sm">
+          <p class="text-[var(--text-muted)] text-sm">
             Duration: 30 minutes | Cost: Free | No pitch deck. No pressure.
           </p>
 

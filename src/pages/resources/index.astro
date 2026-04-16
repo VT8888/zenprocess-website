@@ -30,8 +30,8 @@ function formatDate(dateStr: string): string {
   <!-- Hero -->
   <section class="pt-24 pb-12 px-4 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-7xl text-center">
-      <h1 class="text-4xl sm:text-5xl font-bold text-white mb-4">Resources</h1>
-      <p class="text-lg text-[#978aa1] max-w-2xl mx-auto">
+      <h1 class="text-4xl sm:text-5xl font-bold text-[var(--text-primary)] mb-4">Resources</h1>
+      <p class="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
         Insights on operational intelligence for building materials distributors.
       </p>
     </div>
@@ -47,20 +47,20 @@ function formatDate(dateStr: string): string {
             return (
               <a
                 href={`/resources/${post.id}`}
-                class="group block bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-6 transition-all hover:bg-white/10 hover:border-white/20"
+                class="group block bg-[var(--glass-bg)] backdrop-blur-xl border border-[var(--glass-border)] rounded-xl p-6 transition-all hover:bg-[var(--hover-bg)] hover:border-[var(--hover-border)]"
               >
                 <div class="flex items-center gap-3 mb-3">
                   <span class={`inline-block text-xs font-medium px-2.5 py-1 rounded-full ${pillar.bg} ${pillar.text}`}>
                     {pillar.label}
                   </span>
-                  <time class="text-xs text-[#978aa1]" datetime={post.data.date}>
+                  <time class="text-xs text-[var(--text-secondary)]" datetime={post.data.date}>
                     {formatDate(post.data.date)}
                   </time>
                 </div>
-                <h2 class="text-lg font-semibold text-white group-hover:text-[#22C55E] transition-colors mb-2">
+                <h2 class="text-lg font-semibold text-[var(--text-primary)] group-hover:text-[#22C55E] transition-colors mb-2">
                   {post.data.title}
                 </h2>
-                <p class="text-sm text-[#978aa1] leading-relaxed">
+                <p class="text-sm text-[var(--text-secondary)] leading-relaxed">
                   {post.data.description}
                 </p>
               </a>
@@ -68,8 +68,8 @@ function formatDate(dateStr: string): string {
           })}
         </div>
       ) : (
-        <div class="text-center py-16 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl">
-          <p class="text-[#978aa1] text-lg">
+        <div class="text-center py-16 bg-[var(--glass-bg)] backdrop-blur-xl border border-[var(--glass-border)] rounded-xl">
+          <p class="text-[var(--text-secondary)] text-lg">
             Articles coming soon. Follow us on{" "}
             <a
               href="https://www.linkedin.com/in/vttruong/"
@@ -89,9 +89,9 @@ function formatDate(dateStr: string): string {
   <!-- Email Signup -->
   <section class="pb-24 px-4 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-2xl">
-      <div class="bg-white/5 backdrop-blur-xl border border-[#16A34A]/20 rounded-xl p-8 text-center">
-        <h3 class="text-xl font-bold text-white mb-2">Get insights delivered</h3>
-        <p class="text-[#978aa1] mb-6">Join building materials distribution leaders who get our latest articles and industry analysis.</p>
+      <div class="bg-[var(--glass-bg)] backdrop-blur-xl border border-[#16A34A]/20 rounded-xl p-8 text-center">
+        <h3 class="text-xl font-bold text-[var(--text-primary)] mb-2">Get insights delivered</h3>
+        <p class="text-[var(--text-secondary)] mb-6">Join building materials distribution leaders who get our latest articles and industry analysis.</p>
         <div class="max-w-md mx-auto">
           <iframe
             src="https://links.zenprocess.ai/widget/form/3c1xuWglJy5TGfU3dTe4"
@@ -107,8 +107,23 @@ function formatDate(dateStr: string): string {
             loading="lazy"
           ></iframe>
         </div>
-        <p class="text-xs text-[#6b5e75] mt-4">No spam. Unsubscribe anytime.</p>
+        <p class="text-xs text-[var(--text-muted)] mt-4">No spam. Unsubscribe anytime.</p>
         <script is:inline src="https://links.zenprocess.ai/js/form_embed.js"></script>
+        <script is:inline>
+          (function() {
+            var iframe = document.getElementById('inline-3c1xuWglJy5TGfU3dTe4');
+            if (!iframe) return;
+            var resetTimer = null;
+            window.addEventListener('blur', function() {
+              if (document.activeElement === iframe) {
+                if (resetTimer) clearTimeout(resetTimer);
+                resetTimer = setTimeout(function() {
+                  iframe.src = iframe.src;
+                }, 8000);
+              }
+            });
+          })();
+        </script>
       </div>
     </div>
   </section>
