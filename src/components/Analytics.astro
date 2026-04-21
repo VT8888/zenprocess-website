@@ -15,9 +15,10 @@ const GA_ID = import.meta.env.PUBLIC_GA4_ID || 'G-G8E4RJ95YB';
   window.dataLayer = window.dataLayer || [];
   function gtag() { dataLayer.push(arguments); }
   gtag('js', new Date());
-  gtag('config', GA_ID, { send_page_view: true });
+  // send_page_view:false — we fire page_view manually via astro:page-load
+  // so initial load and SPA navigations are tracked identically (no duplicates).
+  gtag('config', GA_ID, { send_page_view: false });
 
-  // Track page views on Astro client-side navigation (View Transitions)
   document.addEventListener('astro:page-load', () => {
     gtag('event', 'page_view', {
       page_path: window.location.pathname,
