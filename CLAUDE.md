@@ -137,7 +137,15 @@ Full 5-phase plan lives in AIOS memory (`project_seo_ai_search_plan.md`). Summar
 3. **Never use banned buzzwords** (see Brand Voice).
 4. **Always first-person (Vinh speaking).**
 5. **CTA pattern:** end posts with author bio including `/book` and `/case-study` links.
-6. **Draft workflow:** set `draft: false` only when user approves. Commit + push triggers Netlify auto-deploy.
+6. **Draft workflow (REQUIRED for every new post):**
+   - Save new post to `src/content/blog/<slug>.md` with `draft: true`
+   - Confirm Astro dev server is running on `localhost:4321` (start with `npm run dev` if not)
+   - Curl the preview URL to verify it renders without errors
+   - Give Vinh the local preview link: `http://localhost:4321/resources/<slug>`
+   - Present article summary + link audit table
+   - Wait for explicit approval ("approved", "push it live")
+   - On approval: flip `draft: true` → `draft: false`, commit, push to `main`
+   - Never push `draft: false` without explicit per-post approval
 7. **Internal links:** every new post should link to 2-3 existing posts in `src/content/blog/`.
 8. **Backup before edit** — copy source files to `_backups/` before modifying (per parent CLAUDE.md rule).
 9. **No AI-jargon or generic tech content** — every piece must be specific to building materials distribution.
