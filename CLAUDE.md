@@ -77,9 +77,12 @@ Primary industries: stair parts, railings, lumber, millwork, door/window compone
 
 ## Blog Publishing Cadence
 
-- **Schedule:** 2x/month — 1st & 3rd Wednesday
+- **Schedule:** Weekly — every Monday, 7 AM CT (decided 2026-04-22)
+- **Length:** 2,000–2,800 words per post
 - **Pillars:** `operational_intelligence`, `industry_insights`, `data_problem`, `ai_value`
 - **Author:** Vinh Truong, "Co-Founder & AI Architect"
+- **Backlog rule:** Maintain a 4-post buffer at all times — this is the single predictor of sustaining weekly cadence
+- **Distribution:** LinkedIn post Mon 7:30 AM, LinkedIn newsletter Tue, X thread Wed
 
 ## Article Template (REQUIRED for every post)
 
