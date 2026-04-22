@@ -9,24 +9,58 @@ const { type, data } = Astro.props;
 const schemas: Record<string, object> = {
   organization: {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": ["Organization", "ProfessionalService"],
     "name": "zenprocess.ai",
     "legalName": "KMV Group LLC",
     "url": "https://zenprocess.ai",
     "logo": "https://zenprocess.ai/logo.png",
+    "description": "AI systems architecture firm for mid-market building materials distributors. Real-time operational dashboards and data pipelines on top of existing ERPs (SAP, NetSuite) — without replacing them.",
+    "slogan": "Turn your ERP data into revenue.",
+    "foundingDate": "2024",
+    "founder": {
+      "@type": "Person",
+      "name": "Vinh Truong",
+      "jobTitle": "Co-Founder & AI Architect",
+      "url": "https://zenprocess.ai/about",
+      "sameAs": ["https://www.linkedin.com/in/vttruong/"]
+    },
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+1-832-974-2818",
       "contactType": "sales",
-      "email": "info@zenprocess.ai"
+      "email": "info@zenprocess.ai",
+      "areaServed": "US",
+      "availableLanguage": ["English"]
     },
-    "sameAs": ["https://www.linkedin.com/in/vttruong/"],
+    "sameAs": [
+      "https://www.linkedin.com/in/vttruong/",
+      "https://www.linkedin.com/company/zenprocess-ai/"
+    ],
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Houston",
       "addressRegion": "TX",
+      "postalCode": "77019",
       "addressCountry": "US"
-    }
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "United States"
+    },
+    "knowsAbout": [
+      "ERP integration",
+      "SAP ByDesign",
+      "NetSuite",
+      "data pipelines",
+      "medallion architecture",
+      "operational dashboards",
+      "AI systems architecture",
+      "building materials distribution",
+      "inventory management",
+      "landed cost analysis",
+      "fill rate optimization"
+    ],
+    "knowsLanguage": ["English"]
   },
   localBusiness: {
     "@context": "https://schema.org",
@@ -50,10 +84,30 @@ const schemas: Record<string, object> = {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Vinh Truong",
-    "jobTitle": "Founder",
-    "worksFor": { "@type": "Organization", "name": "zenprocess.ai" },
+    "jobTitle": "Co-Founder & AI Architect",
+    "description": "20+ years of enterprise IT and CTO leadership. $80M+ in technology initiatives delivered. Builds real-time data pipelines and operational dashboards for mid-market building materials distributors on SAP and NetSuite.",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "zenprocess.ai",
+      "url": "https://zenprocess.ai"
+    },
     "url": "https://zenprocess.ai/about",
-    "sameAs": ["https://www.linkedin.com/in/vttruong/"]
+    "image": "https://zenprocess.ai/vinh-photo.jpg",
+    "sameAs": ["https://www.linkedin.com/in/vttruong/"],
+    "knowsAbout": [
+      "ERP integration",
+      "SAP ByDesign",
+      "NetSuite",
+      "data pipeline architecture",
+      "medallion architecture",
+      "AI systems architecture",
+      "building materials distribution",
+      "operational intelligence"
+    ],
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "Enterprise IT Leadership — 20+ years"
+    }
   },
   service: {
     "@context": "https://schema.org",
