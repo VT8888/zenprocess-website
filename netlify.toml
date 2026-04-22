@@ -3,4 +3,4 @@
   publish = "dist"
 
 [[plugins]]
-  package = "/plugins/indexnow-on-deploy"
+  package = "./plugins/indexnow-on-deploy"
