@@ -137,6 +137,47 @@ Full 5-phase plan lives in AIOS memory (`project_seo_ai_search_plan.md`). Summar
 7. **Internal links:** every new post should link to 2-3 existing posts in `src/content/blog/`.
 8. **Backup before edit** — copy source files to `_backups/` before modifying (per parent CLAUDE.md rule).
 9. **No AI-jargon or generic tech content** — every piece must be specific to building materials distribution.
+10. **NEVER name clients (including HOF) in public content** — anonymize as "a national building materials distributor," "a SAP ByDesign distributor we work with," etc. Proof-point numbers (3,000+ SKUs, 16-week engagement, 0.00% variance) are fine; names are not. Requires explicit written permission from Vinh to name any client.
+11. **External citations must be authoritative** — link to SAP, Gartner, IDC, McKinsey, WSJ, NYT, Harvard Business Review, reputable industry publications (LBM Journal, ProSales), or primary sources. No content farms, aggregators, or affiliate sites.
+
+## Write in Vinh's Voice (NOT AI Voice)
+
+Every article must sound like Vinh wrote it. AI-sounding prose gets dismissed by executive readers — credibility dies in the first 3 paragraphs.
+
+**AI tells to AVOID:**
+- Parallel triples: "fast, reliable, and scalable"
+- Buzzwords: leverage, unlock, transform, optimize, streamline, empower, robust, seamless, holistic, cutting-edge, game-changing
+- Hedge phrases: "it's worth noting," "in today's landscape," "in the ever-evolving world of"
+- Em-dash over-use as a stylistic crutch
+- Symmetric bullet lists where every item has identical structure
+- "Not just X, but Y" used repeatedly
+- Sweeping generalizations: "every company," "all businesses," "the modern enterprise"
+- Filler verbs: "dive in," "unpack," "let's explore"
+- Closing paragraphs that summarize what was just said
+- Over-qualifiers: "generally speaking," "in most cases," "typically"
+
+**Vinh's actual voice:**
+- Short sentences. Short paragraphs. Often 1-2 sentences per paragraph.
+- First person: "I've seen," "in my experience," "I was wrong about"
+- Specific numbers over vague claims: "3,000+ SKUs" not "large catalog"
+- Plain operator language: "Your ERP cost $500K" not "your enterprise technology investment"
+- Direct, occasionally blunt: "That's not a people problem — it's a data architecture problem"
+- Occasional sentence fragments for emphasis. Like this.
+- Real talk about tradeoffs: "This doesn't work for every business"
+- Anecdotes with specifics, anonymized: "A purchasing manager I worked with was running 800+ exceptions in Excel every morning"
+- First-draft energy — one person, one sitting, not over-polished
+- Contrarian takes on industry pieties when warranted
+
+**Pre-ship self-check:**
+1. Read first 3 paragraphs out loud. CTO talking, or marketing blog?
+2. Specific numbers in the first 300 words?
+3. Could reader guess a real operator wrote this?
+4. At least one blunt opinion or contrarian take?
+5. Scan for banned buzzwords — remove them.
+6. Paragraph lengths varied? (AI writes uniform paragraphs.)
+7. Any "clever" or "polished" sentence Vinh wouldn't write? Kill it.
+
+If the article could have appeared on any generic AI/ERP/SaaS blog, it failed.
 
 ## Existing Blog Posts (link to these for internal SEO)
 
