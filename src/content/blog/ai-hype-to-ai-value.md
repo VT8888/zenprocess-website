@@ -55,7 +55,7 @@ draft: false
 
 If you run a building materials distribution business, you are being pitched AI from every direction.
 
-Your ERP vendor just announced agentic AI in every module — [SAP made that announcement at Hannover Messe 2026](https://news.sap.com/2024/04/sap-hannover-messe-2024-business-ai-transformation/), and NetSuite isn't far behind. Your BI tool added a copilot. Three consultants sent you proposals last month. A board member forwarded you a McKinsey report. Your competitors are posting on LinkedIn about their AI transformation.
+Your ERP vendor just announced agentic AI in every module — [SAP made that announcement at Hannover Messe 2026](https://news.sap.com/2026/04/sap-at-hannover-messe-2026-agentic-ai-resilient-manufacturing/), and NetSuite isn't far behind. Your BI tool added a copilot. Three consultants sent you proposals last month. A board member forwarded you a McKinsey report. Your competitors are posting on LinkedIn about their AI transformation.
 
 Most of it is activity, not value.
 
@@ -112,7 +112,7 @@ This is where most AI projects fall apart. Nobody realizes it until month six.
 
 If you can't measure the target metric reliably today, you can't measure AI's impact on it tomorrow. You'll be left with vibes and testimonials. The AI will feel like it's working. You won't be able to prove it, defend the budget, or decide whether to expand the program.
 
-For a distributor on SAP or NetSuite, this often means the real first project is not an AI project. It's a data pipeline project — the Bronze-Silver-Gold layer that lets you measure fill rate, turns, and landed cost accurately and consistently. [I wrote a plain-English walkthrough of what that looks like here.](/blog/what-a-modern-data-pipeline-looks-like) Without that foundation, AI on top is a guess.
+For a distributor on SAP or NetSuite, this often means the real first project is not an AI project. It's a data pipeline project — the Bronze-Silver-Gold layer that lets you measure fill rate, turns, and landed cost accurately and consistently. [I wrote a plain-English walkthrough of what that looks like here.](/resources/what-a-modern-data-pipeline-looks-like) Without that foundation, AI on top is a guess.
 
 ### 3. What is the current performance, and what is the target?
 
@@ -131,7 +131,7 @@ Let's make this concrete. Take a distributor with these numbers, which are commo
 | Target inventory turns | 5.0 |
 | Inventory carrying cost rate | 15% per year |
 
-Carrying cost includes warehouse space, insurance, obsolescence, shrinkage, financing cost, and handling. [The industry rule of thumb is 20-30% of inventory value per year](https://www.apicsterrapures.org/inventory-carrying-cost/); 15% is conservative.
+Carrying cost includes warehouse space, insurance, obsolescence, shrinkage, financing cost, and handling. [The Institute for Supply Management's benchmark is 20-30% of inventory value per year](https://www.ismworld.org/supply-management-news-and-reports/news-publications/inside-supply-management-magazine/blog/2022/2022-01/the-monthly-metric-inventory-carrying-cost/); 15% is conservative.
 
 The math:
 
@@ -165,7 +165,7 @@ This is where your ERP vendor's bundled AI modules tend to break down. They're b
 
 Setting the hype aside, here's where I've seen AI produce real, defensible ROI for building materials distributors.
 
-**Exception management on purchasing.** A purchasing manager running 800+ daily exceptions in Excel is a textbook case. An AI layer that prioritizes exceptions by business impact, recommends resolutions based on historical patterns, and learns from the manager's decisions can compress two hours of spreadsheet work into twenty minutes of review. The number that moves is purchaser throughput, and downstream, stockout frequency. [I wrote about why purchasing teams live in Excel in the first place here.](/blog/why-your-purchasing-team-lives-in-excel)
+**Exception management on purchasing.** A purchasing manager running 800+ daily exceptions in Excel is a textbook case. An AI layer that prioritizes exceptions by business impact, recommends resolutions based on historical patterns, and learns from the manager's decisions can compress two hours of spreadsheet work into twenty minutes of review. The number that moves is purchaser throughput, and downstream, stockout frequency. [I wrote about why purchasing teams live in Excel in the first place here.](/resources/why-your-purchasing-team-lives-in-excel)
 
 **Landed cost forecasting.** For distributors with overseas supply chains, landed cost is the number that's always wrong until the final invoice arrives. AI models trained on your purchase history, freight rates, duty schedules, and lead times can produce forecasted landed cost at PO creation with meaningful accuracy. On one engagement, this took forecast variance at PO creation from the rough double-digits to low single digits. The number that moves is margin predictability and pricing discipline.
 
@@ -183,7 +183,7 @@ Three reasons.
 
 **First, they're built for every customer, which means they optimize for none of yours.** Your product mix, your supplier structure, your margin model, your customer concentration — none of that shapes the vendor's AI module. You get the average AI for the average distributor. That's fine for average results. It's not how you pull ahead of competitors.
 
-**Second, they require clean data to work, and your ERP data is not clean enough.** Every distributor I've worked with has data quality issues the ERP itself created — duplicate items from migrations, inconsistent units of measure, landed cost that was never calculated properly, sales tax lines that break category analysis. Turning on AI inside the ERP on top of that data produces confident nonsense. [Gartner has been saying for years that poor data quality costs enterprises an average of $12.9M per year](https://www.gartner.com/smarterwithgartner/how-to-improve-your-data-quality) — that problem doesn't go away because you bought an AI module.
+**Second, they require clean data to work, and your ERP data is not clean enough.** Every distributor I've worked with has data quality issues the ERP itself created — duplicate items from migrations, inconsistent units of measure, landed cost that was never calculated properly, sales tax lines that break category analysis. Turning on AI inside the ERP on top of that data produces confident nonsense. [Gartner predicts that 30% of generative AI projects will be abandoned after proof of concept by the end of 2025](https://www.gartner.com/en/newsroom/press-releases/2024-07-29-gartner-predicts-30-percent-of-generative-ai-projects-will-be-abandoned-after-proof-of-concept-by-end-of-2025), with poor data quality and unclear business value as top causes — that problem doesn't go away because you bought an AI module.
 
 **Third, it's an upsell, which means your ROI discussion is now tangled up with a license discussion.** The vendor's AI module comes with a per-user fee, a new agreement, and a multi-year term. The question of whether it actually moves a number gets lost inside the contract negotiation.
 

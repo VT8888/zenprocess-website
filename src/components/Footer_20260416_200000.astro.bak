@@ -1,0 +1,86 @@
+---
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/solutions", label: "Solutions" },
+  { href: "/case-study", label: "Case Study" },
+  { href: "/about", label: "About" },
+  { href: "/resources", label: "Resources" },
+  { href: "/contact", label: "Contact" },
+];
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-[var(--bg-primary)] border-t border-[var(--glass-border)]">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <!-- Brand + Description -->
+      <div>
+        <a href="/" class="flex items-center gap-2.5 text-xl font-bold text-[var(--text-primary)] tracking-tight">
+          <img src="/logo.png" alt="zenprocess.ai" class="h-8 w-8" />
+          zenprocess.ai
+        </a>
+        <p class="mt-3 text-sm text-[var(--text-secondary)] leading-relaxed">
+          AI systems architecture and digital transformation for mid-market companies.
+        </p>
+      </div>
+
+      <!-- Navigation -->
+      <div>
+        <h3 class="text-sm font-semibold text-[var(--text-primary)] uppercase tracking-wider mb-4">Navigation</h3>
+        <ul class="space-y-2">
+          {navLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-[var(--text-secondary)] hover:text-[#22C55E] transition-colors">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h3 class="text-sm font-semibold text-[var(--text-primary)] uppercase tracking-wider mb-4">Contact</h3>
+        <ul class="space-y-2 text-sm text-[var(--text-secondary)]">
+          <li>
+            <a href="mailto:info@zenprocess.ai" class="hover:text-[#22C55E] transition-colors">
+              info@zenprocess.ai
+            </a>
+          </li>
+          <li>
+            <a href="tel:+18329742818" class="hover:text-[#22C55E] transition-colors">
+              (832) 974-2818
+            </a>
+          </li>
+          <li>Houston, TX</li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/vttruong/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-[#22C55E] transition-colors"
+            >
+              LinkedIn
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="mt-10 pt-6 border-t border-[var(--glass-border)] flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-xs text-[var(--text-muted)]">
+        &copy; {currentYear} KMV Group LLC dba zenprocess.ai. All rights reserved.
+      </p>
+      <div class="flex gap-4">
+        <a href="/privacy-policy" class="text-xs text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors">
+          Privacy Policy
+        </a>
+        <a href="/terms-of-service" class="text-xs text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors">
+          Terms of Service
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

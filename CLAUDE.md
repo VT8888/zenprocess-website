@@ -13,6 +13,7 @@ Founder: Vinh Truong. First-person voice throughout — "I", "we", "my team."
 - **Analytics:** GA4 property 506711429 (LIVE — do not touch 533024287)
 - **Search:** Google Search Console + Bing Webmaster Tools
 - **Content:** Markdown in `src/content/blog/` (Astro content collection)
+- **Blog URL route:** Posts are served at `/resources/<slug>` — NOT `/blog/<slug>`. Route handler is `src/pages/resources/[slug].astro`. Always use `/resources/<slug>` for internal links.
 
 ## Folder Structure
 
@@ -139,6 +140,7 @@ Full 5-phase plan lives in AIOS memory (`project_seo_ai_search_plan.md`). Summar
 9. **No AI-jargon or generic tech content** — every piece must be specific to building materials distribution.
 10. **NEVER name clients (including HOF) in public content** — anonymize as "a national building materials distributor," "a SAP ByDesign distributor we work with," etc. Proof-point numbers (3,000+ SKUs, 16-week engagement, 0.00% variance) are fine; names are not. Requires explicit written permission from Vinh to name any client.
 11. **External citations must be authoritative** — link to SAP, Gartner, IDC, McKinsey, WSJ, NYT, Harvard Business Review, reputable industry publications (LBM Journal, ProSales), or primary sources. No content farms, aggregators, or affiliate sites.
+12. **Verify every external URL before publishing** — fetch each link with WebFetch or curl to confirm it returns 200 AND the page matches the claim. Never guess URL patterns. Present a link audit table (URL → status → matches claim?) to the user before shipping. If a URL can't be verified, remove the link and soften the claim.
 
 ## Write in Vinh's Voice (NOT AI Voice)
 
