@@ -237,4 +237,4 @@ One thing. Pick a number your operations team checks every week — fill rate, s
 
 ---
 
-*Vinh Truong is the Co-Founder & AI Architect at [zenprocess.ai](https://zenprocess.ai), where he builds real-time operational dashboards and data pipelines for mid-market building materials distributors on SAP and NetSuite. 20+ years of enterprise IT and CTO leadership, $80M+ in technology initiatives delivered. [Book a discovery call](https://zenprocess.ai/book) or [read the full case study](https://zenprocess.ai/case-study).*
+*Vinh Truong is the Co-Founder & AI Architect at [zenprocess.ai](https://zenprocess.ai), where he builds real-time operational dashboards and data pipelines for mid-market building materials distributors on SAP and NetSuite. 20+ years of enterprise IT and CTO leadership, $80M+ in technology initiatives delivered. [Book a discovery call](https://zenprocess.ai/book) or [see the 16-week SAP engagement that produced these results](https://zenprocess.ai/case-study).*
