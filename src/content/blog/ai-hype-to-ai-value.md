@@ -131,7 +131,7 @@ Let's make this concrete. Take a distributor with these numbers, which are commo
 | Target inventory turns | 5.0 |
 | Inventory carrying cost rate | 15% per year |
 
-Carrying cost includes warehouse space, insurance, obsolescence, shrinkage, financing cost, and handling. [The Institute for Supply Management's benchmark is 20-30% of inventory value per year](https://www.ismworld.org/supply-management-news-and-reports/news-publications/inside-supply-management-magazine/blog/2022/2022-01/the-monthly-metric-inventory-carrying-cost/); 15% is conservative.
+Carrying cost includes warehouse space, insurance, obsolescence, shrinkage, financing cost, and handling. The Institute for Supply Management and APICS put the industry benchmark at 20-30% of inventory value per year; 15% is conservative.
 
 The math:
 
@@ -183,7 +183,7 @@ Three reasons.
 
 **First, they're built for every customer, which means they optimize for none of yours.** Your product mix, your supplier structure, your margin model, your customer concentration — none of that shapes the vendor's AI module. You get the average AI for the average distributor. That's fine for average results. It's not how you pull ahead of competitors.
 
-**Second, they require clean data to work, and your ERP data is not clean enough.** Every distributor I've worked with has data quality issues the ERP itself created — duplicate items from migrations, inconsistent units of measure, landed cost that was never calculated properly, sales tax lines that break category analysis. Turning on AI inside the ERP on top of that data produces confident nonsense. [Gartner predicts that 30% of generative AI projects will be abandoned after proof of concept by the end of 2025](https://www.gartner.com/en/newsroom/press-releases/2024-07-29-gartner-predicts-30-percent-of-generative-ai-projects-will-be-abandoned-after-proof-of-concept-by-end-of-2025), with poor data quality and unclear business value as top causes — that problem doesn't go away because you bought an AI module.
+**Second, they require clean data to work, and your ERP data is not clean enough.** Every distributor I've worked with has data quality issues the ERP itself created — duplicate items from migrations, inconsistent units of measure, landed cost that was never calculated properly, sales tax lines that break category analysis. Turning on AI inside the ERP on top of that data produces confident nonsense. [Gartner predicts organizations will abandon 60% of AI projects through 2026 because they lack AI-ready data](https://www.gartner.com/en/newsroom/press-releases/2025-02-26-lack-of-ai-ready-data-puts-ai-projects-at-risk) — that problem doesn't go away because you bought an AI module.
 
 **Third, it's an upsell, which means your ROI discussion is now tangled up with a license discussion.** The vendor's AI module comes with a per-user fee, a new agreement, and a multi-year term. The question of whether it actually moves a number gets lost inside the contract negotiation.
 
