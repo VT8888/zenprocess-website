@@ -1,7 +1,7 @@
 ---
 title: "AI Hype to AI Value: The Five Questions That Tell You If an AI Project Will Actually Move a Number"
 description: "Mid-market building materials distributors are drowning in AI pitches. Here are the five questions I run every project through — before I touch anything."
-date: "2026-04-27"
+date: "2026-04-22"
 author: "Vinh Truong"
 authorTitle: "Co-Founder & AI Architect"
 pillar: "industry_insights"
@@ -34,8 +34,8 @@ schema:
   publisher:
     name: "zenprocess.ai"
     logo: "https://zenprocess.ai/logo.png"
-  datePublished: "2026-04-27"
-  dateModified: "2026-04-27"
+  datePublished: "2026-04-22"
+  dateModified: "2026-04-22"
 draft: false
 ---
 
