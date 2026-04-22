@@ -1,2 +1,1 @@
 name: indexnow-on-deploy
-description: Pings IndexNow (Bing, Yandex, Seznam, Yep) after a successful Netlify deploy with every URL in the built sitemap, so new/updated content gets re-crawled within hours.
