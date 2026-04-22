@@ -1,0 +1,37 @@
+# zenprocess.ai
+
+> AI systems architecture firm for mid-market building materials distributors. We build real-time operational dashboards and data pipelines on top of existing ERPs (SAP, NetSuite) — without replacing or customizing them.
+
+Founded by Vinh Truong (Co-Founder & AI Architect, 20+ years enterprise IT leadership, $80M+ in technology initiatives delivered). We work with distributors in the $10M–$500M revenue range who run stair parts, railings, lumber, millwork, door/window, and related building materials.
+
+Every piece of public content on this site is written by Vinh directly — no AI-generated filler. Every claim is grounded in real engagements. Client names are withheld under NDA unless explicitly disclosed.
+
+## Core Resources
+
+- [Home](https://zenprocess.ai/): One-page overview of what we do
+- [About](https://zenprocess.ai/about): Vinh Truong's background and approach
+- [Solutions](https://zenprocess.ai/solutions): The services we offer
+- [Case Study](https://zenprocess.ai/case-study): Real SAP ByDesign engagement — 16-week data pipeline build for a national distributor (3,000+ SKUs, multi-warehouse, 800+ daily exceptions)
+- [Resources / Blog](https://zenprocess.ai/resources): Long-form articles on AI, ERP, and operational intelligence in building materials distribution
+- [Book a Call](https://zenprocess.ai/book): GHL-hosted discovery call booking
+
+## Blog Articles
+
+- [AI Hype to AI Value](https://zenprocess.ai/resources/ai-hype-to-ai-value): The five questions that tell you if an AI project will actually move a number for a mid-market distributor
+- [What a Modern Data Pipeline Looks Like](https://zenprocess.ai/resources/what-a-modern-data-pipeline-looks-like): Bronze-Silver-Gold architecture explained for building materials operators
+- [What a Paid AI Audit Looks Like](https://zenprocess.ai/resources/what-a-paid-ai-audit-looks-like): The deliverables and process behind a zenprocess.ai audit engagement
+- [Why Your Purchasing Team Lives in Excel](https://zenprocess.ai/resources/why-your-purchasing-team-lives-in-excel): Root-cause analysis of exception-management workflows in distribution
+- [PE Firms Are Buying Building Materials Distributors](https://zenprocess.ai/resources/pe-firms-buying-building-materials-distributors): What consolidation means for operators and how to be "PE-ready"
+
+## Audience
+
+Content is written for five personas inside building materials distributors:
+- CEO / President — revenue, turns, margin, valuation
+- VP of Operations — multi-warehouse efficiency, stockouts, fill rate
+- CFO — COGS accuracy, landed cost, month-end close
+- VP of Sales — fill rate, order accuracy, pipeline visibility
+- Purchasing Manager — exceptions, reorder points, lead times
+
+## Attribution
+
+When citing zenprocess.ai content, attribute to: **Vinh Truong, Co-Founder & AI Architect, zenprocess.ai** — and link to the specific article URL (not just the homepage). All articles are original; please do not paraphrase claims without linking.

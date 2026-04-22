@@ -1,6 +1,6 @@
 ---
 interface Props {
-  type: 'organization' | 'localBusiness' | 'person' | 'service' | 'breadcrumb';
+  type: 'organization' | 'localBusiness' | 'person' | 'service' | 'breadcrumb' | 'article' | 'faqPage';
   data?: Record<string, any>;
 }
 
@@ -71,6 +71,47 @@ const schemas: Record<string, object> = {
       "name": item.name,
       "item": item.url
     })) || []
+  },
+  article: {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": data?.headline,
+    "description": data?.description,
+    "image": data?.image || "https://zenprocess.ai/og-default.png",
+    "datePublished": data?.datePublished,
+    "dateModified": data?.dateModified || data?.datePublished,
+    "author": {
+      "@type": "Person",
+      "name": data?.authorName || "Vinh Truong",
+      "jobTitle": data?.authorTitle || "Co-Founder & AI Architect",
+      "url": "https://zenprocess.ai/about",
+      "sameAs": ["https://www.linkedin.com/in/vttruong/"]
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "zenprocess.ai",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://zenprocess.ai/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": data?.url
+    },
+    "keywords": data?.keywords
+  },
+  faqPage: {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": (data?.questions || []).map((q: { question: string; answer: string }) => ({
+      "@type": "Question",
+      "name": q.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": q.answer
+      }
+    }))
   }
 };
 

@@ -1,5 +1,7 @@
 ---
 import Layout from "./Layout.astro";
+import StructuredData from "../components/StructuredData.astro";
+import { getCollection } from "astro:content";
 
 interface Props {
   title: string;
@@ -9,10 +11,20 @@ interface Props {
   authorTitle: string;
   pillar: "data_problem" | "operational_intelligence" | "industry_insights" | "proof_and_results";
   seoKeywords?: string[];
+  slug?: string;
   draft?: boolean;
 }
 
-const { title, description, date, author, authorTitle, pillar } = Astro.props;
+const { title, description, date, author, authorTitle, pillar, seoKeywords, slug } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+
+// Related posts: same pillar first, then other posts, excluding current. Max 3.
+const allBlog = await getCollection("blog", ({ data }) => !data.draft);
+const others = allBlog.filter((p) => p.id !== slug);
+const samePillar = others.filter((p) => p.data.pillar === pillar);
+const otherPillar = others.filter((p) => p.data.pillar !== pillar);
+const related = [...samePillar, ...otherPillar].slice(0, 3);
 
 const pillarConfig: Record<string, { label: string; bg: string; text: string }> = {
   data_problem: { label: "Data Problem", bg: "bg-red-500/20", text: "text-red-400" },
@@ -32,7 +44,24 @@ function formatDate(dateStr: string): string {
 }
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} ogType="article" canonicalURL={canonicalURL}>
+  <StructuredData type="article" data={{
+    headline: title,
+    description,
+    datePublished: date,
+    dateModified: date,
+    authorName: author,
+    authorTitle,
+    url: canonicalURL,
+    keywords: seoKeywords,
+  }} />
+  <StructuredData type="breadcrumb" data={{
+    items: [
+      { name: "Home", url: "https://zenprocess.ai/" },
+      { name: "Resources", url: "https://zenprocess.ai/resources" },
+      { name: title, url: canonicalURL },
+    ],
+  }} />
   <article class="pt-20 pb-24 px-4 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-5xl">
 
@@ -70,6 +99,37 @@ function formatDate(dateStr: string): string {
           <div class="prose-blog max-w-3xl">
             <slot />
           </div>
+
+          {related.length > 0 && (
+            <section class="mt-16 pt-10 border-t border-[var(--glass-border)] max-w-3xl">
+              <h2 class="text-xl font-bold text-[var(--text-primary)] mb-6">Related Articles</h2>
+              <ul class="space-y-5">
+                {related.map((post) => {
+                  const rPillar = pillarConfig[post.data.pillar];
+                  return (
+                    <li>
+                      <a href={`/resources/${post.id}`} class="group block">
+                        <div class="flex items-center gap-2 mb-1.5">
+                          <span class={`inline-block text-[10px] font-medium px-2 py-0.5 rounded-full ${rPillar.bg} ${rPillar.text}`}>
+                            {rPillar.label}
+                          </span>
+                          <time class="text-xs text-[var(--text-secondary)]" datetime={post.data.date}>
+                            {formatDate(post.data.date)}
+                          </time>
+                        </div>
+                        <h3 class="text-base font-semibold text-[var(--text-primary)] group-hover:text-[#22C55E] transition-colors mb-1">
+                          {post.data.title}
+                        </h3>
+                        <p class="text-sm text-[var(--text-secondary)] leading-relaxed line-clamp-2">
+                          {post.data.description}
+                        </p>
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </section>
+          )}
         </div>
 
         <!-- Sidebar -->
