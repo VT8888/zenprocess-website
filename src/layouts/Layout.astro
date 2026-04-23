@@ -68,13 +68,26 @@ const siteName = "zenprocess.ai";
     <!-- Analytics -->
     <Analytics />
 
-    <!-- Google Fonts: Be Vietnam Pro + IBM Plex Mono -->
+    <!-- Google Fonts: Be Vietnam Pro + IBM Plex Mono (non-blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      />
+    </noscript>
   </head>
   <body class="min-h-screen font-['Be_Vietnam_Pro',sans-serif] antialiased" style="background-color: var(--bg-primary); color: var(--text-primary); transition: background-color 0.3s, color 0.3s;">
     <Header />
@@ -83,13 +96,33 @@ const siteName = "zenprocess.ai";
     </main>
     <Footer />
 
-    <!-- LeadConnector Chat Widget -->
-    <script
-      is:inline
-      src="https://widgets.leadconnectorhq.com/loader.js"
-      data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
-      data-widget-id="68ed858fb8dc078db41d9f72"
-    ></script>
+    <!-- LeadConnector Chat Widget — deferred until after load + idle to protect LCP -->
+    <script is:inline>
+      (function() {
+        function loadChat() {
+          if (window.__lcChatLoaded) return;
+          window.__lcChatLoaded = true;
+          var s = document.createElement('script');
+          s.src = 'https://widgets.leadconnectorhq.com/loader.js';
+          s.async = true;
+          s.setAttribute('data-resources-url', 'https://widgets.leadconnectorhq.com/chat-widget/loader.js');
+          s.setAttribute('data-widget-id', '68ed858fb8dc078db41d9f72');
+          document.body.appendChild(s);
+        }
+        function schedule() {
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(loadChat, { timeout: 4000 });
+          } else {
+            setTimeout(loadChat, 3000);
+          }
+        }
+        if (document.readyState === 'complete') {
+          schedule();
+        } else {
+          window.addEventListener('load', schedule, { once: true });
+        }
+      })();
+    </script>
     <!-- Fix chat widget: reposition on mobile + delay auto-open -->
     <style>
       @media (max-width: 768px) {
