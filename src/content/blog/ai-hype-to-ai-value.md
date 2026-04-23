@@ -1,6 +1,6 @@
 ---
 title: "AI Hype to AI Value: The Five Questions That Tell You If an AI Project Will Actually Move a Number"
-description: "Mid-market building materials distributors are drowning in AI pitches. Here are the five questions I run every project through — before I touch anything."
+description: "Mid-market building materials distributors are drowning in AI pitches. Here are the five questions I run every project through, before I touch anything."
 date: "2026-04-22"
 author: "Vinh Truong"
 authorTitle: "Co-Founder & AI Architect"
@@ -39,7 +39,7 @@ schema:
 draft: false
 ---
 
-*By Vinh Truong — 20+ years in enterprise IT and CTO roles, $80M+ in technology initiatives delivered. I build real-time dashboards and data pipelines for mid-market building materials distributors on SAP and NetSuite.*
+*By Vinh Truong, 20+ years in enterprise IT and CTO roles, $80M+ in technology initiatives delivered. I build real-time dashboards and data pipelines for mid-market building materials distributors on SAP and NetSuite.*
 
 ## At a Glance
 
@@ -55,7 +55,7 @@ draft: false
 
 If you run a building materials distribution business, you are being pitched AI from every direction.
 
-Your ERP vendor just announced agentic AI in every module — [SAP made that announcement at Hannover Messe 2026](https://news.sap.com/2026/04/sap-at-hannover-messe-2026-agentic-ai-resilient-manufacturing/), and NetSuite isn't far behind. Your BI tool added a copilot. Three consultants sent you proposals last month. A board member forwarded you a McKinsey report. Your competitors are posting on LinkedIn about their AI transformation.
+Your ERP vendor just announced agentic AI in every module, [SAP made that announcement at Hannover Messe 2026](https://news.sap.com/2026/04/sap-at-hannover-messe-2026-agentic-ai-resilient-manufacturing/), and NetSuite isn't far behind. Your BI tool added a copilot. Three consultants sent you proposals last month. A board member forwarded you a McKinsey report. Your competitors are posting on LinkedIn about their AI transformation.
 
 Most of it is activity, not value.
 
@@ -104,7 +104,7 @@ Not "efficiency." Not "productivity." Not "insight." A specific, measurable numb
 
 Fill rate. Inventory turns. Days sales outstanding. Gross margin by product category. Landed cost variance. Purchase order accuracy. Stockout frequency. Month-end close duration.
 
-If the answer is something vague — "help the team make better decisions" — the project is in the activity trap before it starts. Better decisions show up as better numbers. Name the number.
+If the answer is something vague like "help the team make better decisions," the project is in the activity trap before it starts. Better decisions show up as better numbers. Name the number.
 
 ### 2. How is that number measured today?
 
@@ -112,13 +112,13 @@ This is where most AI projects fall apart. Nobody realizes it until month six.
 
 If you can't measure the target metric reliably today, you can't measure AI's impact on it tomorrow. You'll be left with vibes and testimonials. The AI will feel like it's working. You won't be able to prove it, defend the budget, or decide whether to expand the program.
 
-For a distributor on SAP or NetSuite, this often means the real first project is not an AI project. It's a data pipeline project — the Bronze-Silver-Gold layer that lets you measure fill rate, turns, and landed cost accurately and consistently. [I wrote a plain-English walkthrough of what that looks like here.](/resources/what-a-modern-data-pipeline-looks-like) Without that foundation, AI on top is a guess.
+For a distributor on SAP or NetSuite, this often means the real first project is not an AI project. It's a data pipeline project. The Bronze-Silver-Gold layer lets you measure fill rate, turns, and landed cost accurately and consistently. [I wrote a plain-English walkthrough of what that looks like here.](/resources/what-a-modern-data-pipeline-looks-like) Without that foundation, AI on top is a guess.
 
 ### 3. What is the current performance, and what is the target?
 
 "Improve inventory turns" is not a target. "Move inventory turns from 4.1 to 5.0 over two quarters" is a target.
 
-A real target forces two useful conversations. First, it makes you confirm the current number is trustworthy — which usually surfaces the data quality issues in question two. Second, it makes you decide whether the expected improvement justifies the cost. If the answer is "I don't know what it would be worth to move turns by a point," the project isn't ready.
+A real target forces two useful conversations. First, it makes you confirm the current number is trustworthy, which usually surfaces the data quality issues in question two. Second, it makes you decide whether the expected improvement justifies the cost. If the answer is "I don't know what it would be worth to move turns by a point," the project isn't ready.
 
 #### A worked example: what one turn is worth
 
@@ -181,9 +181,9 @@ SAP, NetSuite, and every other major ERP vendor have announced or shipped agenti
 
 Three reasons.
 
-**First, they're built for every customer, which means they optimize for none of yours.** Your product mix, your supplier structure, your margin model, your customer concentration — none of that shapes the vendor's AI module. You get the average AI for the average distributor. That's fine for average results. It's not how you pull ahead of competitors.
+**First, they're built for every customer, which means they optimize for none of yours.** Your product mix, your supplier structure, your margin model, your customer concentration: none of that shapes the vendor's AI module. You get the average AI for the average distributor. That's fine for average results. It's not how you pull ahead of competitors.
 
-**Second, they require clean data to work, and your ERP data is not clean enough.** Every distributor I've worked with has data quality issues the ERP itself created — duplicate items from migrations, inconsistent units of measure, landed cost that was never calculated properly, sales tax lines that break category analysis. Turning on AI inside the ERP on top of that data produces confident nonsense. [Gartner predicts organizations will abandon 60% of AI projects through 2026 because they lack AI-ready data](https://www.gartner.com/en/newsroom/press-releases/2025-02-26-lack-of-ai-ready-data-puts-ai-projects-at-risk) — that problem doesn't go away because you bought an AI module.
+**Second, they require clean data to work, and your ERP data is not clean enough.** Every distributor I've worked with has data quality issues the ERP itself created: duplicate items from migrations, inconsistent units of measure, landed cost that was never calculated properly, sales tax lines that break category analysis. Turning on AI inside the ERP on top of that data produces confident nonsense. [Gartner predicts organizations will abandon 60% of AI projects through 2026 because they lack AI-ready data](https://www.gartner.com/en/newsroom/press-releases/2025-02-26-lack-of-ai-ready-data-puts-ai-projects-at-risk). That problem doesn't go away because you bought an AI module.
 
 **Third, it's an upsell, which means your ROI discussion is now tangled up with a license discussion.** The vendor's AI module comes with a per-user fee, a new agreement, and a multi-year term. The question of whether it actually moves a number gets lost inside the contract negotiation.
 
@@ -196,7 +196,7 @@ If you're evaluating an AI project in your business right now, here's the short 
 1. Write down the one number this project will move.
 2. Write down how that number is measured today and whether you trust it.
 3. Write down the current value and the target value, with a dollar figure attached to the delta.
-4. Write down the name of the operator — not the CIO, not the consultant — who is accountable for the number moving.
+4. Write down the name of the operator, not the CIO, not the consultant, who is accountable for the number moving.
 5. Write down the smallest version of the project that would prove it works.
 
 If any of those five answers is missing, weak, or vague, you haven't found a real AI project. You've found an activity.
@@ -218,22 +218,22 @@ What I am claiming: if you can't answer the five questions above, the project is
 ## Frequently Asked Questions
 
 **Do I really need a data pipeline before I can do anything with AI?**
-For operational metrics, yes. You can use ChatGPT to write emails and summarize documents without touching your ERP data, and that's fine. But if you want AI to affect fill rate, turns, margin, or close speed, it has to read clean data. Your ERP alone isn't that data source — it's a transactional system, not an analytics one.
+For operational metrics, yes. You can use ChatGPT to write emails and summarize documents without touching your ERP data, and that's fine. But if you want AI to affect fill rate, turns, margin, or close speed, it has to read clean data. Your ERP alone isn't that data source, it's a transactional system, not an analytics one.
 
 **My ERP vendor says their AI module handles the data problem automatically. Is that true?**
-Partly. The module may clean some things on the way in. It doesn't fix structural problems — duplicate master records, landed cost that was never calculated, units of measure that vary by location. Those problems predate the AI module and follow you into it. The vendor's demo was run on clean data that doesn't look like yours.
+Partly. The module may clean some things on the way in. It doesn't fix structural problems, duplicate master records, landed cost that was never calculated, units of measure that vary by location. Those problems predate the AI module and follow you into it. The vendor's demo was run on clean data that doesn't look like yours.
 
 **How long should a first AI project take for a mid-market distributor?**
 The data layer underneath it takes most of the time. A realistic range for a narrow first AI use case on top of a working data layer is 8–16 weeks. If a consultant tells you they can deliver a meaningful AI-powered outcome in two weeks with no data prep, they're selling a demo, not a result.
 
 **What's a reasonable budget for a first project?**
-Depends on scope, data maturity, and whether you have in-house engineering. For a narrow, single-outcome project on top of a partially built data layer, you're looking at a mid-five-figure range. If you're also building the data layer, add six figures. The test isn't absolute cost — it's whether the measured outcome covers it in 12–18 months.
+Depends on scope, data maturity, and whether you have in-house engineering. For a narrow, single-outcome project on top of a partially built data layer, you're looking at a mid-five-figure range. If you're also building the data layer, add six figures. The test isn't absolute cost, it's whether the measured outcome covers it in 12–18 months.
 
 **Should I hire an AI consultant, an ERP consultant, or an integrator?**
 None of those, by title alone. Hire someone who can point to a specific number they moved on a specific engagement, for a company that looks like yours. If they can't name the metric and the delta, they're selling activity.
 
 **What should I do this week if I'm starting from zero?**
-One thing. Pick a number your operations team checks every week — fill rate, stockout count, turns, whatever hurts most — and write down how it's currently measured and whether you trust the measurement. That single exercise tells you more about your AI readiness than any vendor demo.
+One thing. Pick a number your operations team checks every week, fill rate, stockout count, turns, whatever hurts most, and write down how it's currently measured and whether you trust the measurement. That single exercise tells you more about your AI readiness than any vendor demo.
 
 ---
 

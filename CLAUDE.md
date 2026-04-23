@@ -161,7 +161,7 @@ Every article must sound like Vinh wrote it. AI-sounding prose gets dismissed by
 - Parallel triples: "fast, reliable, and scalable"
 - Buzzwords: leverage, unlock, transform, optimize, streamline, empower, robust, seamless, holistic, cutting-edge, game-changing
 - Hedge phrases: "it's worth noting," "in today's landscape," "in the ever-evolving world of"
-- Em-dash over-use as a stylistic crutch
+- **NO em-dashes or hyphens as sentence connectors (strict).** AI models overuse them; readers pattern-match em-dashes as an AI tell. Use period, comma, colon, or parentheses instead.
 - Symmetric bullet lists where every item has identical structure
 - "Not just X, but Y" used repeatedly
 - Sweeping generalizations: "every company," "all businesses," "the modern enterprise"

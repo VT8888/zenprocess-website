@@ -36,10 +36,13 @@ const pillarConfig: Record<string, { label: string; bg: string; text: string }> 
 const pillarInfo = pillarConfig[pillar];
 
 function formatDate(dateStr: string): string {
+  // Force UTC so frontmatter date "2026-04-22" renders as April 22
+  // regardless of reader's timezone.
   return new Date(dateStr).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
     day: "numeric",
+    timeZone: "UTC",
   });
 }
 ---

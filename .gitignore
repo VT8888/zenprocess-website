@@ -23,4 +23,5 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 _backups/
+_post_backups/
 Logo/
