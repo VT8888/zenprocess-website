@@ -1,5 +1,7 @@
 ---
 import ThemeToggle from './ThemeToggle.astro';
+import { Image } from 'astro:assets';
+import logo from '../assets/logo.png';
 const currentPath = Astro.url.pathname;
 
 const navLinks = [
@@ -20,7 +22,7 @@ function isActive(href: string): boolean {
     <div class="flex h-16 items-center justify-between">
       <!-- Logo -->
       <a href="/" class="flex items-center gap-2.5 text-2xl font-bold text-[var(--text-primary)] tracking-tight">
-        <img src="/logo.png" alt="zenprocess.ai" class="h-10 w-10" />
+        <Image src={logo} alt="zenprocess.ai" width={80} height={80} loading="eager" fetchpriority="high" class="h-10 w-10" />
         zenprocess.ai
       </a>
 
