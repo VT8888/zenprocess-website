@@ -1,12 +1,9 @@
 ---
-// GA4 Analytics component
-// Replace G-XXXXXXXXXX with your actual GA4 Measurement ID
 const GA_ID = import.meta.env.PUBLIC_GA4_ID || 'G-G8E4RJ95YB';
 ---
 
 <!-- Google Analytics 4 -->
 <script is:inline define:vars={{ GA_ID }}>
-  // Load gtag.js
   const script = document.createElement('script');
   script.async = true;
   script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
@@ -15,18 +12,8 @@ const GA_ID = import.meta.env.PUBLIC_GA4_ID || 'G-G8E4RJ95YB';
   window.dataLayer = window.dataLayer || [];
   function gtag() { dataLayer.push(arguments); }
   gtag('js', new Date());
-  // send_page_view:false — we fire page_view manually via astro:page-load
-  // so initial load and SPA navigations are tracked identically (no duplicates).
-  gtag('config', GA_ID, { send_page_view: false });
+  gtag('config', GA_ID);
 
-  document.addEventListener('astro:page-load', () => {
-    gtag('event', 'page_view', {
-      page_path: window.location.pathname,
-      page_title: document.title,
-    });
-  });
-
-  // Custom event helpers (available globally)
   window.trackEvent = function(eventName, params) {
     gtag('event', eventName, params);
   };
