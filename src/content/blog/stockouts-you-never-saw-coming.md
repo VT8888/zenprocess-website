@@ -1,7 +1,7 @@
 ---
 title: "Stockouts You Never Saw Coming"
 description: "Multi-warehouse distributors watch their inventory dashboards every morning and still get blindsided by stockouts. The fix isn't more monitoring. It's exception-driven purchasing."
-date: "2026-05-20"
+date: "2026-05-18"
 author: "Vinh Truong"
 authorTitle: "Co-Founder & AI Architect"
 pillar: "data_problem"
