@@ -88,6 +88,18 @@ const siteName = "zenprocess.ai";
         href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
       />
     </noscript>
+
+    <!-- Layout guard: keeps the header correct even if the main CSS bundle fails to load -->
+    <style is:inline>
+      @media (min-width: 768px) {
+        #mobile-menu-btn,
+        #mobile-menu { display: none !important; }
+        #desktop-nav { display: flex !important; }
+      }
+      @media (max-width: 767px) {
+        #desktop-nav { display: none !important; }
+      }
+    </style>
   </head>
   <body class="min-h-screen font-['Be_Vietnam_Pro',sans-serif] antialiased" style="background-color: var(--bg-primary); color: var(--text-primary); transition: background-color 0.3s, color 0.3s;">
     <Header />
