@@ -371,6 +371,39 @@ tr.tap:hover td { background: rgba(17,24,39,.02); }
 @media(max-width:860px){.intro .ind-grid{grid-template-columns:repeat(2,1fr)}.intro .entry-h1{font-size:28px}}
 @media(max-width:560px){.intro .ind-grid{grid-template-columns:1fr}}
 </style>
+<style>
+/* ===== premium landing pass ===== */
+.intro{background:
+  radial-gradient(1150px 520px at 84% -12%, rgba(22,163,74,.06) 0%, rgba(22,163,74,0) 60%),
+  radial-gradient(980px 500px at 3% 114%, rgba(21,128,61,.05) 0%, rgba(21,128,61,0) 58%),
+  #F6F8FA;}
+.intro .land-top{padding-top:22px}
+.intro .land-brand b{letter-spacing:-.01em}
+.intro .land-top .btn.sm{border-radius:22px;box-shadow:0 1px 2px rgba(16,24,40,.05)}
+.intro .entry{margin:44px auto 42px;animation:osRise .55s cubic-bezier(.2,.7,.2,1) both}
+.intro .entry .kicker{font-size:11.5px;letter-spacing:.2em;color:var(--brand)}
+.intro .entry-h1{font-size:47px;line-height:1.06;font-weight:700;letter-spacing:-.026em;margin:16px 0 15px;background:linear-gradient(180deg,#132018 0%,var(--ink) 60%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.intro .entry-sub{font-size:16.5px;color:var(--ink-2);max-width:600px;margin:0 auto;line-height:1.55}
+.intro .entry-pill{display:inline-flex;align-items:center;gap:9px;margin-top:22px;font-size:12.5px;font-weight:600;color:var(--ink-2);background:rgba(255,255,255,.9);border:1px solid var(--border);border-radius:999px;padding:7px 15px;box-shadow:0 1px 2px rgba(16,24,40,.04),0 6px 16px -10px rgba(16,24,40,.18)}
+.intro .entry-pill .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px rgba(34,197,94,.18)}
+.intro .ind-grid{gap:18px}
+.intro .ind{border-radius:18px;padding:22px;background:#fff;border:1px solid var(--border);box-shadow:0 1px 2px rgba(16,24,40,.05),0 18px 34px -22px rgba(16,24,40,.20);animation:osRise .55s cubic-bezier(.2,.7,.2,1) both}
+.intro .ind:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--d,#15803D) 45%,var(--border));box-shadow:0 2px 4px rgba(16,24,40,.05),0 28px 46px -24px color-mix(in srgb,var(--d,#15803D) 42%,rgba(16,24,40,.5))}
+.intro .ind.ind-hi{background:linear-gradient(180deg,color-mix(in srgb,var(--d,#15803D) 6%,#fff) 0%,#fff 72%);border-color:color-mix(in srgb,var(--d,#15803D) 38%,var(--border));box-shadow:0 2px 4px rgba(16,24,40,.05),0 22px 42px -24px color-mix(in srgb,var(--d,#15803D) 40%,transparent)}
+.intro .ind .ic{border-radius:12px;box-shadow:inset 0 0 0 1px rgba(16,24,40,.05),0 4px 10px -6px color-mix(in srgb,var(--d,#15803D) 45%,transparent)}
+.intro .ind .ind-tag{background:linear-gradient(180deg,color-mix(in srgb,var(--d,#15803D) 78%,#fff),var(--d,#15803D));box-shadow:0 3px 8px -2px color-mix(in srgb,var(--d,#15803D) 55%,transparent),inset 0 1px 0 rgba(255,255,255,.35)}
+.intro .ind .ind-name{font-size:17px}
+.intro .entry-foot{margin-top:36px;animation:osRise .55s cubic-bezier(.2,.7,.2,1) .32s both}
+.intro .ind:nth-child(1){animation-delay:.06s}
+.intro .ind:nth-child(2){animation-delay:.11s}
+.intro .ind:nth-child(3){animation-delay:.16s}
+.intro .ind:nth-child(4){animation-delay:.21s}
+.intro .ind:nth-child(5){animation-delay:.26s}
+.intro .ind:nth-child(6){animation-delay:.31s}
+@keyframes osRise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@media(max-width:860px){.intro .entry-h1{font-size:34px}}
+@media(prefers-reduced-motion:reduce){.intro .entry,.intro .ind,.intro .entry-foot{animation:none}}
+</style>
 </head>
 <body>
 <div class="app">
@@ -417,6 +450,7 @@ tr.tap:hover td { background: rgba(17,24,39,.02); }
       <div class="kicker">Interactive demo</div>
       <h1 class="entry-h1">Run your business from one place.</h1>
       <p class="entry-sub">Stop checking five different systems to figure out what’s going on. <span class="nocaps">OwnerOS</span> shows you what needs attention today and prepares the next step for you to approve.</p>
+      <div class="entry-pill"><span class="dot"></span>A live workspace, running on sample data</div>
     </div>
     <div class="ind-grid" id="indGrid"></div>
     <div class="entry-foot">
