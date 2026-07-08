@@ -1,0 +1,670 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IntelDb — Ironvale Supply Co. (Demo)</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMwRTFCMkQiLz48dGV4dCB4PSIzMiIgeT0iNDMiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLHNlcmlmIiBmb250LXNpemU9IjMwIiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjQ0RBOTVEIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5JVjwvdGV4dD48L3N2Zz4=">
+<style>
+:root{
+  --ivory:#F6F1E5; --ivory-2:#EFE7D5; --paper:#FFFFFF; --paper-2:#FCFAF4;
+  --ink:#0E1B2D; --ink-2:#3B4C64; --ink-3:#7C8698; --ink-4:#A4ADBB;
+  --gold:#A9803A; --gold-dk:#8A6626; --gold-lt:#CDA95D;
+  --gold-grad:linear-gradient(135deg,#D8BA7C 0%,#B78A38 55%,#9C7328 100%);
+  --navy-grad:linear-gradient(105deg,#0C1626 0%,#132339 60%,#1B2E49 100%);
+  --steel:#2C5A8C; --steel-soft:#EAF1F8;
+  --border:#E8DEC8; --border-2:#F0E8D6; --hair:#EDE5D2;
+  --good:#2C7A45; --good-soft:#E9F2EB; --warn:#B37B1F; --warn-soft:#F8EFDA; --bad:#AF3A38; --bad-soft:#F7E7E4;
+  --radius:16px;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --sh-sm:0 1px 2px rgba(14,27,45,.05);
+  --sh:0 1px 2px rgba(14,27,45,.05),0 10px 26px rgba(14,27,45,.07);
+  --sh-lg:0 34px 80px rgba(10,18,32,.34);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:var(--sans);color:var(--ink);font-size:14px;line-height:1.45;-webkit-font-smoothing:antialiased;
+  background:
+    radial-gradient(1200px 520px at 82% -6%, #FBF7EC 0%, rgba(251,247,236,0) 62%),
+    radial-gradient(900px 500px at 8% 108%, #F1EAD8 0%, rgba(241,234,216,0) 60%),
+    var(--ivory);
+  padding-bottom:60px}
+h1,h2,h3,h4{margin:0;font-family:var(--serif);letter-spacing:.1px}
+svg{display:block}
+::selection{background:rgba(169,128,58,.24)}
+
+/* ===== top band (navy, premium) ===== */
+.topband{position:sticky;top:0;z-index:30;background:var(--navy-grad);color:#EFE7D5;
+  border-bottom:1px solid rgba(205,169,93,.28);box-shadow:0 10px 30px rgba(10,18,32,.16)}
+.topband:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(205,169,93,.7),transparent)}
+.tb-in{max-width:1300px;margin:0 auto;display:flex;align-items:center;gap:15px;padding:13px clamp(16px,3vw,36px)}
+.logo{width:42px;height:42px;border-radius:12px;background:linear-gradient(160deg,#12233a,#0a1523);
+  color:var(--gold-lt);font-family:var(--serif);font-weight:700;font-size:20px;display:grid;place-items:center;
+  border:1px solid rgba(205,169,93,.4);box-shadow:0 6px 18px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.06);flex:none}
+.co{display:flex;flex-direction:column;line-height:1.18}
+.co b{font-family:var(--serif);font-size:20px;font-weight:700;color:#F6F1E5}
+.co span{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#C9A25A;font-weight:600}
+.tb-r{margin-left:auto;display:flex;align-items:center;gap:11px}
+.gpill{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:#DCC98F;background:rgba(205,169,93,.12);border:1px solid rgba(205,169,93,.32);padding:5px 11px;border-radius:20px}
+.gpill.demo{color:#E7D8C4;background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.16)}
+.asof{font-size:12px;color:#9BA6B7}
+.guide{appearance:none;cursor:pointer;font-family:var(--sans);font-weight:700;font-size:12.5px;color:#1a1206;
+  background:var(--gold-grad);border:0;padding:9px 16px;border-radius:22px;
+  box-shadow:0 6px 18px rgba(160,120,40,.4),inset 0 1px 0 rgba(255,255,255,.4);display:flex;align-items:center;gap:7px}
+.guide:hover{filter:brightness(1.05)}
+.guide svg{width:14px;height:14px}
+
+/* tab bar */
+.tabbar{position:sticky;top:68px;z-index:29;background:rgba(246,241,229,.86);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border)}
+.tabs{max-width:1300px;margin:0 auto;display:flex;gap:3px;padding:0 clamp(16px,3vw,36px);overflow-x:auto}
+.tab{appearance:none;border:0;background:transparent;font-family:var(--sans);cursor:pointer;position:relative;
+  padding:13px 17px 14px;font-size:13.5px;font-weight:600;color:var(--ink-2);white-space:nowrap;display:flex;align-items:center;gap:8px}
+.tab .dot{width:7px;height:7px;border-radius:2px;background:var(--ink-4);transform:rotate(45deg);transition:.2s}
+.tab:hover{color:var(--ink)}
+.tab:after{content:"";position:absolute;left:12px;right:12px;bottom:-1px;height:3px;border-radius:3px;background:transparent;transition:.2s}
+.tab.on{color:var(--ink)}
+.tab.on .dot{background:var(--gold);box-shadow:0 0 0 3px rgba(169,128,58,.16)}
+.tab.on:after{background:var(--gold-grad)}
+
+/* ===== layout ===== */
+.wrap{max-width:1300px;margin:0 auto;padding:22px clamp(16px,3vw,36px)}
+.view{display:none;animation:fade .4s cubic-bezier(.2,.7,.2,1)}
+.view.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:9px}
+.eyebrow:before{content:"";width:22px;height:2px;background:var(--gold-grad);border-radius:2px}
+.h-sec{font-size:24px;font-weight:700;margin:8px 0 4px;letter-spacing:-.2px}
+.sub{color:var(--ink-2);font-size:13.5px;max-width:72ch}
+.rule{height:0;margin:16px 0 22px;border-top:1px solid var(--hair)}
+
+/* KPI cards */
+.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:13px}
+.kpi{background:linear-gradient(180deg,var(--paper),var(--paper-2));border:1px solid var(--border);
+  border-radius:var(--radius);padding:16px 16px 15px;position:relative;overflow:hidden;box-shadow:var(--sh);
+  transition:transform .2s,box-shadow .2s}
+.kpi:hover{transform:translateY(-2px);box-shadow:0 2px 4px rgba(14,27,45,.06),0 18px 40px rgba(14,27,45,.12)}
+.kpi:before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold-grad)}
+.kpi.steel:before{background:linear-gradient(180deg,#4E82BB,#2C5A8C)}
+.kpi.bronze:before{background:linear-gradient(180deg,#B8703E,#8A4E28)}
+.kpi.warn:before{background:linear-gradient(180deg,#D3A24A,#B37B1F)}
+.kpi.good:before{background:linear-gradient(180deg,#4FA36A,#2C7A45)}
+.kpi .lab{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.kpi .val{font-family:var(--serif);font-size:29px;font-weight:700;margin-top:8px;letter-spacing:.2px;color:var(--ink)}
+.kpi .foot{font-size:11.5px;color:var(--ink-2);margin-top:6px;display:flex;align-items:center;gap:6px}
+.trend{font-weight:700}.trend.up{color:var(--good)}.trend.dn{color:var(--bad)}
+
+.grid2{display:grid;grid-template-columns:1.35fr 1fr;gap:16px;margin-top:18px}
+.card{background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--sh);overflow:hidden}
+.card-h{display:flex;align-items:center;justify-content:space-between;padding:15px 18px 11px;border-bottom:1px solid var(--border-2)}
+.card-h b{font-family:var(--serif);font-size:15.5px;font-weight:700}
+.card-h .mut{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+.card-b{padding:14px 18px 18px}
+.legend{display:flex;gap:16px;font-size:11.5px;color:var(--ink-2);margin-top:10px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+
+/* pills */
+.tag{font-size:10.5px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;padding:3px 9px;border-radius:20px;white-space:nowrap;display:inline-block}
+.t-crit{color:#fff;background:linear-gradient(180deg,#c04b48,#a5322f);box-shadow:0 2px 6px rgba(175,58,56,.32)}
+.t-high{color:#7c520f;background:var(--warn-soft);border:1px solid #E7CE97}
+.t-med{color:var(--steel);background:var(--steel-soft);border:1px solid #D3E1F0}
+.t-good{color:var(--good);background:var(--good-soft);border:1px solid #C8E0CE}
+.t-short{color:var(--bad);background:var(--bad-soft);border:1px solid #EAC7C3}
+.t-surplus{color:#7c520f;background:var(--warn-soft);border:1px solid #E7CE97}
+.t-dead{color:var(--ink-2);background:#EDEAE0;border:1px solid #DDD7C6}
+
+/* count tiles */
+.counts{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-bottom:16px}
+.count{background:linear-gradient(180deg,var(--paper),var(--paper-2));border:1px solid var(--border);border-radius:var(--radius);padding:15px 17px;box-shadow:var(--sh)}
+.count .n{font-family:var(--serif);font-size:28px;font-weight:700}
+.count .l{font-size:12px;color:var(--ink-2);margin-top:3px}
+.count small{font-size:11px;color:var(--ink-3)}
+
+/* work queue */
+.queue{background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--sh)}
+.qrow{display:grid;grid-template-columns:1.6fr .9fr 1fr .8fr .7fr 1.5fr;gap:12px;align-items:center;
+  padding:13px 18px;border-bottom:1px solid var(--border-2);font-size:13px;transition:background .15s}
+.qrow:hover:not(.qhead){background:var(--paper-2)}
+.qhead{background:linear-gradient(180deg,#F3ECDB,#EFE7D5);font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
+.qrow:last-child{border-bottom:0}
+.qrow.sel{background:#FCF6E8;box-shadow:inset 3px 0 0 var(--gold)}
+.qrow .sku{font-weight:700}
+.qrow .sku small{display:block;font-weight:400;color:var(--ink-3);font-size:11px;margin-top:1px}
+.qrow .act{color:var(--steel);font-weight:600}
+.wos{font-variant-numeric:tabular-nums;font-weight:700}
+
+/* item detail */
+.detail{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.mini h4{margin:0 0 12px;font-family:var(--serif);font-size:15px}
+.kv{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border-2);font-size:13px}
+.kv:last-child{border-bottom:0}.kv b{font-weight:700}
+.plan-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border-2);font-size:12.5px}
+.plan-row:last-child{border-bottom:0}
+.chip{font-size:10px;font-weight:700;padding:2px 8px;border-radius:6px}
+.chip.po{background:var(--good-soft);color:var(--good)} .chip.so{background:var(--steel-soft);color:var(--steel)} .chip.fc{background:var(--warn-soft);color:#7c520f}
+
+/* warehouse cards */
+.dc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:13px}
+.dc{background:linear-gradient(180deg,var(--paper),var(--paper-2));border:1px solid var(--border);border-radius:var(--radius);padding:16px;box-shadow:var(--sh);transition:transform .2s,box-shadow .2s}
+.dc:hover{transform:translateY(-2px);box-shadow:0 2px 4px rgba(14,27,45,.06),0 18px 40px rgba(14,27,45,.12)}
+.dc .nm{font-family:var(--serif);font-size:15px;font-weight:700;display:flex;align-items:baseline;gap:8px}
+.dc .nm .fl{font-size:10px;font-weight:700;color:var(--ink-4);letter-spacing:.08em}
+.dc .big{font-family:var(--serif);font-size:23px;font-weight:700;margin:11px 0 2px}
+.dc .row{display:flex;justify-content:space-between;font-size:12px;color:var(--ink-2);padding:5px 0;border-top:1px solid var(--border-2);margin-top:7px}
+.bar{height:7px;border-radius:6px;background:var(--ivory-2);overflow:hidden;margin-top:11px}
+.bar>i{display:block;height:100%;background:var(--gold-grad)}
+
+/* table */
+.tbl{width:100%;border-collapse:collapse;font-size:13px}
+.tbl th{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);text-align:left;font-weight:700;padding:10px;border-bottom:1px solid var(--border)}
+.tbl td{padding:11px 10px;border-bottom:1px solid var(--border-2);vertical-align:middle}
+.tbl tr:last-child td{border-bottom:0}
+.tbl .num{text-align:right;font-variant-numeric:tabular-nums}
+.mbar{height:8px;border-radius:6px;background:var(--ivory-2);overflow:hidden;min-width:96px;display:inline-block;vertical-align:middle;margin-right:8px}
+.mbar>i{display:block;height:100%;background:linear-gradient(90deg,#4E82BB,#2C5A8C)}
+
+.note{margin-top:22px;font-size:12px;color:var(--ink-3);text-align:center;padding-top:16px;border-top:1px solid var(--hair)}
+
+/* ===== tour spotlight ===== */
+.tour-hole{position:absolute;z-index:60;border-radius:13px;pointer-events:none;
+  box-shadow:0 0 0 9999px rgba(10,18,32,.62),0 0 0 2px var(--gold-lt),0 0 34px 4px rgba(205,169,93,.45);
+  transition:all .3s cubic-bezier(.4,0,.2,1)}
+.tip{position:absolute;z-index:61;width:340px;max-width:calc(100vw - 28px);background:var(--paper);
+  border:1px solid var(--border);border-radius:16px;box-shadow:var(--sh-lg);padding:17px 18px;transition:all .3s cubic-bezier(.4,0,.2,1)}
+.tip .step{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:8px}
+.tip .step:before{content:"";width:16px;height:2px;background:var(--gold-grad);border-radius:2px}
+.tip h4{font-family:var(--serif);font-size:17px;margin:7px 0 6px}
+.tip p{margin:0;font-size:13px;color:var(--ink-2);line-height:1.55}
+.tip-foot{display:flex;align-items:center;gap:8px;margin-top:15px}
+.tip .prog{font-size:11.5px;color:var(--ink-3);margin-right:auto;font-variant-numeric:tabular-nums}
+.tbtn{appearance:none;cursor:pointer;font-family:var(--sans);font-size:12.5px;font-weight:600;padding:8px 14px;border-radius:10px;border:1px solid var(--border);background:#fff;color:var(--ink-2)}
+.tbtn:hover{border-color:var(--gold-lt)}
+.tbtn.g{background:var(--ink);color:#F6F1E5;border-color:var(--ink)} .tbtn.g:hover{background:#182b45}
+.tbtn.s{background:transparent;border-color:transparent;color:var(--ink-3)}
+.tour-back{position:fixed;inset:0;z-index:55;display:none} .tour-on .tour-back{display:block}
+
+/* ===== modal (splash + tour menu) ===== */
+.scrim{position:fixed;inset:0;z-index:80;display:none;place-items:center;padding:24px;
+  background:rgba(10,18,32,.55);backdrop-filter:blur(4px)}
+.scrim.on{display:grid}
+.modal{position:relative;width:560px;max-width:100%;background:var(--paper);border-radius:22px;box-shadow:var(--sh-lg);overflow:hidden;
+  border:1px solid rgba(205,169,93,.3);animation:pop .4s cubic-bezier(.2,.8,.2,1)}
+.mclose{position:absolute;top:13px;right:14px;z-index:2;width:32px;height:32px;border-radius:50%;cursor:pointer;
+  display:grid;place-items:center;font-size:20px;line-height:1;font-family:var(--sans);
+  color:#DCC98F;background:rgba(255,255,255,.08);border:1px solid rgba(205,169,93,.32)}
+.mclose:hover{background:rgba(255,255,255,.16);color:#fff}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+.modal-hero{background:var(--navy-grad);color:#EFE7D5;padding:26px 28px 22px;position:relative;text-align:center}
+.modal-hero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,rgba(205,169,93,.7),transparent)}
+.modal-hero .logo{margin:0 auto 14px}
+.modal-hero .k{color:#C9A25A;letter-spacing:.18em;text-transform:uppercase;font-size:11px;font-weight:700}
+.modal-hero h2{font-size:25px;color:#F6F1E5;margin-top:7px;letter-spacing:-.2px}
+.modal-hero p{max-width:44ch;margin:11px auto 0;color:#B9C2D2;font-size:14px;line-height:1.55}
+.modal-b{padding:18px 20px 20px}
+.menu-lead{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin:2px 4px 12px}
+.opt{display:flex;align-items:center;gap:14px;width:100%;text-align:left;cursor:pointer;font-family:var(--sans);
+  background:var(--paper-2);border:1px solid var(--border);border-radius:13px;padding:13px 15px;margin-bottom:9px;transition:.16s}
+.opt:hover{border-color:var(--gold-lt);background:#fff;transform:translateX(2px);box-shadow:var(--sh-sm)}
+.opt .ico{width:38px;height:38px;border-radius:10px;flex:none;display:grid;place-items:center;background:var(--ink);color:var(--gold-lt);font-family:var(--serif);font-weight:700;font-size:14px}
+.opt.full .ico{background:var(--gold-grad);color:#1a1206}
+.opt .tx b{font-family:var(--serif);font-size:15px;display:block}
+.opt .tx span{font-size:12px;color:var(--ink-3)}
+.opt .arr{margin-left:auto;color:var(--gold);font-size:18px;font-weight:700}
+.opt.full{background:linear-gradient(180deg,#FBF4E4,#F7ECD6);border-color:#E6D1A6}
+.modal-foot{display:flex;align-items:center;gap:12px;margin-top:6px;padding-top:14px;border-top:1px solid var(--border-2);flex-wrap:wrap}
+.modal-foot .prim{font-family:var(--sans);cursor:pointer;font-weight:700;font-size:13.5px;padding:11px 20px;border-radius:22px;border:0;background:var(--gold-grad);color:#1a1206;text-decoration:none;box-shadow:0 6px 16px rgba(160,120,40,.32)}
+.modal-foot .ghost{font-family:var(--sans);cursor:pointer;font-weight:600;font-size:13px;background:transparent;border:0;color:var(--ink-3);margin-left:auto}
+.fine{margin-top:14px;font-size:11.5px;color:var(--ink-4);text-align:center}
+
+/* ===== landing / hero ===== */
+.landing{position:fixed;inset:0;z-index:90;overflow:auto;display:none;background:var(--navy-grad);color:#EFE7D5}
+.landing:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(760px 400px at 50% -5%, rgba(205,169,93,.16), transparent 60%)}
+.landing.on{display:block}
+.land-in{position:relative;max-width:960px;margin:0 auto;padding:clamp(26px,6vh,64px) 24px 56px;text-align:center}
+.land-brand{display:inline-flex;align-items:center;gap:12px;margin-bottom:24px}
+.land-brand .logo{width:38px;height:38px;font-size:18px}
+.land-brand b{font-family:var(--serif);font-size:19px;color:#F6F1E5}
+.land-brand .prod{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#C9A25A;font-weight:600;border-left:1px solid rgba(205,169,93,.4);padding-left:12px}
+.land-eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#CDA95D}
+.land-h1{font-family:var(--serif);font-size:clamp(33px,5.2vw,54px);line-height:1.06;color:#F6F1E5;margin:14px auto 0;max-width:17ch;letter-spacing:-.5px}
+.land-sub{color:#C3CDDC;font-size:clamp(15px,1.5vw,18px);max-width:62ch;margin:18px auto 0;line-height:1.62}
+.land-badge{display:inline-flex;align-items:center;gap:9px;margin-top:20px;font-size:12.5px;font-weight:600;color:#DCC98F;background:rgba(205,169,93,.1);border:1px solid rgba(205,169,93,.32);padding:7px 15px;border-radius:22px}
+.land-badge .live{width:8px;height:8px;border-radius:50%;background:#4FA36A;box-shadow:0 0 0 3px rgba(79,163,106,.25)}
+.land-stats{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:30px auto 0;max-width:800px}
+.lstat{flex:1 1 168px;background:rgba(255,255,255,.05);border:1px solid rgba(205,169,93,.22);border-radius:14px;padding:15px 14px}
+.lstat b{display:block;font-family:var(--serif);font-size:25px;color:#F6F1E5}
+.lstat span{font-size:11.5px;color:#9BA6B7;margin-top:4px;display:block;line-height:1.35}
+.land-ben{display:grid;grid-template-columns:1fr 1fr;gap:13px 28px;max-width:780px;margin:30px auto 0;text-align:left}
+.lben{display:flex;gap:11px;align-items:flex-start;font-size:14px;color:#D5DCE8;line-height:1.5}
+.lben b{color:#F1E9DA}
+.lben .ck{flex:none;width:22px;height:22px;border-radius:7px;background:rgba(205,169,93,.16);color:#CDA95D;display:grid;place-items:center;font-size:13px;font-weight:700;margin-top:1px}
+.land-cta{display:flex;gap:13px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+.land-cta button{font-family:var(--sans);cursor:pointer;font-weight:700;font-size:14.5px;padding:13px 25px;border-radius:26px;border:0}
+.land-cta .prim{background:var(--gold-grad);color:#1a1206;box-shadow:0 8px 22px rgba(160,120,40,.42),inset 0 1px 0 rgba(255,255,255,.4);display:flex;align-items:center;gap:8px}
+.land-cta .prim:hover{filter:brightness(1.05)}
+.land-cta .ghost{background:transparent;color:#EFE7D5;border:1px solid rgba(255,255,255,.28)}
+.land-cta .ghost:hover{border-color:rgba(205,169,93,.6)}
+.land-fine{margin-top:22px;font-size:12px;color:#8B95A6}
+@media(max-width:620px){.land-ben{grid-template-columns:1fr}}
+
+@media(max-width:1080px){
+  .kpis{grid-template-columns:repeat(3,1fr)} .dc-grid{grid-template-columns:repeat(3,1fr)}
+  .grid2{grid-template-columns:1fr} .detail{grid-template-columns:1fr} .counts{grid-template-columns:repeat(2,1fr)}
+  .qrow{grid-template-columns:1.6fr 1fr .8fr 1.4fr} .qrow .c-wh,.qrow .c-wos{display:none}
+  .tabbar{top:66px}
+}
+@media(max-width:620px){
+  .kpis{grid-template-columns:repeat(2,1fr)} .dc-grid{grid-template-columns:1fr 1fr}
+  .tb-r .asof,.tb-r .gpill.demo{display:none}
+}
+</style>
+</head>
+<body>
+
+<section class="landing on" id="landing">
+  <div class="land-in">
+    <div class="land-brand"><span class="logo">IV</span><b>Ironvale Supply Co.</b><span class="prod">IntelDb</span></div>
+    <div class="land-eyebrow">Distribution Intelligence</div>
+    <h1 class="land-h1">Your whole inventory, on one live screen.</h1>
+    <p class="land-sub">IntelDb plugs into the systems you already run, your ERP, warehouse, and order data (SAP, NetSuite, Microsoft Dynamics, QuickBooks, and more), and turns them into a real-time command center. See what's short, what's overstocked, where cash is stuck, and what to do next, without stitching five reports together every week.</p>
+    <div class="land-badge"><span class="live"></span>A live intelligence dashboard, running on your own data</div>
+
+    <div class="land-stats">
+      <div class="lstat"><b>$412K</b><span>Cash freeable this quarter</span></div>
+      <div class="lstat"><b>42</b><span>Shortages caught before stockout</span></div>
+      <div class="lstat"><b>4 teams</b><span>CFO, buyers, warehouse, sales, one screen</span></div>
+      <div class="lstat"><b>5 DCs</b><span>Every location, real time</span></div>
+    </div>
+
+    <div class="land-ben">
+      <div class="lben"><span class="ck">✓</span><div><b>Free the cash</b> stuck in aging and dead stock.</div></div>
+      <div class="lben"><span class="ck">✓</span><div><b>Catch shortages</b> before they turn into backorders.</div></div>
+      <div class="lben"><span class="ck">✓</span><div><b>One shared picture</b> for CFO, buyers, warehouse, and sales.</div></div>
+      <div class="lben"><span class="ck">✓</span><div><b>Retire the weekly reports</b> your team builds by hand.</div></div>
+    </div>
+
+    <div class="land-cta">
+      <button class="prim" id="landTour"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>Take the guided tour</button>
+      <button class="ghost" id="landExplore">Explore the dashboard</button>
+    </div>
+    <div class="land-fine">Live demo with sample data for Ironvale Supply Co., a fictional distributor. Nothing here connects to a real account.</div>
+  </div>
+</section>
+
+<header class="topband">
+  <div class="tb-in">
+    <div class="logo" id="homeBtn" title="Back to start" style="cursor:pointer">IV</div>
+    <div class="co"><b>Ironvale Supply Co.</b><span>Distribution Intelligence</span></div>
+    <div class="tb-r">
+      <span class="gpill">IntelDb</span>
+      <span class="gpill demo">Demo</span>
+      <span class="asof">Data as of Mar 14, 2025</span>
+      <button class="guide" id="guideBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>Guide me</button>
+    </div>
+  </div>
+  <div class="tabbar">
+    <div class="tabs" id="tabs">
+      <button class="tab on" data-v="exec"><span class="dot"></span>Executive · CFO</button>
+      <button class="tab" data-v="pur"><span class="dot"></span>Purchasing</button>
+      <button class="tab" data-v="wh"><span class="dot"></span>Warehouse Ops</button>
+      <button class="tab" data-v="sales"><span class="dot"></span>Sales &amp; Revenue</button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<!-- ============ EXECUTIVE ============ -->
+<section class="view on" id="v-exec">
+  <div class="eyebrow">Executive Summary</div>
+  <div class="h-sec">Inventory position at a glance</div>
+  <div class="sub">The whole book in one screen, total value, what's aging, how fast it turns, and what's on the way.</div>
+  <div class="rule"></div>
+
+  <div class="kpis" id="kpi-strip">
+    <div class="kpi"><div class="lab">Total Inventory</div><div class="val">$18.4M</div><div class="foot"><span class="trend up">▲ 1.8%</span> vs last month</div></div>
+    <div class="kpi warn" id="kpi-aging"><div class="lab">Over 6 Months</div><div class="val">$6.3M</div><div class="foot">34% of on-hand value</div></div>
+    <div class="kpi bronze"><div class="lab">Dead Stock</div><div class="val">$0.59M</div><div class="foot">no sale in 12 months</div></div>
+    <div class="kpi steel" id="kpi-turns"><div class="lab">Inventory Turns</div><div class="val">2.4×</div><div class="foot">target 3.0×</div></div>
+    <div class="kpi"><div class="lab">Months on Hand</div><div class="val">4.9</div><div class="foot"><span class="trend dn">▲ 0.3</span> vs last month</div></div>
+    <div class="kpi good"><div class="lab">Open POs</div><div class="val">$3.8M</div><div class="foot">142 orders inbound</div></div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="card-h"><b>Inventory value &amp; COGS — trailing 8 months</b><span class="mut">$M</span></div>
+      <div class="card-b">
+        <svg viewBox="0 0 640 220" width="100%" height="220" preserveAspectRatio="none" role="img" aria-label="Inventory and COGS trend">
+          <g stroke="#EFE7D5" stroke-width="1"><line x1="40" y1="30" x2="620" y2="30"/><line x1="40" y1="75" x2="620" y2="75"/><line x1="40" y1="120" x2="620" y2="120"/><line x1="40" y1="165" x2="620" y2="165"/></g>
+          <defs><linearGradient id="ig" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="rgba(169,128,58,.22)"/><stop offset="1" stop-color="rgba(169,128,58,0)"/></linearGradient></defs>
+          <polygon fill="url(#ig)" points="40,120 123,110 206,116 289,96 372,102 455,84 538,90 620,74 620,190 40,190"/>
+          <polyline fill="none" stroke="#A9803A" stroke-width="3" points="40,120 123,110 206,116 289,96 372,102 455,84 538,90 620,74"/>
+          <polyline fill="none" stroke="#2C5A8C" stroke-width="2.5" points="40,158 123,150 206,156 289,146 372,150 455,140 538,148 620,138"/>
+          <g fill="#A9803A"><circle cx="289" cy="96" r="3"/><circle cx="455" cy="84" r="3"/><circle cx="620" cy="74" r="3.6"/></g>
+          <g fill="#7C8698" font-size="10" font-family="sans-serif"><text x="40" y="208">Aug</text><text x="120" y="208">Sep</text><text x="205" y="208">Oct</text><text x="288" y="208">Nov</text><text x="371" y="208">Dec</text><text x="454" y="208">Jan</text><text x="537" y="208">Feb</text><text x="605" y="208">Mar</text></g>
+        </svg>
+        <div class="legend"><span><i style="background:#A9803A"></i>Inventory value</span><span><i style="background:#2C5A8C"></i>COGS</span></div>
+      </div>
+    </div>
+    <div class="card" id="chart-dc">
+      <div class="card-h"><b>Inventory by distribution center</b><span class="mut">value</span></div>
+      <div class="card-b">
+        <svg viewBox="0 0 380 220" width="100%" height="220" role="img" aria-label="Inventory by DC">
+          <defs><linearGradient id="bg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#CDA95D"/><stop offset="1" stop-color="#A9803A"/></linearGradient></defs>
+          <g fill="url(#bg1)"><rect x="26" y="52" width="46" height="138" rx="5"/><rect x="98" y="86" width="46" height="104" rx="5"/><rect x="170" y="70" width="46" height="120" rx="5"/><rect x="242" y="120" width="46" height="70" rx="5"/><rect x="314" y="104" width="46" height="86" rx="5"/></g>
+          <g fill="#0E1B2D" font-size="11" font-weight="700" font-family="sans-serif" text-anchor="middle"><text x="49" y="44">$5.1M</text><text x="121" y="78">$3.6M</text><text x="193" y="62">$4.2M</text><text x="265" y="112">$2.1M</text><text x="337" y="96">$3.4M</text></g>
+          <g fill="#7C8698" font-size="9.5" font-family="sans-serif" text-anchor="middle"><text x="49" y="206">Phoenix</text><text x="121" y="206">Kansas City</text><text x="193" y="206">Charlotte</text><text x="265" y="206">Reno</text><text x="337" y="206">Columbus</text></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="note">IntelDb · Ironvale Supply Co. — illustrative demo with sample data. Nothing here connects to a live system.</div>
+</section>
+
+<!-- ============ PURCHASING ============ -->
+<section class="view" id="v-pur">
+  <div class="eyebrow">Purchasing — Work Queue</div>
+  <div class="h-sec">What needs a buyer today</div>
+  <div class="sub">Every exception, ranked by urgency. Shortages below reorder point, overstock, and dead stock, each with a recommended next step.</div>
+  <div class="rule"></div>
+
+  <div class="counts" id="pur-counts">
+    <div class="count"><div class="n" style="color:var(--bad)">42</div><div class="l">Shortages <small>(below reorder point)</small></div></div>
+    <div class="count"><div class="n" style="color:var(--warn)">118</div><div class="l">Overstock <small>(&gt; 16 wks supply)</small></div></div>
+    <div class="count"><div class="n" style="color:var(--ink-2)">27</div><div class="l">Dead stock <small>(no sale 12 mo)</small></div></div>
+    <div class="count"><div class="n" style="color:var(--good)">$412K</div><div class="l">Cash freeable <small>this quarter</small></div></div>
+  </div>
+
+  <div class="queue" id="wq">
+    <div class="qrow qhead"><div>Item</div><div class="c-wh">Warehouse</div><div>Exception</div><div>Severity</div><div class="c-wos">Wks supply</div><div>Recommended action</div></div>
+    <div class="qrow sel" id="wq-critical"><div class="sku">FAS-2050-HX <small>Hex bolt, 1/2-13 × 3, Gr8</small></div><div class="c-wh">Phoenix</div><div><span class="tag t-short">Shortage</span></div><div><span class="tag t-crit">Critical</span></div><div class="c-wos wos">0.4</div><div class="act">Reorder 4,800 — expedite</div></div>
+    <div class="qrow"><div class="sku">FIT-3080-EL <small>90° elbow, 3/4 NPT, galv</small></div><div class="c-wh">Charlotte</div><div><span class="tag t-short">Shortage</span></div><div><span class="tag t-crit">Critical</span></div><div class="c-wos wos">0.9</div><div class="act">Reorder 2,200 — expedite</div></div>
+    <div class="qrow"><div class="sku">BRK-1204-Z <small>L-bracket, zinc, heavy</small></div><div class="c-wh">Kansas City</div><div><span class="tag t-short">Shortage</span></div><div><span class="tag t-high">High</span></div><div class="c-wos wos">2.1</div><div class="act">Reorder 3,600</div></div>
+    <div class="qrow"><div class="sku">ANC-4402-SL <small>Sleeve anchor, 3/8 × 3</small></div><div class="c-wh">Columbus</div><div><span class="tag t-short">Shortage</span></div><div><span class="tag t-med">Medium</span></div><div class="c-wos wos">3.8</div><div class="act">Add to next PO cycle</div></div>
+    <div class="qrow" id="wq-surplus"><div class="sku">FXT-7710-BR <small>Fixture bracket, brushed</small></div><div class="c-wh">Reno</div><div><span class="tag t-surplus">Overstock</span></div><div><span class="tag t-high">High</span></div><div class="c-wos wos">41</div><div class="act">Transfer 900 → Phoenix</div></div>
+    <div class="qrow"><div class="sku">FAB-5590-PL <small>Base plate, 6×6, raw steel</small></div><div class="c-wh">Kansas City</div><div><span class="tag t-surplus">Overstock</span></div><div><span class="tag t-med">Medium</span></div><div class="c-wos wos">28</div><div class="act">Hold — review demand</div></div>
+    <div class="qrow"><div class="sku">FIT-2210-CP <small>Coupling, 1 in, black iron</small></div><div class="c-wh">Charlotte</div><div><span class="tag t-dead">Dead stock</span></div><div><span class="tag t-med">Medium</span></div><div class="c-wos wos">—</div><div class="act">Liquidate / discount</div></div>
+    <div class="qrow"><div class="sku">FAS-1808-CS <small>Carriage screw, 3/8 × 4</small></div><div class="c-wh">Phoenix</div><div><span class="tag t-dead">Dead stock</span></div><div><span class="tag t-med">Medium</span></div><div class="c-wos wos">—</div><div class="act">Liquidate / discount</div></div>
+  </div>
+
+  <div class="detail" id="item-detail">
+    <div class="card mini"><div class="card-b"><h4>FAS-2050-HX — supply plan</h4>
+      <div class="kv"><span>On hand · Phoenix</span><b>310</b></div>
+      <div class="kv"><span>Reorder point</span><b>1,900</b></div>
+      <div class="kv"><span>Avg weekly demand</span><b>780</b></div>
+      <div class="plan-row"><span class="chip po">PO</span><span>PO-88214 · 2,400 units</span><span style="margin-left:auto;color:var(--ink-3)">due Mar 21</span></div>
+      <div class="plan-row"><span class="chip so">SO</span><span>Delta Fabricators · 600 units</span><span style="margin-left:auto;color:var(--ink-3)">ships Mar 17</span></div>
+      <div class="plan-row"><span class="chip fc">Forecast</span><span>Next 4 wks · 3,120 units</span><span style="margin-left:auto;color:var(--ink-3)">rising</span></div>
+    </div></div>
+    <div class="card mini"><div class="card-b"><h4>Sales history — 12 months</h4>
+      <svg viewBox="0 0 320 120" width="100%" height="120" role="img" aria-label="Sales sparkline">
+        <defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="rgba(44,90,140,.18)"/><stop offset="1" stop-color="rgba(44,90,140,0)"/></linearGradient></defs>
+        <polygon fill="url(#sg)" points="8,72 34,66 60,80 86,58 112,64 138,46 164,54 190,40 216,50 242,36 268,44 300,30 300,110 8,110"/>
+        <polyline fill="none" stroke="#2C5A8C" stroke-width="2.5" points="8,72 34,66 60,80 86,58 112,64 138,46 164,54 190,40 216,50 242,36 268,44 300,30"/>
+        <circle cx="300" cy="30" r="3.6" fill="#2C5A8C"/>
+      </svg>
+      <div class="kv"><span>12-month units sold</span><b>38,400</b></div>
+      <div class="kv"><span>Trailing 4-wk trend</span><b style="color:var(--good)">▲ 14%</b></div>
+      <div class="kv"><span>Weeks of supply now</span><b style="color:var(--bad)">0.4 — Critical</b></div>
+    </div></div>
+  </div>
+  <div class="note">IntelDb · Ironvale Supply Co. — illustrative demo with sample data.</div>
+</section>
+
+<!-- ============ WAREHOUSE ============ -->
+<section class="view" id="v-wh">
+  <div class="eyebrow">Warehouse Operations</div>
+  <div class="h-sec">Every distribution center in one view</div>
+  <div class="sub">On-hand value, what's inbound, fill rate, and stock health across all five DCs.</div>
+  <div class="rule"></div>
+
+  <div class="dc-grid" id="wh-grid">
+    <div class="dc"><div class="nm">Phoenix <span class="fl">DC-01</span></div><div class="big">$5.1M</div><div style="font-size:12px;color:var(--ink-3)">418,200 units</div><div class="bar"><i style="width:94%"></i></div><div class="row"><span>Incoming</span><b>$1.2M</b></div><div class="row"><span>Fill rate</span><b>94%</b></div><div class="row"><span>Status</span><span class="tag t-crit">2 shortages</span></div></div>
+    <div class="dc"><div class="nm">Kansas City <span class="fl">DC-02</span></div><div class="big">$3.6M</div><div style="font-size:12px;color:var(--ink-3)">302,700 units</div><div class="bar"><i style="width:97%"></i></div><div class="row"><span>Incoming</span><b>$0.7M</b></div><div class="row"><span>Fill rate</span><b>97%</b></div><div class="row"><span>Status</span><span class="tag t-good">Healthy</span></div></div>
+    <div class="dc"><div class="nm">Charlotte <span class="fl">DC-03</span></div><div class="big">$4.2M</div><div style="font-size:12px;color:var(--ink-3)">351,000 units</div><div class="bar"><i style="width:91%"></i></div><div class="row"><span>Incoming</span><b>$0.9M</b></div><div class="row"><span>Fill rate</span><b>91%</b></div><div class="row"><span>Status</span><span class="tag t-high">1 shortage</span></div></div>
+    <div class="dc"><div class="nm">Reno <span class="fl">DC-04</span></div><div class="big">$2.1M</div><div style="font-size:12px;color:var(--ink-3)">176,500 units</div><div class="bar"><i style="width:99%"></i></div><div class="row"><span>Incoming</span><b>$0.4M</b></div><div class="row"><span>Fill rate</span><b>99%</b></div><div class="row"><span>Status</span><span class="tag t-surplus">Overstock</span></div></div>
+    <div class="dc"><div class="nm">Columbus <span class="fl">DC-05</span></div><div class="big">$3.4M</div><div style="font-size:12px;color:var(--ink-3)">286,900 units</div><div class="bar"><i style="width:96%"></i></div><div class="row"><span>Incoming</span><b>$0.6M</b></div><div class="row"><span>Fill rate</span><b>96%</b></div><div class="row"><span>Status</span><span class="tag t-good">Healthy</span></div></div>
+  </div>
+
+  <div class="card" style="margin-top:16px" id="wh-inbound">
+    <div class="card-h"><b>Incoming deliveries — next 14 days</b><span class="mut">by DC</span></div>
+    <div class="card-b" style="padding-top:6px">
+      <table class="tbl"><thead><tr><th>PO</th><th>Supplier</th><th>Destination</th><th>Lines</th><th class="num">Value</th><th>ETA</th></tr></thead>
+        <tbody>
+          <tr><td><b>PO-88214</b></td><td>Redline Forge Works</td><td>Phoenix</td><td>6</td><td class="num">$142,000</td><td>Mar 21</td></tr>
+          <tr><td><b>PO-88190</b></td><td>Copper Creek Fittings</td><td>Charlotte</td><td>11</td><td class="num">$96,400</td><td>Mar 22</td></tr>
+          <tr><td><b>PO-88251</b></td><td>Northgate Fasteners</td><td>Kansas City</td><td>4</td><td class="num">$71,800</td><td>Mar 24</td></tr>
+          <tr><td><b>PO-88263</b></td><td>Redline Forge Works</td><td>Columbus</td><td>8</td><td class="num">$58,900</td><td>Mar 26</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="note">IntelDb · Ironvale Supply Co. — illustrative demo with sample data.</div>
+</section>
+
+<!-- ============ SALES ============ -->
+<section class="view" id="v-sales">
+  <div class="eyebrow">Sales &amp; Revenue</div>
+  <div class="h-sec">Where the revenue and margin come from</div>
+  <div class="sub">Monthly revenue, margin by product line, and the accounts driving the book.</div>
+  <div class="rule"></div>
+
+  <div class="kpis" style="grid-template-columns:repeat(4,1fr)" id="sales-kpi">
+    <div class="kpi good"><div class="lab">Revenue · MTD</div><div class="val">$4.7M</div><div class="foot"><span class="trend up">▲ 6.2%</span> vs last month</div></div>
+    <div class="kpi"><div class="lab">Gross Margin</div><div class="val">31.4%</div><div class="foot"><span class="trend up">▲ 0.8 pt</span></div></div>
+    <div class="kpi steel"><div class="lab">Orders · MTD</div><div class="val">2,940</div><div class="foot">avg $1,598</div></div>
+    <div class="kpi bronze"><div class="lab">Backorders</div><div class="val">$318K</div><div class="foot">tied to 42 shortages</div></div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="card-h"><b>Monthly revenue — trailing 8 months</b><span class="mut">$M</span></div>
+      <div class="card-b">
+        <svg viewBox="0 0 640 210" width="100%" height="210" role="img" aria-label="Revenue trend">
+          <g stroke="#EFE7D5"><line x1="30" y1="40" x2="620" y2="40"/><line x1="30" y1="90" x2="620" y2="90"/><line x1="30" y1="140" x2="620" y2="140"/></g>
+          <defs><linearGradient id="rb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3F6FA3"/><stop offset="1" stop-color="#2C5A8C"/></linearGradient></defs>
+          <g fill="url(#rb)"><rect x="46" y="118" width="42" height="66" rx="5"/><rect x="118" y="104" width="42" height="80" rx="5"/><rect x="190" y="110" width="42" height="74" rx="5"/><rect x="262" y="88" width="42" height="96" rx="5"/><rect x="334" y="96" width="42" height="88" rx="5"/><rect x="406" y="72" width="42" height="112" rx="5"/><rect x="478" y="80" width="42" height="104" rx="5"/><rect x="550" y="58" width="42" height="126" rx="5"/></g>
+          <g fill="#7C8698" font-size="9.5" font-family="sans-serif" text-anchor="middle"><text x="67" y="198">Aug</text><text x="139" y="198">Sep</text><text x="211" y="198">Oct</text><text x="283" y="198">Nov</text><text x="355" y="198">Dec</text><text x="427" y="198">Jan</text><text x="499" y="198">Feb</text><text x="571" y="198">Mar</text></g>
+        </svg>
+      </div>
+    </div>
+    <div class="card" id="sales-margin">
+      <div class="card-h"><b>Margin by product line</b><span class="mut">gross %</span></div>
+      <div class="card-b" style="padding-top:4px">
+        <table class="tbl"><thead><tr><th>Product line</th><th class="num">Revenue</th><th>Margin</th></tr></thead>
+          <tbody>
+            <tr><td>Fasteners</td><td class="num">$1.9M</td><td><div class="mbar"><i style="width:34%"></i></div><small style="color:var(--ink-3)">34%</small></td></tr>
+            <tr><td>Fittings</td><td class="num">$1.2M</td><td><div class="mbar"><i style="width:29%"></i></div><small style="color:var(--ink-3)">29%</small></td></tr>
+            <tr><td>Brackets &amp; Anchors</td><td class="num">$0.8M</td><td><div class="mbar"><i style="width:36%"></i></div><small style="color:var(--ink-3)">36%</small></td></tr>
+            <tr><td>Fixtures</td><td class="num">$0.5M</td><td><div class="mbar"><i style="width:26%"></i></div><small style="color:var(--ink-3)">26%</small></td></tr>
+            <tr><td>Fabrication hardware</td><td class="num">$0.3M</td><td><div class="mbar"><i style="width:22%"></i></div><small style="color:var(--ink-3)">22%</small></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <div class="card-h"><b>Top wholesale accounts</b><span class="mut">trailing 90 days</span></div>
+    <div class="card-b" style="padding-top:6px">
+      <table class="tbl"><thead><tr><th>Account</th><th>Segment</th><th class="num">Revenue</th><th class="num">Margin</th><th>Trend</th></tr></thead>
+        <tbody>
+          <tr><td><b>Summit Mechanical</b></td><td>Mechanical contractor</td><td class="num">$620K</td><td class="num">33%</td><td><span class="tag t-good">Growing</span></td></tr>
+          <tr><td><b>Delta Fabricators</b></td><td>Steel fabrication</td><td class="num">$540K</td><td class="num">30%</td><td><span class="tag t-good">Growing</span></td></tr>
+          <tr><td><b>Cornerstone Builders Supply</b></td><td>Reseller</td><td class="num">$470K</td><td class="num">27%</td><td><span class="tag t-med">Steady</span></td></tr>
+          <tr><td><b>Rincon Industrial</b></td><td>OEM</td><td class="num">$390K</td><td class="num">35%</td><td><span class="tag t-high">Watch</span></td></tr>
+          <tr><td><b>Blue Ridge Contractors</b></td><td>General contractor</td><td class="num">$310K</td><td class="num">28%</td><td><span class="tag t-good">Growing</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="note">IntelDb · Ironvale Supply Co. — illustrative demo with sample data.</div>
+</section>
+
+</div><!-- /wrap -->
+
+<!-- tour spotlight -->
+<div class="tour-back" id="tourBack"></div>
+<div class="tour-hole" id="hole" style="display:none"></div>
+<div class="tip" id="tip" style="display:none">
+  <div class="step" id="tipStep">Step 1</div>
+  <h4 id="tipTitle"></h4>
+  <p id="tipBody"></p>
+  <div class="tip-foot">
+    <span class="prog" id="tipProg"></span>
+    <button class="tbtn" id="tipSkip">&times; End tour</button>
+    <button class="tbtn" id="tipPrev">Back</button>
+    <button class="tbtn g" id="tipNext">Next</button>
+  </div>
+</div>
+
+<!-- intro / tour menu -->
+<div class="scrim" id="scrim">
+  <div class="modal">
+    <button class="mclose" id="mClose" aria-label="Close">&times;</button>
+    <div class="modal-hero">
+      <div class="logo">IV</div>
+      <div class="k" id="mK">Ironvale Supply Co. · IntelDb</div>
+      <h2 id="mTitle">Take a guided tour</h2>
+      <p id="mBody">See exactly what your team would work from every day. Pick the view you want to walk through, or take the full 90-second tour.</p>
+    </div>
+    <div class="modal-b" id="mBody2">
+      <div class="menu-lead">Guide me through…</div>
+      <button class="opt" data-tour="exec"><span class="ico">CF</span><span class="tx"><b>Executive · CFO</b><span>Inventory value, aging, turns, cash</span></span><span class="arr">→</span></button>
+      <button class="opt" data-tour="pur"><span class="ico">PU</span><span class="tx"><b>Purchasing</b><span>Shortages, overstock, reorder actions</span></span><span class="arr">→</span></button>
+      <button class="opt" data-tour="wh"><span class="ico">WH</span><span class="tx"><b>Warehouse Ops</b><span>Every DC's stock, inbound, fill rate</span></span><span class="arr">→</span></button>
+      <button class="opt" data-tour="sales"><span class="ico">SR</span><span class="tx"><b>Sales &amp; Revenue</b><span>Revenue, margin, top accounts</span></span><span class="arr">→</span></button>
+      <button class="opt full" data-tour="all"><span class="ico">★</span><span class="tx"><b>Full walkthrough</b><span>All four views, ~90 seconds</span></span><span class="arr">→</span></button>
+      <div class="modal-foot">
+        <a class="prim" href="https://links.zenprocess.ai/widget/booking/rcoKJifJJA46bRI9fTEr" target="_blank" rel="noopener">Book a working session →</a>
+        <button class="ghost" id="mExplore">Explore on my own</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var tabs=document.getElementById('tabs');
+  function show(v){
+    document.querySelectorAll('.tab').forEach(function(t){t.classList.toggle('on',t.dataset.v===v);});
+    document.querySelectorAll('.view').forEach(function(s){s.classList.toggle('on',s.id==='v-'+v);});
+  }
+  tabs.addEventListener('click',function(e){var b=e.target.closest('.tab');if(b){show(b.dataset.v);window.scrollTo({top:0,behavior:'smooth'});}});
+
+  /* ---- per-area tours ---- */
+  var TOURS={
+    exec:[
+      {sel:'#kpi-strip',t:'Your whole position, one glance',b:'Total inventory, what’s aging, how fast it turns, and what’s inbound — no report-stitching.'},
+      {sel:'#kpi-aging',t:'Cash locked in slow stock',b:'$6.3M has sat over six months — a third of the book. IntelDb surfaces it so finance can act.'},
+      {sel:'#kpi-turns',t:'Turns vs target',b:'Inventory turns 2.4× against a 3.0× goal. The gap is the working-capital opportunity.'},
+      {sel:'#chart-dc',t:'Where it’s sitting',b:'Value by distribution center, so concentration and imbalance show at a glance.'}
+    ],
+    pur:[
+      {sel:'#pur-counts',t:'What needs a buyer today',b:'Shortages, overstock, and dead stock counted up front — plus the cash you could free this quarter.'},
+      {sel:'#wq-critical',t:'A Critical shortage',b:'FAS-2050-HX is below reorder point at Phoenix — 0.4 weeks of supply. IntelDb recommends the reorder and flags it to expedite.'},
+      {sel:'#wq-surplus',t:'Overstock, same lens',b:'41 weeks of supply in Reno. The system suggests a transfer to Phoenix instead of a new buy.'},
+      {sel:'#item-detail',t:'Drill into any item',b:'On-hand, reorder point, open POs and sales orders, plus 12-month sales history — the full picture behind the flag.'}
+    ],
+    wh:[
+      {sel:'#wh-grid',t:'Every DC’s health',b:'On-hand value, inbound, fill rate, and stock status across all five centers in one view.'},
+      {sel:'#wh-inbound',t:'What’s arriving, and where',b:'Inbound POs by destination and ETA — so receiving and buyers are working off the same picture.'}
+    ],
+    sales:[
+      {sel:'#sales-kpi',t:'Revenue and margin, live',b:'Month-to-date revenue, gross margin, orders, and the backorders tied straight back to your shortages.'},
+      {sel:'#sales-margin',t:'Where the margin comes from',b:'By product line — see which categories carry the book and which are thin.'}
+    ]
+  };
+  var LABEL={exec:'Executive · CFO',pur:'Purchasing',wh:'Warehouse Ops',sales:'Sales & Revenue'};
+  var ORDER=['exec','pur','wh','sales'];
+
+  var queue=[], i=0, active=false, mode='';
+  var back=document.getElementById('tourBack'), hole=document.getElementById('hole'), tip=document.getElementById('tip');
+  var scrim=document.getElementById('scrim');
+
+  function build(area){
+    queue=[];
+    if(area==='all'){ ORDER.forEach(function(v){TOURS[v].forEach(function(s){queue.push({v:v,sel:s.sel,t:s.t,b:s.b});});}); }
+    else { TOURS[area].forEach(function(s){queue.push({v:area,sel:s.sel,t:s.t,b:s.b});}); }
+  }
+  function start(area){ mode=area; build(area); i=0; active=true; document.body.classList.add('tour-on'); place(); }
+
+  function place(){
+    var s=queue[i];
+    show(s.v);
+    var el=document.querySelector(s.sel);
+    if(!el){ next(); return; }
+    el.scrollIntoView({block:'center',behavior:'auto'});
+    setTimeout(function(){
+      var r=el.getBoundingClientRect(), pad=8;
+      hole.style.display='block';
+      hole.style.top=(r.top-pad)+'px'; hole.style.left=(r.left-pad)+'px';
+      hole.style.width=(r.width+pad*2)+'px'; hole.style.height=(r.height+pad*2)+'px';
+      tip.style.display='block';
+      var th=tip.offsetHeight||190, tw=340, gap=14;
+      var top=r.bottom+gap; if(window.innerHeight-r.bottom < th+gap+12) top=Math.max(12,r.top-th-gap);
+      var left=Math.min(Math.max(12,r.left), window.innerWidth-tw-12);
+      tip.style.top=top+'px'; tip.style.left=left+'px';
+      document.getElementById('tipStep').textContent = mode==='all' ? LABEL[s.v] : LABEL[mode];
+      document.getElementById('tipTitle').textContent=s.t;
+      document.getElementById('tipBody').textContent=s.b;
+      document.getElementById('tipProg').textContent=(i+1)+' / '+queue.length;
+      document.getElementById('tipPrev').style.visibility=i===0?'hidden':'visible';
+      document.getElementById('tipNext').textContent = i===queue.length-1 ? 'Finish' : 'Next';
+    },30);
+  }
+  function next(){ if(i<queue.length-1){i++;place();} else finish(); }
+  function prev(){ if(i>0){i--;place();} }
+  function stop(){ active=false; document.body.classList.remove('tour-on'); hole.style.display='none'; tip.style.display='none'; }
+  function finish(){ stop(); openMenu('done'); }
+
+  function openMenu(state){
+    if(state==='done'){
+      document.getElementById('mK').textContent='That’s the guided version.';
+      document.getElementById('mTitle').textContent='Want another view, or the real thing?';
+      document.getElementById('mBody').textContent='Every screen you saw runs on the systems you already use, your ERP, warehouse, and orders, stood up in weeks. Tour another area, or let’s talk about your business.';
+    } else {
+      document.getElementById('mK').textContent='Ironvale Supply Co. · IntelDb';
+      document.getElementById('mTitle').textContent='Take a guided tour';
+      document.getElementById('mBody').textContent='See exactly what your team would work from every day. Pick the view you want to walk through, or take the full 90-second tour.';
+    }
+    var _exp=document.getElementById('mExplore');
+    _exp.textContent = state==='done' ? 'Done' : 'Explore on my own';
+    _exp.setAttribute('data-home', state==='done' ? '1' : '');
+    scrim.classList.add('on');
+  }
+
+  document.getElementById('tipNext').onclick=next;
+  document.getElementById('tipPrev').onclick=prev;
+  document.getElementById('tipSkip').onclick=function(){stop();};
+  back.onclick=function(){stop();};
+  document.getElementById('guideBtn').onclick=function(){openMenu('open');};
+  function closeMenu(){scrim.classList.remove('on');}
+  document.getElementById('mExplore').onclick=function(){
+    if(this.getAttribute('data-home')==='1'){ show('exec'); landing.classList.add('on'); landing.scrollTo(0,0); }
+    closeMenu();
+  };
+  document.getElementById('mClose').onclick=closeMenu;
+  scrim.addEventListener('click',function(e){ if(e.target===scrim) closeMenu(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape' && scrim.classList.contains('on')) closeMenu(); });
+  document.querySelectorAll('.opt').forEach(function(o){o.onclick=function(){scrim.classList.remove('on'); start(o.dataset.tour);};});
+  document.addEventListener('keydown',function(e){
+    if(!active) return;
+    if(e.key==='Escape') stop();
+    else if(e.key==='ArrowRight'||e.key==='Enter') next();
+    else if(e.key==='ArrowLeft') prev();
+  });
+  window.addEventListener('resize',function(){ if(active) place(); });
+
+  var landing=document.getElementById('landing');
+  document.getElementById('landTour').onclick=function(){landing.classList.remove('on'); openMenu('open');};
+  document.getElementById('landExplore').onclick=function(){landing.classList.remove('on');};
+  document.getElementById('homeBtn').onclick=function(){ stop(); scrim.classList.remove('on'); show('exec'); landing.classList.add('on'); landing.scrollTo(0,0); };
+  /* starts on the landing/hero (shown via markup class) */
+})();
+</script>
+</body>
+</html>
