@@ -7,3 +7,7 @@
 # Distributor track renamed from /solutions
 /solutions       /for-distributors    301
 /solutions/      /for-distributors    301
+
+# IntelDb demo — canonical underscore path (matches /owneros_demo); 301 the hyphen variant
+/inteldb-demo    /inteldb_demo/    301
+/inteldb-demo/   /inteldb_demo/    301
