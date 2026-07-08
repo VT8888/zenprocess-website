@@ -346,6 +346,31 @@ tr.tap:hover td { background: rgba(17,24,39,.02); }
   .ind-grid { grid-template-columns: 1fr; }
 }
 </style>
+<style>
+.intro .entry{text-align:center;max-width:640px;margin:26px auto 36px}
+.intro .entry .kicker{justify-content:center}
+.intro .entry-h1{font-size:34px;line-height:1.15;font-weight:700;letter-spacing:-.02em;margin:12px 0 12px;color:var(--ink)}
+.intro .entry-sub{font-size:16px;color:var(--muted);margin:0;line-height:1.5}
+.intro .entry-foot{text-align:center;margin-top:30px}
+.intro .entry-link{font-size:13.5px;font-weight:600;color:var(--brand);cursor:pointer;text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--brand) 35%,transparent);padding-bottom:1px}
+.intro .entry-link:hover{border-bottom-color:var(--brand)}
+.intro .entry-hint{margin-top:14px;font-size:12.5px;color:var(--muted)}
+.intro .ind-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.intro .ind{position:relative;text-align:left;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;cursor:pointer;display:flex;flex-direction:column;gap:9px;min-height:0;transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease}
+.intro .ind:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--d,#15803D) 55%,var(--border));box-shadow:0 12px 28px -14px color-mix(in srgb,var(--d,#15803D) 45%,transparent)}
+.intro .ind.ind-hi{border-color:color-mix(in srgb,var(--d,#15803D) 42%,var(--border));background:color-mix(in srgb,var(--d,#15803D) 4%,#fff)}
+.intro .ind .ind-top{display:flex;align-items:center;gap:8px}
+.intro .ind .ic{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;flex:0 0 auto}
+.intro .ind .ic svg{width:21px;height:21px}
+.intro .ind .ind-tag{font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#fff;background:var(--d,#15803D);padding:3px 9px;border-radius:999px}
+.intro .ind .ind-arr{margin-left:auto;color:var(--muted);opacity:0;transform:translateX(-3px);transition:opacity .16s ease,transform .16s ease}
+.intro .ind .ind-arr svg{width:19px;height:19px}
+.intro .ind:hover .ind-arr{opacity:1;transform:translateX(0);color:var(--d,#15803D)}
+.intro .ind .ind-name{font-size:16.5px;font-weight:650;letter-spacing:-.01em;color:var(--ink);margin-top:2px}
+.intro .ind .ind-line{font-size:13.5px;color:var(--muted)}
+@media(max-width:860px){.intro .ind-grid{grid-template-columns:repeat(2,1fr)}.intro .entry-h1{font-size:28px}}
+@media(max-width:560px){.intro .ind-grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 <div class="app">
@@ -388,59 +413,16 @@ tr.tap:hover td { background: rgba(17,24,39,.02); }
       <a class="btn sm" href="https://links.zenprocess.ai/widget/booking/rcoKJifJJA46bRI9fTEr" target="_blank" rel="noopener">Book a demo</a>
     </header>
 
-    <div class="section hero">
-      <div class="hero-copy">
-        <div class="kicker">AI Operations Platform for SMB owners</div>
-        <h1>Know what needs your attention today, before you open your inbox.</h1>
-        <p class="lead">OwnerOS connects to your email, calendar, CRM, QuickBooks, and files. Its AI reads across them overnight, finds what slipped, drafts follow-ups, and gives you one clear morning action list.</p>
-        <div class="hero-cta"><button class="btn primary" id="btnSample">See a sample morning brief</button><a class="btn" href="https://links.zenprocess.ai/widget/booking/rcoKJifJJA46bRI9fTEr" target="_blank" rel="noopener">Book a demo</a></div>
-        <div class="hero-tert"><a id="btnOnePager">View one-page overview</a></div>
-        <div class="hero-trust"><div>Built by Vinh Truong, CISSP. 20+ years leading enterprise IT and automation.</div><div class="t2">Designed for owners who want clarity without replacing the tools they already use.</div></div>
-      </div>
-      <div class="hero-mock">
-        <div class="mock">
-          <div class="mock-top"><span class="ml">OwnerOS</span><span class="mh">Good morning, Vinh</span><span class="md">Tuesday, July 7</span></div>
-          <div class="mock-body">
-            <div class="mock-sec">Today's priorities</div>
-            <div class="mock-row"><span class="mdot a"></span><span class="mrow-t">Call the Henderson account</span><span class="status warn">At risk</span></div>
-            <div class="mock-row"><span class="mdot g"></span><span class="mrow-t">Send 3 overdue invoice reminders</span><span class="status good">Cash</span></div>
-            <div class="mock-row"><span class="mdot b"></span><span class="mrow-t">Review Q3 hiring plan</span><span class="status info">Decision</span></div>
-            <div class="mock-sec sp">Business health</div>
-            <div class="mock-hgrid">
-              <div class="mhc"><span>Cash</span><b>$42k</b></div>
-              <div class="mhc warn"><span>Overdue</span><b>$11k</b></div>
-              <div class="mhc"><span>Unbilled</span><b>$6k</b></div>
-            </div>
-            <div class="mock-ai">
-              <div class="mock-ai-h">AI prepared for you</div>
-              <ul><li>3 drafts ready to review</li><li>2 client replies may have been missed</li><li>$6k may be unbilled</li></ul>
-            </div>
-          </div>
-        </div>
-      </div>
+        <div class="entry">
+      <div class="kicker">Interactive demo</div>
+      <h1 class="entry-h1">Run your business from one place.</h1>
+      <p class="entry-sub">Stop checking five different systems to figure out what’s going on. <span class="nocaps">OwnerOS</span> shows you what needs attention today and prepares the next step for you to approve.</p>
     </div>
-
-    <div class="flow2">
-      <div class="fstep"><div class="fs-t">Your existing apps</div><div class="fs-s">Email &middot; Calendar &middot; CRM &middot; QuickBooks &middot; Files</div></div>
-      <span class="farr">&rarr;</span>
-      <div class="fstep accent"><div class="fs-t">OwnerOS AI Engine</div><div class="fs-s">Reads context &middot; spots risks &middot; finds missed follow-ups &middot; drafts next actions</div></div>
-      <span class="farr">&rarr;</span>
-      <div class="fstep"><div class="fs-t">Your morning action list</div><div class="fs-s">What's at risk &middot; what slipped &middot; what needs approval &middot; what to do first</div></div>
-    </div>
-    <div class="integ"><b>Built to connect with the tools you already use:</b> Google Workspace &middot; Microsoft 365 &middot; QuickBooks &middot; HubSpot &middot; Stripe &middot; Zoho &middot; and more</div>
-
-    <div class="cmp">
-      <div class="cmp-card"><b>Dashboards</b><small>show data</small></div>
-      <div class="cmp-card"><b>Automations</b><small>run simple tasks</small></div>
-      <div class="cmp-card hi"><b>OwnerOS</b><small>uses AI to read across your business and prepare your next action</small></div>
-    </div>
-
-    <div class="land-div"></div>
-    <div class="pick-eyebrow">See <span class="nocaps">OwnerOS</span> in your industry</div>
-    <h2 class="pick-h">Choose a demo workspace</h2>
-    <p class="pick-sub">Each demo shows how OwnerOS would surface risks, follow-ups, billing items, and next actions for that type of business. Pick one to preview a sample morning brief.</p>
     <div class="ind-grid" id="indGrid"></div>
-    <div class="demo-note">These are sample workspaces. OwnerOS connects to your actual tools during setup.</div>
+    <div class="entry-foot">
+      <a id="btnOnePager" class="entry-link" tabindex="0">View the one-page overview</a>
+      <div class="entry-hint">Each demo opens with a short guided tour. Skip it any time to explore on your own.</div>
+    </div>
     <div class="land-foot">
       <div class="fine">Interactive demo with sample data. Nothing here connects to a live account or sends anything.</div>
     </div>
@@ -810,14 +792,14 @@ const PICK_COPY = {
   hr:'Track hiring steps, client requests, candidate follow-ups, and people-ops actions in one morning brief.'
 };
 function setSel(el){ document.querySelectorAll('.ind').forEach(x=>{ x.classList.remove('sel'); const t=x.querySelector('.ind-tag'); if(t) t.textContent='Demo workspace'; }); if(el){ el.classList.add('sel'); const t=el.querySelector('.ind-tag'); if(t) t.textContent='Active demo'; } }
-function buildIntro(){ const g=document.getElementById('indGrid'); g.innerHTML=''; INDUSTRIES.forEach((D,i)=>{ const b=document.createElement('button'); b.className='ind'+(i===0?' sel':''); b.setAttribute('aria-label','Open '+D.label+' demo'); b.innerHTML='<div class="ind-head"><span class="ic" style="background:color-mix(in srgb,'+D.theme.brand+' 12%,#fff);color:'+D.theme.dk+'">'+svg(D.pick)+'</span><span class="ind-tag">'+(i===0?'Active demo':'Demo workspace')+'</span></div><b>'+D.label+'</b><small>'+(PICK_COPY[D.id]||D.pickTag)+'</small><span class="ind-open">Open demo <span class="arr" aria-hidden="true">&rarr;</span></span>'; b.addEventListener('click',()=>{ setSel(b); choose(D); }); g.appendChild(b); }); }
+const PICK_SHORT={consulting:'Proposals, client follow-ups, and delivery risks',accounting:'Overdue invoices, missing docs, and client requests',financial:'Client follow-ups, reviews, and pipeline',realestate:'Deals, active listings, and deadline follow-ups',marketing:'Deliverables, campaign risks, and new leads',hr:'Hiring steps, candidate follow-ups, and people ops'};
+function buildIntro(){ const g=document.getElementById('indGrid'); g.innerHTML=''; INDUSTRIES.forEach((D,i)=>{ const b=document.createElement('button'); b.className='ind'+(i===0?' ind-hi':''); b.setAttribute('aria-label','Open '+D.label+' demo'); b.style.setProperty('--d', D.theme.dk); const tag=i===0?'<span class="ind-tag">Start here</span>':''; b.innerHTML='<div class="ind-top"><span class="ic" style="background:color-mix(in srgb,'+D.theme.brand+' 12%,#fff);color:'+D.theme.dk+'">'+svg(D.pick)+'</span>'+tag+'<span class="ind-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div><div class="ind-name">'+D.label+'</div><div class="ind-line">'+(PICK_SHORT[D.id]||'')+'</div>'; b.addEventListener('click',()=>{ choose(D); }); g.appendChild(b); }); }
 function choose(D,tour){ CUR=D; applyTheme(D); buildNav(); navigateTo('today'); document.getElementById('intro').classList.add('hide'); if(tour!==false) startTour(); }
 document.getElementById('btnInd').addEventListener('click',()=>{ endTour(); document.getElementById('intro').classList.remove('hide'); });
 
 /* one-pager modal */
 var opBack=document.getElementById('opBack');
 document.getElementById('btnOnePager').addEventListener('click',()=>opBack.classList.add('open'));
-document.getElementById('btnSample').addEventListener('click',()=>choose(INDUSTRIES[0], false));
 document.getElementById('opClose').addEventListener('click',()=>opBack.classList.remove('open'));
 opBack.addEventListener('click',e=>{ if(e.target===opBack) opBack.classList.remove('open'); });
 
