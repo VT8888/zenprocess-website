@@ -75,6 +75,17 @@ svg{display:block}
 .view{display:none;animation:fade .4s cubic-bezier(.2,.7,.2,1)}
 .view.on{display:block}
 @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.view.on .eyebrow,.view.on .h-sec,.view.on .sub{animation:rise .5s both}
+.view.on .h-sec{animation-delay:.05s}.view.on .sub{animation-delay:.1s}
+.view.on .kpis>*,.view.on .counts>*,.view.on .dc-grid>*{animation:rise .5s both}
+.view.on .kpis>*:nth-child(1),.view.on .counts>*:nth-child(1),.view.on .dc-grid>*:nth-child(1){animation-delay:.14s}
+.view.on .kpis>*:nth-child(2),.view.on .counts>*:nth-child(2),.view.on .dc-grid>*:nth-child(2){animation-delay:.20s}
+.view.on .kpis>*:nth-child(3),.view.on .counts>*:nth-child(3),.view.on .dc-grid>*:nth-child(3){animation-delay:.26s}
+.view.on .kpis>*:nth-child(4),.view.on .counts>*:nth-child(4),.view.on .dc-grid>*:nth-child(4){animation-delay:.32s}
+.view.on .kpis>*:nth-child(5),.view.on .dc-grid>*:nth-child(5){animation-delay:.38s}
+.view.on .kpis>*:nth-child(6){animation-delay:.44s}
+.view.on .grid2,.view.on .queue,.view.on .detail,.view.on>.card{animation:rise .55s .34s both}
 .eyebrow{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:9px}
 .eyebrow:before{content:"";width:22px;height:2px;background:var(--gold-grad);border-radius:2px}
 .h-sec{font-size:24px;font-weight:700;margin:8px 0 4px;letter-spacing:-.2px}
@@ -98,7 +109,8 @@ svg{display:block}
 .trend{font-weight:700}.trend.up{color:var(--good)}.trend.dn{color:var(--bad)}
 
 .grid2{display:grid;grid-template-columns:1.35fr 1fr;gap:16px;margin-top:18px}
-.card{background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--sh);overflow:hidden}
+.card{background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--sh);overflow:hidden;transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-2px);box-shadow:0 2px 4px rgba(14,27,45,.06),0 18px 40px rgba(14,27,45,.12)}
 .card-h{display:flex;align-items:center;justify-content:space-between;padding:15px 18px 11px;border-bottom:1px solid var(--border-2)}
 .card-h b{font-family:var(--serif);font-size:15.5px;font-weight:700}
 .card-h .mut{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
@@ -220,7 +232,14 @@ svg{display:block}
 .fine{margin-top:14px;font-size:11.5px;color:var(--ink-4);text-align:center}
 
 /* ===== landing / hero ===== */
-.landing{position:fixed;inset:0;z-index:90;overflow:auto;display:none;background:var(--navy-grad);color:#EFE7D5}
+.landing{position:fixed;inset:0;z-index:90;overflow:auto;display:none;background:var(--navy-grad);color:#EFE7D5;scrollbar-width:thin;scrollbar-color:rgba(205,169,93,.4) transparent}
+.landing::-webkit-scrollbar{width:10px}
+.landing::-webkit-scrollbar-track{background:transparent}
+.landing::-webkit-scrollbar-thumb{background:rgba(205,169,93,.3);border-radius:8px;border:3px solid transparent;background-clip:content-box}
+.landing::-webkit-scrollbar-thumb:hover{background:rgba(205,169,93,.5);background-clip:content-box}
+@keyframes heroUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.land-in>*{animation:heroUp .6s cubic-bezier(.2,.7,.2,1) both}
+.land-eyebrow{animation-delay:.06s}.land-h1{animation-delay:.13s}.land-sub{animation-delay:.22s}.land-badge{animation-delay:.3s}.land-stats{animation-delay:.38s}.land-ben{animation-delay:.46s}.land-cta{animation-delay:.54s}.land-fine{animation-delay:.6s}
 .landing:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(760px 400px at 50% -5%, rgba(205,169,93,.16), transparent 60%)}
 .landing.on{display:block}
 .land-in{position:relative;max-width:960px;margin:0 auto;padding:clamp(26px,6vh,64px) 24px 56px;text-align:center}
@@ -230,7 +249,9 @@ svg{display:block}
 .land-brand .prod{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#C9A25A;font-weight:600;border-left:1px solid rgba(205,169,93,.4);padding-left:12px}
 .land-eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#CDA95D}
 .land-h1{font-family:var(--serif);font-size:clamp(33px,5.2vw,54px);line-height:1.06;color:#F6F1E5;margin:14px auto 0;max-width:17ch;letter-spacing:-.5px}
-.land-sub{color:#C3CDDC;font-size:clamp(15px,1.5vw,18px);max-width:62ch;margin:18px auto 0;line-height:1.62}
+.land-sub{color:#D4DCE9;font-size:clamp(16px,1.7vw,20px);max-width:60ch;margin:18px auto 0;line-height:1.66}
+.land-sub b{color:#F1E7D0;font-weight:700}
+.land-sub .hl{color:#E4C77E;font-weight:600}
 .land-badge{display:inline-flex;align-items:center;gap:9px;margin-top:20px;font-size:12.5px;font-weight:600;color:#DCC98F;background:rgba(205,169,93,.1);border:1px solid rgba(205,169,93,.32);padding:7px 15px;border-radius:22px}
 .land-badge .live{width:8px;height:8px;border-radius:50%;background:#4FA36A;box-shadow:0 0 0 3px rgba(79,163,106,.25)}
 .land-stats{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:30px auto 0;max-width:800px}
@@ -250,6 +271,7 @@ svg{display:block}
 .land-fine{margin-top:22px;font-size:12px;color:#8B95A6}
 @media(max-width:620px){.land-ben{grid-template-columns:1fr}}
 
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
 @media(max-width:1080px){
   .kpis{grid-template-columns:repeat(3,1fr)} .dc-grid{grid-template-columns:repeat(3,1fr)}
   .grid2{grid-template-columns:1fr} .detail{grid-template-columns:1fr} .counts{grid-template-columns:repeat(2,1fr)}
@@ -269,7 +291,7 @@ svg{display:block}
     <div class="land-brand"><span class="logo">IV</span><b>Ironvale Supply Co.</b><span class="prod">IntelDb</span></div>
     <div class="land-eyebrow">Distribution Intelligence</div>
     <h1 class="land-h1">Your whole inventory, on one live screen.</h1>
-    <p class="land-sub">IntelDb plugs into the systems you already run, your ERP, warehouse, and order data (SAP, NetSuite, Microsoft Dynamics, QuickBooks, and more), and turns them into a real-time command center. See what's short, what's overstocked, where cash is stuck, and what to do next, without stitching five reports together every week.</p>
+    <p class="land-sub">IntelDb plugs into the systems you already run, your <b>ERP, warehouse, and order data</b> <span class="hl">(SAP, NetSuite, Microsoft Dynamics, QuickBooks, and more)</span>, and turns them into a <span class="hl">real-time command center</span>. See what's short, what's overstocked, where cash is stuck, and what to do next, without stitching five reports together every week.</p>
     <div class="land-badge"><span class="live"></span>A live intelligence dashboard, running on your own data</div>
 
     <div class="land-stats">
