@@ -3,3 +3,7 @@
 # Owner OS demo — canonical lowercase path; 301 old casing to it
 /ownerOS_demo    /owneros_demo/    301!
 /ownerOS_demo/   /owneros_demo/    301!
+
+# Distributor track renamed from /solutions
+/solutions       /for-distributors    301
+/solutions/      /for-distributors    301
