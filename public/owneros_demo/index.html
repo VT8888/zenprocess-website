@@ -6,7 +6,7 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMiIgZmlsbD0iI0ZGRkZGRiIvPgogIDxjaXJjbGUgY3g9IjI1NiIgY3k9IjI1NiIgcj0iMTU0IiBmaWxsPSJub25lIiBzdHJva2U9IiM1MDQ1RTkiIHN0cm9rZS13aWR0aD0iMzQiLz4KICA8Y2lyY2xlIGN4PSIyNTYiIGN5PSIyNTYiIHI9IjgzIiBmaWxsPSJub25lIiBzdHJva2U9IiMwNEI0NUEiIHN0cm9rZS13aWR0aD0iMzEiLz4KPC9zdmc+Cg==">
 <title>OwnerOS — Interactive Demo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
 :root {
   --brand: #15803D; --brand-dk: #166534; --accent: #22C55E;
@@ -103,8 +103,10 @@ h1 { margin: 0; font-size: 25px; letter-spacing: -.02em; line-height: 1.15; font
 .warn { background: var(--warn-soft); color: var(--warn); }
 .danger { background: var(--danger-soft); color: var(--danger); }
 .info { background: var(--info-soft); color: var(--info); }
-.recommendation { background: var(--band); color: #fff; border: 0; display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; }
+.recommendation { background: linear-gradient(135deg,#0F172A 0%,#1E293B 100%); color: #fff; border: 1px solid rgba(255,255,255,.08); border-left: 4px solid var(--accent); display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; }
 .recommendation .card-title { color: #fff; }
+.recommendation .card-sub { color: rgba(255,255,255,.78); }
+.recommendation .btn { background: var(--brand); color: #fff; border: 1px solid var(--brand); }
 .recommendation .card-sub { color: rgba(255,255,255,.72); }
 .split-list { padding: 2px 0; }
 .list-row, .brief-row { display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: center; padding: 12px 16px; border-bottom: 1px solid var(--border-soft); }
@@ -404,6 +406,24 @@ tr.tap:hover td { background: rgba(17,24,39,.02); }
 @media(max-width:860px){.intro .entry-h1{font-size:34px}}
 @media(prefers-reduced-motion:reduce){.intro .entry,.intro .ind,.intro .entry-foot{animation:none}}
 </style>
+<style>
+.intro .entry-sub{font-size:20px;font-weight:500;color:#475569;max-width:660px;line-height:1.45}
+.intro .entry-sub .es-l1,.intro .entry-sub .es-l2{display:block}
+.intro .entry-sub .es-l2{margin-top:6px}
+.intro .entry-sub .es-brand{color:#15803D;font-weight:600}
+.metric-value{font-family:"IBM Plex Mono","Be Vietnam Pro",monospace;color:var(--brand-dk);font-weight:600;letter-spacing:-.01em}
+@media(max-width:860px){.intro .entry-sub{font-size:17px}}
+</style>
+<style>
+.intro .entry{max-width:820px}
+.intro .entry-sub{max-width:820px}
+.intro .entry-sub .es-l1{white-space:nowrap}
+@media(max-width:860px){.intro .entry-sub .es-l1{white-space:normal}.intro .entry-sub{font-size:17px}}
+</style>
+<style>
+.metric:has(.metric-foot .status.warn) .metric-value,
+.metric:has(.metric-foot .status.danger) .metric-value{color:var(--danger)}
+</style>
 </head>
 <body>
 <div class="app">
@@ -448,8 +468,8 @@ tr.tap:hover td { background: rgba(17,24,39,.02); }
 
         <div class="entry">
       <div class="kicker">Interactive demo</div>
-      <h1 class="entry-h1">Run your business from one place.</h1>
-      <p class="entry-sub">Stop checking five different systems to figure out what’s going on. <span class="nocaps">OwnerOS</span> shows you what needs attention today and prepares the next step for you to approve.</p>
+      <h1 class="entry-h1">Run your business<br>from one place</h1>
+      <p class="entry-sub"><span class="es-l1">Stop checking five different systems to figure out what’s going on</span><span class="es-l2"><span class="es-brand nocaps">OwnerOS</span> shows you what needs attention today and prepares the next step for you to approve</span></p>
       <div class="entry-pill"><span class="dot"></span>A live workspace, running on sample data</div>
     </div>
     <div class="ind-grid" id="indGrid"></div>
