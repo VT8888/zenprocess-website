@@ -329,8 +329,12 @@ tr.tap:hover td { background: rgba(17,24,39,.02); }
 .tbtn.primary { background: var(--brand); border-color: var(--brand-dk); color: #fff; }
 .tbtn.ghost { border: 0; background: transparent; color: var(--muted); padding: 0 6px; }
 
+@media (max-width: 767px) {
+  .app { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
+}
 @media (max-width: 960px) {
-  .app { grid-template-columns: 1fr; } .sidebar { display: none; }
+  .search { display: none; }
   .grid-2, .grid-3, .grid-4, .chat-layout { grid-template-columns: 1fr; }
   .hero { grid-template-columns: 1fr; gap: 26px; }
   .hero h1 { max-width: none; font-size: 29px; }
