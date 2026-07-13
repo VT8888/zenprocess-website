@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+/* Lower the desktop breakpoint 768px -> 640px so the desktop layout holds on
+   zoomed / narrow-window laptops (Oscar's report). Every md: utility now
+   activates at 640px instead of 768px. */
+@theme {
+  --breakpoint-md: 40rem;
+}
+
 /* Shared accent colors — same in both themes */
 :root {
   --forest-primary: #16A34A;

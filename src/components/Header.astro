@@ -21,18 +21,18 @@ function isActive(href: string): boolean {
   <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="flex h-16 items-center justify-between">
       <!-- Logo -->
-      <a href="/" class="flex items-center gap-2.5 text-2xl font-bold text-[var(--text-primary)] tracking-tight">
+      <a href="/" class="flex items-center gap-2.5 text-xl lg:text-2xl font-bold text-[var(--text-primary)] tracking-tight">
         <Image src={logo} alt="zenprocess.ai" width={80} height={80} loading="eager" fetchpriority="high" class="h-10 w-10" />
         zenprocess.ai
       </a>
 
       <!-- Desktop Nav -->
-      <div id="desktop-nav" class="hidden md:flex items-center gap-5">
+      <div id="desktop-nav" class="hidden md:flex items-center gap-3 lg:gap-5">
         {navLinks.map((link) => (
           <a
             href={link.href}
             class:list={[
-              "text-sm font-medium transition-colors",
+              "text-sm font-medium whitespace-nowrap transition-colors",
               isActive(link.href)
                 ? "text-[#22C55E]"
                 : "text-[var(--text-primary-80)] hover:text-[var(--text-primary)]",
