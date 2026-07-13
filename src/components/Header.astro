@@ -5,14 +5,11 @@ import logo from '../assets/logo.png';
 const currentPath = Astro.url.pathname;
 
 const navLinks = [
-  { href: "/owner-os", label: "Owner OS" },
-  { href: "/for-distributors", label: "For Distributors" },
+  { href: "/solutions", label: "Solutions" },
   { href: "/case-study", label: "Case Study" },
   { href: "/about", label: "About" },
   { href: "/resources", label: "Resources" },
 ];
-
-const BOOKING = "https://links.zenprocess.ai/widget/booking/rcoKJifJJA46bRI9fTEr";
 
 function isActive(href: string): boolean {
   if (href === "/") return currentPath === "/";
@@ -45,9 +42,6 @@ function isActive(href: string): boolean {
           </a>
         ))}
         <ThemeToggle />
-        <a href={BOOKING} target="_blank" rel="noopener noreferrer" class="bg-[#16A34A] hover:bg-[#15803D] text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors">
-          Book a call
-        </a>
       </div>
 
       <!-- Mobile Hamburger -->
@@ -83,9 +77,6 @@ function isActive(href: string): boolean {
             {link.label}
           </a>
         ))}
-        <a href={BOOKING} target="_blank" rel="noopener noreferrer" class="mt-2 bg-[#16A34A] hover:bg-[#15803D] text-white text-sm font-semibold px-4 py-2 rounded-lg text-center transition-colors">
-          Book a call
-        </a>
       </div>
     </div>
   </nav>

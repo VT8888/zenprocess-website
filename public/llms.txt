@@ -10,8 +10,7 @@ Every piece of public content on this site is written by Vinh directly — no AI
 
 - [Home](https://zenprocess.ai/): One-page overview of what we do
 - [About](https://zenprocess.ai/about): Vinh Truong's background and approach
-- [Owner OS](https://zenprocess.ai/owner-os): AI operating system for owner-led firms (early access) — daily brief, finds slipping work, drafts next actions for human approval
-- [For Distributors](https://zenprocess.ai/for-distributors): Real-time data and AI on top of SAP and similar ERPs for multi-warehouse distributors
+- [Solutions](https://zenprocess.ai/solutions): The services we offer
 - [Case Study](https://zenprocess.ai/case-study): Real SAP ByDesign engagement — 16-week data pipeline build for a national distributor (3,000+ SKUs, multi-warehouse, 800+ daily exceptions)
 - [Resources / Blog](https://zenprocess.ai/resources): Long-form articles on AI, ERP, and operational intelligence in building materials distribution
 - [Book a Call](https://zenprocess.ai/book): GHL-hosted discovery call booking
