@@ -24,7 +24,7 @@ function isActive(href: string) {
           {link.label}
         </a>
       ))}
-      <a class="btn btn-primary" style="padding:9px 16px;font-size:14px" href="https://links.zenprocess.ai/widget/booking/rcoKJifJJA46bRI9fTEr" target="_blank" rel="noopener noreferrer">Book a demo</a>
+      <a class="btn btn-primary nav-cta" style="padding:9px 16px;font-size:14px" href="https://links.zenprocess.ai/widget/booking/rcoKJifJJA46bRI9fTEr" target="_blank" rel="noopener noreferrer">Book a demo</a>
     </nav>
 
     <!-- Mobile Hamburger -->
@@ -72,7 +72,8 @@ function isActive(href: string) {
 </script>
 
 <style>
-  @media (max-width: 860px) {
+  /* Desktop nav holds down to 720px; hamburger only below that (Oscar zoom headroom) */
+  @media (max-width: 720px) {
     nav.main {
       display: none !important;
     }
@@ -80,7 +81,7 @@ function isActive(href: string) {
       display: block !important;
     }
   }
-  @media (min-width: 861px) {
+  @media (min-width: 721px) {
     .mobile-only,
     #mobile-menu {
       display: none !important;
@@ -88,5 +89,14 @@ function isActive(href: string) {
     nav.main {
       display: flex !important;
     }
+  }
+  /* Tighten the nav in the 721-1024 band so 5 links + logo fit on one line */
+  @media (max-width: 1024px) {
+    nav.main { gap: 16px; }
+    .logo { font-size: 17px; }
+  }
+  /* The CTA button needs the most room; show it only on wider desktops */
+  @media (max-width: 900px) {
+    .nav-cta { display: none; }
   }
 </style>
