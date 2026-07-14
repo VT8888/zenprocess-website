@@ -101,4 +101,8 @@ function isActive(href: string) {
   @media (max-width: 900px) {
     .nav-cta { display: none; }
   }
+  /* Keep the CTA text white to match the "Book a call" button — the generic
+     `nav.main a{color:var(--ink-2)}` rule was tinting it dark gray. */
+  nav.main a.nav-cta,
+  nav.main a.nav-cta:hover { color: #fff; }
 </style>
