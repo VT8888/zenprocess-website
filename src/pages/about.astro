@@ -16,7 +16,7 @@ import vinhPhoto from '../assets/vinh-photo.jpg';
         <p class="hero-subtitle">I spent more than 20 years leading enterprise IT and building systems people relied on every day. I started zenprocess.ai to bring that same practical approach to owner-led businesses and distributors that have outgrown spreadsheets.</p>
       </div>
       <div class="card vinh-card text-center">
-        <Image src={vinhPhoto} alt="Vinh Truong" width={96} height={96} class="vinh-photo" />
+        <Image src={vinhPhoto} alt="Vinh Truong" width={480} height={640} class="vinh-photo" />
         <h3 class="vinh-name">Vinh Truong</h3>
         <p class="eyebrow">Co-Founder · zenprocess.ai</p>
       </div>
@@ -74,12 +74,13 @@ import vinhPhoto from '../assets/vinh-photo.jpg';
     padding: 28px;
   }
   .vinh-photo {
-    width: 96px;
-    height: 96px;
-    border-radius: 50%;
-    background: var(--green-tint);
+    width: 240px;
+    height: 240px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 16px;
     margin: 0 auto 16px;
-    border: 1px solid var(--green-tint-2);
+    border: 1px solid var(--line);
   }
   .vinh-name {
     font-size: 20px;
