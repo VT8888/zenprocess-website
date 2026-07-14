@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import "../styles/premium.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Analytics from "../components/Analytics.astro";
@@ -91,12 +92,12 @@ const siteName = "zenprocess.ai";
 
     <!-- Layout guard: keeps the header correct even if the main CSS bundle fails to load -->
     <style is:inline>
-      @media (min-width: 640px) {
+      @media (min-width: 861px) {
         #mobile-menu-btn,
         #mobile-menu { display: none !important; }
         #desktop-nav { display: flex !important; }
       }
-      @media (max-width: 639px) {
+      @media (max-width: 860px) {
         #desktop-nav { display: none !important; }
       }
     </style>
@@ -151,16 +152,15 @@ const siteName = "zenprocess.ai";
         }, 30000); // Show after 30 seconds on mobile
       }
     </script>
-    <!-- Scroll-triggered fade-up observer -->
+    <!-- Premium scroll-reveal observer -->
     <script is:inline>
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, { threshold: 0.1 });
-      document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+      const io = new IntersectionObserver(es => es.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      }), { threshold: .12 });
+      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
     </script>
   </body>
 </html>

@@ -1,85 +1,59 @@
 ---
-import ThemeToggle from './ThemeToggle.astro';
-import { Image } from 'astro:assets';
-import logo from '../assets/logo.png';
 const currentPath = Astro.url.pathname;
 
 const navLinks = [
-  { href: "/solutions", label: "Solutions" },
-  { href: "/case-study", label: "Case Study" },
-  { href: "/about", label: "About" },
-  { href: "/resources", label: "Resources" },
+  { href: '/owner-os', label: 'OwnerOS' },
+  { href: '/for-distributors', label: 'For Distributors' },
+  { href: '/case-study', label: 'Case Study' },
+  { href: '/about', label: 'About' },
+  { href: '/resources', label: 'Resources' },
 ];
 
-function isActive(href: string): boolean {
-  if (href === "/") return currentPath === "/";
+function isActive(href: string) {
+  if (href === '/') return currentPath === '/';
   return currentPath.startsWith(href);
 }
 ---
 
-<header class="sticky top-0 z-50 bg-[var(--header-bg)] backdrop-blur-xl border-b border-[var(--glass-border)]">
-  <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="flex h-16 items-center justify-between">
-      <!-- Logo -->
-      <a href="/" class="flex items-center gap-2.5 text-xl lg:text-2xl font-bold text-[var(--text-primary)] tracking-tight">
-        <Image src={logo} alt="zenprocess.ai" width={80} height={80} loading="eager" fetchpriority="high" class="h-10 w-10" />
-        zenprocess.ai
+<header class="site">
+  <div class="wrap row">
+    <a href="/" class="logo"><span class="mk"></span>zenprocess.ai</a>
+    <nav class="main" id="desktop-nav">
+      {navLinks.map((link) => (
+        <a href={link.href} class:list={{ active: isActive(link.href) }}>
+          {link.label}
+        </a>
+      ))}
+      <a class="btn btn-primary" style="padding:9px 16px;font-size:14px" href="https://links.zenprocess.ai/widget/booking/rcoKJifJJA46bRI9fTEr" target="_blank" rel="noopener noreferrer">Book a demo</a>
+    </nav>
+
+    <!-- Mobile Hamburger -->
+    <button
+      id="mobile-menu-btn"
+      type="button"
+      class="mobile-only"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+      style="border:none;background:transparent;cursor:pointer;color:var(--ink-2);display:none"
+    >
+      <svg id="hamburger-icon" style="width:24px;height:24px" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      </svg>
+      <svg id="close-icon" style="width:24px;height:24px;display:none" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" style="display:none;padding:0 24px 16px;flex-direction:column;gap:12px">
+    {navLinks.map((link) => (
+      <a href={link.href} style="font-size:14.5px;font-weight:500;color:var(--ink-2);text-decoration:none">
+        {link.label}
       </a>
-
-      <!-- Desktop Nav -->
-      <div id="desktop-nav" class="hidden md:flex items-center gap-3 lg:gap-5">
-        {navLinks.map((link) => (
-          <a
-            href={link.href}
-            class:list={[
-              "text-sm font-medium whitespace-nowrap transition-colors",
-              isActive(link.href)
-                ? "text-[#22C55E]"
-                : "text-[var(--text-primary-80)] hover:text-[var(--text-primary)]",
-            ]}
-          >
-            {link.label}
-          </a>
-        ))}
-        <ThemeToggle />
-      </div>
-
-      <!-- Mobile Hamburger -->
-      <button
-        id="mobile-menu-btn"
-        type="button"
-        class="md:hidden text-[var(--text-primary-80)] hover:text-[var(--text-primary)]"
-        aria-label="Toggle menu"
-        aria-expanded="false"
-      >
-        <svg id="hamburger-icon" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-        </svg>
-        <svg id="close-icon" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-        </svg>
-      </button>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden pb-4 bg-[var(--bg-primary)] rounded-b-xl -mx-4 px-4">
-      <div class="flex flex-col gap-3 pt-2">
-        {navLinks.map((link) => (
-          <a
-            href={link.href}
-            class:list={[
-              "text-sm font-medium py-1 transition-colors",
-              isActive(link.href)
-                ? "text-[#22C55E]"
-                : "text-[var(--text-primary-80)] hover:text-[var(--text-primary)]",
-            ]}
-          >
-            {link.label}
-          </a>
-        ))}
-      </div>
-    </div>
-  </nav>
+    ))}
+    <a class="btn btn-primary" style="padding:9px 16px;font-size:14px;margin-top:8px" href="https://links.zenprocess.ai/widget/booking/rcoKJifJJA46bRI9fTEr" target="_blank" rel="noopener noreferrer">Book a demo</a>
+  </div>
 </header>
 
 <script>
@@ -89,9 +63,30 @@ function isActive(href: string): boolean {
   const closeIcon = document.getElementById("close-icon");
 
   btn?.addEventListener("click", () => {
-    const isOpen = menu?.classList.toggle("hidden") === false;
-    hamburgerIcon?.classList.toggle("hidden", isOpen);
-    closeIcon?.classList.toggle("hidden", !isOpen);
-    btn.setAttribute("aria-expanded", String(isOpen));
+    const isOpen = menu?.style.display === "flex";
+    if (menu) menu.style.display = isOpen ? "none" : "flex";
+    if (hamburgerIcon) hamburgerIcon.style.display = isOpen ? "block" : "none";
+    if (closeIcon) closeIcon.style.display = isOpen ? "none" : "block";
+    btn.setAttribute("aria-expanded", String(!isOpen));
   });
 </script>
+
+<style>
+  @media (max-width: 860px) {
+    nav.main {
+      display: none !important;
+    }
+    .mobile-only {
+      display: block !important;
+    }
+  }
+  @media (min-width: 861px) {
+    .mobile-only,
+    #mobile-menu {
+      display: none !important;
+    }
+    nav.main {
+      display: flex !important;
+    }
+  }
+</style>
