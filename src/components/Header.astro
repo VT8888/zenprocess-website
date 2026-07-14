@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import logo from '../assets/logo.png';
 const currentPath = Astro.url.pathname;
 
 const navLinks = [
@@ -17,7 +19,7 @@ function isActive(href: string) {
 
 <header class="site">
   <div class="wrap row">
-    <a href="/" class="logo"><span class="mk"></span>zenprocess.ai</a>
+    <a href="/" class="logo"><Image src={logo} alt="zenprocess.ai" width={30} height={30} style="display:block;flex:none" />zenprocess.ai</a>
     <nav class="main" id="desktop-nav">
       {navLinks.map((link) => (
         <a href={link.href} class:list={{ active: isActive(link.href) }}>
