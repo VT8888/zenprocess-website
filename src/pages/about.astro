@@ -133,16 +133,17 @@ const credentials = [
     margin-top: 18px;
     padding: 9px 16px;
     border-radius: 10px;
-    background: rgba(10, 102, 194, .10);
-    border: 1px solid rgba(10, 102, 194, .25);
-    color: #0A66C2;
+    background: var(--card);
+    border: 1px solid var(--line-2);
+    color: var(--ink);
     font-size: 14px;
     font-weight: 600;
     text-decoration: none;
-    transition: background .18s;
+    transition: border-color .18s, background .18s;
   }
   .linkedin-btn:hover {
-    background: rgba(10, 102, 194, .18);
+    border-color: var(--muted);
+    background: var(--canvas);
   }
   .about-section {
     border-top: 1px solid var(--line);
