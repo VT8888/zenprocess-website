@@ -101,6 +101,9 @@ const siteName = "zenprocess.ai";
         #desktop-nav { display: none !important; }
       }
     </style>
+
+    <!-- Reveal fallback: show scroll-reveal content if JS is off or the observer never fires -->
+    <noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript>
   </head>
   <body class="min-h-screen font-['Be_Vietnam_Pro',sans-serif] antialiased" style="background-color: var(--canvas); color: var(--ink); transition: background-color 0.3s, color 0.3s;">
     <Header />
