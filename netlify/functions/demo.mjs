@@ -78,7 +78,12 @@ function brandedPage({ title, heading, body, status }) {
 </div></body></html>`;
   return new Response(html, {
     status,
-    headers: { "content-type": "text/html; charset=utf-8", "cache-control": "no-store" },
+    headers: {
+      "content-type": "text/html; charset=utf-8",
+      "cache-control": "no-store",
+      "x-gate-build": "3",
+      "x-secret-present": process.env.DEMO_SIGNING_SECRET ? "yes" : "no",
+    },
   });
 }
 
