@@ -4,3 +4,34 @@
 
 [[plugins]]
   package = "./plugins/indexnow-on-deploy"
+
+# Bundle the (now non-public) demo HTML into the gate function.
+[functions]
+  node_bundler = "esbuild"
+  included_files = ["demos/**"]
+
+# Pretty share URL -> gated function. Netlify forwards the original query
+# string (?t=<token>) and merges it with ?d=<name>.
+[[redirects]]
+  from = "/d/:name"
+  to = "/.netlify/functions/demo?d=:name"
+  status = 200
+
+# Old direct demo paths are dead ends now: route them through the gate so
+# a token-less hit shows the branded "link no longer valid" page.
+[[redirects]]
+  from = "/owneros_demo"
+  to = "/.netlify/functions/demo?d=owneros"
+  status = 200
+[[redirects]]
+  from = "/owneros_demo/*"
+  to = "/.netlify/functions/demo?d=owneros"
+  status = 200
+[[redirects]]
+  from = "/inteldb_demo"
+  to = "/.netlify/functions/demo?d=inteldb"
+  status = 200
+[[redirects]]
+  from = "/inteldb_demo/*"
+  to = "/.netlify/functions/demo?d=inteldb"
+  status = 200
