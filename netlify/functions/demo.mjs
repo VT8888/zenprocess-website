@@ -81,7 +81,7 @@ function brandedPage({ title, heading, body, status }) {
     headers: {
       "content-type": "text/html; charset=utf-8",
       "cache-control": "no-store",
-      "x-gate-build": "3",
+      "x-gate-build": "5",
       "x-secret-present": process.env.DEMO_SIGNING_SECRET ? "yes" : "no",
     },
   });
@@ -119,9 +119,10 @@ export default async (req) => {
   const expired = { title: "Demo link expired", heading: `The ${DEMOS[name]} demo link has expired`, body: "This link was set to work for a limited time and has now closed.", status: 410 };
   const invalid = { title: "Demo link invalid", heading: `This ${DEMOS[name]} demo link isn't valid`, body: "The link is incomplete or has been changed.", status: 403 };
 
-  if (!expStr || !sig || !Number.isFinite(exp)) return brandedPage(invalid);
+  // exp must be a canonical integer string (no leading zeros, sign, decimals, NaN/Inf)
+  if (!expStr || !sig || !Number.isInteger(exp) || String(exp) !== expStr) return brandedPage(invalid);
   if (!safeEqualHex(sign(name, expStr, secret), sig)) return brandedPage(invalid);
-  if (Math.floor(Date.now() / 1000) > exp) return brandedPage(expired);
+  if (Math.floor(Date.now() / 1000) >= exp) return brandedPage(expired);
 
   let bytes;
   try {
