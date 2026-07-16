@@ -1,10 +1,9 @@
 /book https://links.zenprocess.ai/widget/booking/rcoKJifJJA46bRI9fTEr 301
 
-# Owner OS demo — canonical lowercase path; 301 old casing to it
+# Demos are now gated (see netlify.toml). Normalize old casing/hyphen variants
+# to the canonical path, which netlify.toml routes into the gate function.
 /ownerOS_demo    /owneros_demo/    301!
 /ownerOS_demo/   /owneros_demo/    301!
-
-# IntelDb demo — canonical underscore path (matches /owneros_demo); 301 the hyphen variant
 /inteldb-demo    /inteldb_demo/    301
 /inteldb-demo/   /inteldb_demo/    301
 
