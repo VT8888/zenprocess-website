@@ -116,8 +116,15 @@ export default async (req) => {
   const sig = dot > 0 ? token.slice(dot + 1) : "";
   const exp = Number(expStr);
 
-  const expired = { title: "Demo link expired", heading: `The ${DEMOS[name]} demo link has expired`, body: "This link was set to work for a limited time and has now closed.", status: 410 };
-  const invalid = { title: "Demo link invalid", heading: `This ${DEMOS[name]} demo link isn't valid`, body: "The link is incomplete or has been changed.", status: 403 };
+  // Prospects see the same "expired" message whether the token is old or
+  // malformed — clearer for them, and it doesn't leak tamper vs expiry.
+  const expiredCopy = {
+    title: "Demo link expired",
+    heading: `This ${DEMOS[name]} demo link is expired.`,
+    body: "This link was set to work for a limited time and has now closed.",
+  };
+  const expired = { ...expiredCopy, status: 410 };
+  const invalid = { ...expiredCopy, status: 403 };
 
   // exp must be a canonical integer string (no leading zeros, sign, decimals, NaN/Inf)
   if (!expStr || !sig || !Number.isInteger(exp) || String(exp) !== expStr) return brandedPage(invalid);
