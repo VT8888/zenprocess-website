@@ -53,6 +53,9 @@ function brandedPage({ title, heading, body, status }) {
   const html = `<!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
+<link rel="icon" type="image/svg+xml" href="https://zenprocess.ai/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="https://zenprocess.ai/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://zenprocess.ai/apple-touch-icon.png">
 <title>${title} | zenprocess.ai</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;800&display=swap">
