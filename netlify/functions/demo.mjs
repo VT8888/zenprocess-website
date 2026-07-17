@@ -94,12 +94,12 @@ export default async (req) => {
   }
 
   const url = new URL(req.url);
-  // Name comes from the path suffix (/.netlify/functions/demo/<name>), because
-  // Netlify drops the destination query string when rewriting to a function.
-  // Fall back to ?d= for direct calls.
-  const parts = url.pathname.split("/").filter(Boolean);
-  const last = parts[parts.length - 1];
-  const name = (last && last !== "demo" ? last : url.searchParams.get("d") || "").toLowerCase();
+  // The function receives the ORIGINAL request path (e.g. /d/owneros or
+  // /owneros_demo), not the rewrite destination, and Netlify drops the
+  // destination query on function rewrites. So detect the demo slug anywhere
+  // in the path; fall back to ?d= for direct calls.
+  const p = url.pathname.toLowerCase();
+  const name = Object.keys(DEMOS).find((n) => p.includes(n)) || (url.searchParams.get("d") || "").toLowerCase();
   const token = url.searchParams.get("t") || "";
 
   if (!DEMOS[name]) {
