@@ -94,7 +94,12 @@ export default async (req) => {
   }
 
   const url = new URL(req.url);
-  const name = (url.searchParams.get("d") || "").toLowerCase();
+  // Name comes from the path suffix (/.netlify/functions/demo/<name>), because
+  // Netlify drops the destination query string when rewriting to a function.
+  // Fall back to ?d= for direct calls.
+  const parts = url.pathname.split("/").filter(Boolean);
+  const last = parts[parts.length - 1];
+  const name = (last && last !== "demo" ? last : url.searchParams.get("d") || "").toLowerCase();
   const token = url.searchParams.get("t") || "";
 
   if (!DEMOS[name]) {
