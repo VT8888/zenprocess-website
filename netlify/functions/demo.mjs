@@ -75,7 +75,7 @@ function brandedPage({ title, heading, body, status }) {
 <body><div class="card">
   <div class="logo"><img src="https://zenprocess.ai/logo.png" alt="zenprocess.ai">zenprocess.ai</div>
   <h1>${heading}</h1>
-  <p>${body}</p>
+  ${body ? `<p>${body}</p>` : ""}
   <p class="sub">Please send a request to <a href="mailto:vinht@zenprocess.ai" style="color:var(--green-d);text-decoration:underline">vinht@zenprocess.ai</a>, and I will send you a fresh one!</p>
   <a class="btn" href="${BOOKING}" target="_blank" rel="noopener noreferrer">Book a call</a>
 </div></body></html>`;
@@ -124,7 +124,7 @@ export default async (req) => {
   const expiredCopy = {
     title: "Demo link expired",
     heading: `This ${DEMOS[name]} demo link is expired.`,
-    body: "This link was set to work for a limited time and has now closed.",
+    body: "",
   };
   const expired = { ...expiredCopy, status: 410 };
   const invalid = { ...expiredCopy, status: 403 };
