@@ -25,3 +25,6 @@ pnpm-debug.log*
 _backups/
 _post_backups/
 Logo/
+
+# Local Netlify folder
+.netlify
