@@ -76,7 +76,7 @@ function brandedPage({ title, heading, body, status }) {
   <div class="logo"><img src="https://zenprocess.ai/logo.png" alt="zenprocess.ai">zenprocess.ai</div>
   <h1>${heading}</h1>
   <p>${body}</p>
-  <p class="sub">Demo links are time-limited on purpose. Reach out and I'll send you a fresh one.</p>
+  <p class="sub">Please send a request to <a href="mailto:vinht@zenprocess.ai" style="color:var(--green-d);text-decoration:underline">vinht@zenprocess.ai</a>, and I will send you a fresh one!</p>
   <a class="btn" href="${BOOKING}" target="_blank" rel="noopener noreferrer">Book a call</a>
 </div></body></html>`;
   return new Response(html, {
