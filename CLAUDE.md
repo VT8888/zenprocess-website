@@ -2,7 +2,9 @@
 
 ## What This Is
 
-Public marketing website for **zenprocess.ai** (KMV Group LLC) — an AI systems architecture firm serving mid-market building materials distributors. Built on Astro, deployed on Netlify, live at https://zenprocess.ai.
+Public marketing website for **zenprocess.ai** (KMV Group LLC). Built on Astro, deployed on Netlify, live at https://zenprocess.ai.
+
+**Two products, two audiences** — see Brand Positioning below. The single-ICP distributor framing this file used to carry was abandoned 2026-08-24; the live site had already moved on.
 
 Founder: Vinh Truong. First-person voice throughout — "I", "we", "my team."
 
@@ -31,10 +33,40 @@ website/
 
 ## Brand Positioning
 
-- **Tagline:** Turn your ERP data into revenue.
-- **One-liner:** We build real-time operational dashboards and data pipelines for building materials distributors — on top of the ERP you already run.
-- **We ARE:** AI systems architecture firm for mid-market building materials distribution.
+**Updated 2026-08-26 to match what the live site actually says.** The previous version of this
+section described a distributor-only firm and was **six weeks out of date with the homepage** —
+tagline "Turn your ERP data into revenue", one-liner about building materials distributors. Copy
+written from it would have been written to an abandoned ICP.
+
+**Two products on one engine, two audiences, presented side by side.**
+
+Homepage, verbatim:
+
+> **For owner-led firms and distributors**
+> Stop checking five different systems to figure out what's going on.
+> OwnerOS helps you run your business from one place, while ERP Intelligence gives distributors a
+> live view of inventory, purchasing, and operations.
+
+| | **OwnerOS** | **ERP Intelligence** |
+|---|---|---|
+| Audience line | For owners and small teams | For multi-warehouse distributors |
+| The promise | One screen that shows what's late, what's stuck, and what needs you | See what's short, what's overstocked, and where cash is stuck. In real time |
+| Reads | CRM, books, inbox, calendar | SAP and the ERP you already run |
+| Page | `/owner-os` | `/for-distributors` |
+
+**Credibility line, used on every product page:** Led by Vinh Truong, CISSP. 20+ yrs VP/CTO, $80M+
+initiatives.
+
+**CTA:** "Tell me what is slipping. I will tell you if we can help." A 30-minute call, no pitch deck.
+
 - **We are NOT:** ERP vendor, software company, staffing firm, chatbot builder.
+- **Do not put the audit price on the homepage.**
+- **Never name a client** in public content without written permission. The ERP Intelligence case
+  study uses approved anonymised wording.
+
+⚠️ **The blog does not match this.** All eight posts are distributor-focused and predate the second
+product. Nothing has been written for the OwnerOS audience. Do not treat the blog as a guide to
+current positioning.
 
 ## Brand Voice
 
