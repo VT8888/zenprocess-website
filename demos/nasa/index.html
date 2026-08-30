@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" type="image/png" sizes="32x32" href="https://zenprocess.ai/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://zenprocess.ai/apple-touch-icon.png">
+<title>Vessel Reports Portal | zenprocess.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+
+<style>
+  :root {
+    --ground: #EEF3F6;
+    --surface: #FFFFFF;
+    --surface-2: #E5EDF2;
+    --ink: #0F1F2C;
+    --ink-soft: #4A6072;
+    --ink-faint: #7A8FA0;
+    --rule: #C6D5DE;
+    --structure: #1B4F7A;
+    --sent-ink: #1E6A4C;
+    --sent-bg: #DCEFE5;
+    --wait-ink: #94590C;
+    --wait-bg: #FBEBD3;
+    --flag-ink: #96303A;
+    --flag-bg: #F8DEE0;
+    --idle-ink: #5A7183;
+    --idle-bg: #E1E9EE;
+    --banner-bg: #FBEBD3;
+    --banner-ink: #7A4708;
+    --banner-rule: #D9A54A;
+
+    --sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+    --cond: "IBM Plex Sans Condensed", "IBM Plex Sans", ui-sans-serif, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  * { box-sizing: border-box; }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0B1620;
+      --surface: #12212D;
+      --surface-2: #1A2C3A;
+      --ink: #DCE7EE;
+      --ink-soft: #93A9B8;
+      --ink-faint: #6B8496;
+      --rule: #2B4254;
+      --structure: #7FB2D8;
+      --sent-ink: #6FC79E;
+      --sent-bg: #163D2E;
+      --wait-ink: #E9B463;
+      --wait-bg: #3B2C12;
+      --flag-ink: #EE9099;
+      --flag-bg: #401B20;
+      --idle-ink: #90A6B5;
+      --idle-bg: #22323F;
+      --banner-bg: #33260F;
+      --banner-ink: #EFC780;
+      --banner-rule: #8A6520;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #0B1620;
+    --surface: #12212D;
+    --surface-2: #1A2C3A;
+    --ink: #DCE7EE;
+    --ink-soft: #93A9B8;
+    --ink-faint: #6B8496;
+    --rule: #2B4254;
+    --structure: #7FB2D8;
+    --sent-ink: #6FC79E;
+    --sent-bg: #163D2E;
+    --wait-ink: #E9B463;
+    --wait-bg: #3B2C12;
+    --flag-ink: #EE9099;
+    --flag-bg: #401B20;
+    --idle-ink: #90A6B5;
+    --idle-bg: #22323F;
+    --banner-bg: #33260F;
+    --banner-ink: #EFC780;
+    --banner-rule: #8A6520;
+  }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.55;
+    margin: 0;
+    padding: clamp(18px, 3.5vw, 44px) clamp(14px, 3.5vw, 36px) 60px;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 26px; }
+
+  .kicker {
+    font-family: var(--cond); font-weight: 700; text-transform: uppercase;
+    letter-spacing: .15em; font-size: 12px; color: var(--structure); margin: 0;
+  }
+  h1 {
+    font-family: var(--cond); font-weight: 700; font-size: clamp(27px, 4.4vw, 40px);
+    line-height: 1.06; margin: 6px 0 0; text-wrap: balance;
+  }
+  .lede { margin: 10px 0 0; max-width: 64ch; color: var(--ink-soft); font-size: 16.5px; }
+
+  .banner {
+    background: var(--banner-bg); color: var(--banner-ink);
+    border: 1px solid var(--banner-rule); border-radius: 3px;
+    padding: 12px 16px; font-size: 14px;
+  }
+  .banner b { font-family: var(--cond); text-transform: uppercase; letter-spacing: .08em; font-size: 12.5px; }
+
+  /* ---- the mock application chrome ---- */
+  .app {
+    background: var(--surface); border: 1px solid var(--rule); border-radius: 4px;
+    overflow: hidden;
+  }
+  .app-bar {
+    display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between;
+    background: var(--surface-2); border-bottom: 1px solid var(--rule); padding: 12px 18px;
+  }
+  .app-name { font-family: var(--cond); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; font-size: 14px; }
+  .app-meta { display: flex; gap: 14px; align-items: center; font-size: 13px; color: var(--ink-soft); }
+  .who {
+    display: inline-flex; gap: 8px; align-items: center;
+    background: var(--surface); border: 1px solid var(--rule); border-radius: 999px;
+    padding: 4px 12px 4px 6px; font-size: 13px;
+  }
+  .avatar {
+    width: 22px; height: 22px; border-radius: 999px; background: var(--structure);
+    color: var(--surface); display: grid; place-items: center;
+    font-family: var(--cond); font-weight: 700; font-size: 11px;
+  }
+  .app-body { padding: 18px; display: flex; flex-direction: column; gap: 20px; }
+
+  .stats { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+  .stat { border: 1px solid var(--rule); border-radius: 3px; padding: 12px 14px; background: var(--surface); }
+  .stat .n { font-family: var(--mono); font-size: 26px; font-variant-numeric: tabular-nums; line-height: 1.1; }
+  .stat .k {
+    font-family: var(--cond); text-transform: uppercase; letter-spacing: .09em;
+    font-size: 11.5px; color: var(--ink-soft); margin-top: 4px;
+  }
+  .stat.attn .n { color: var(--wait-ink); }
+  .stat.flag .n { color: var(--flag-ink); }
+
+  .panel-title {
+    font-family: var(--cond); text-transform: uppercase; letter-spacing: .1em;
+    font-size: 12.5px; color: var(--structure); margin: 0 0 10px;
+  }
+
+  .tablewrap { overflow-x: auto; border: 1px solid var(--rule); border-radius: 3px; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; min-width: 720px; }
+  th {
+    font-family: var(--cond); text-transform: uppercase; letter-spacing: .08em;
+    font-size: 11.5px; color: var(--ink-soft); text-align: left;
+    padding: 9px 12px; border-bottom: 1px solid var(--rule); background: var(--surface-2);
+    white-space: nowrap;
+  }
+  td { padding: 10px 12px; border-bottom: 1px solid var(--rule); vertical-align: middle; }
+  tbody tr:last-child td { border-bottom: none; }
+  td.mono { font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; font-size: 13px; }
+  td.vessel { font-weight: 600; white-space: nowrap; }
+
+  .chip {
+    display: inline-block; border-radius: 999px; padding: 2px 10px;
+    font-family: var(--cond); font-weight: 600; text-transform: uppercase;
+    letter-spacing: .06em; font-size: 11px; white-space: nowrap;
+  }
+  .chip.sent { background: var(--sent-bg); color: var(--sent-ink); }
+  .chip.wait { background: var(--wait-bg); color: var(--wait-ink); }
+  .chip.flag { background: var(--flag-bg); color: var(--flag-ink); }
+  .chip.idle { background: var(--idle-bg); color: var(--idle-ink); }
+
+  .split { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+
+  .doc {
+    border: 1px solid var(--rule); border-radius: 3px; background: var(--surface);
+    padding: 16px 18px; font-size: 13.5px;
+  }
+  .doc h4 {
+    margin: 0 0 4px; font-family: var(--cond); font-size: 15px; letter-spacing: .02em;
+  }
+  .doc .sub { color: var(--ink-faint); font-size: 12.5px; margin: 0 0 12px; font-family: var(--mono); }
+  .doc dl { display: grid; grid-template-columns: auto 1fr; gap: 4px 14px; margin: 0 0 12px; }
+  .doc dt {
+    font-family: var(--cond); text-transform: uppercase; letter-spacing: .07em;
+    font-size: 11px; color: var(--ink-soft); padding-top: 2px;
+  }
+  .doc dd { margin: 0; }
+  .doc h5 {
+    margin: 12px 0 6px; font-family: var(--cond); text-transform: uppercase;
+    letter-spacing: .08em; font-size: 11.5px; color: var(--ink-soft);
+  }
+  .doc ul { margin: 0; padding-left: 17px; display: flex; flex-direction: column; gap: 5px; }
+  .missing {
+    background: var(--flag-bg); color: var(--flag-ink); border-radius: 2px;
+    padding: 0 6px; font-family: var(--mono); font-size: 12.5px;
+  }
+
+  .flagrow {
+    border-left: 3px solid var(--flag-ink); padding: 2px 0 2px 12px;
+    display: flex; flex-direction: column; gap: 3px; font-size: 13.5px;
+  }
+  .flagrow + .flagrow { margin-top: 14px; }
+  .flagrow .what { font-weight: 600; }
+  .flagrow .src { font-family: var(--mono); font-size: 12px; color: var(--ink-soft); }
+
+  .btn {
+    display: inline-block; border: 1px solid var(--structure); color: var(--structure);
+    background: transparent; border-radius: 3px; padding: 6px 14px;
+    font-family: var(--cond); font-weight: 600; text-transform: uppercase;
+    letter-spacing: .07em; font-size: 12px;
+  }
+
+  /* ---- how it works ---- */
+  .steps { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(215px, 1fr)); counter-reset: s; }
+  .step {
+    background: var(--surface); border: 1px solid var(--rule); border-radius: 3px;
+    padding: 15px 16px; display: flex; flex-direction: column; gap: 6px;
+  }
+  .step .num {
+    font-family: var(--mono); font-size: 12px; color: var(--structure);
+  }
+  .step h3 { margin: 0; font-family: var(--cond); font-size: 15.5px; letter-spacing: .01em; }
+  .step p { margin: 0; font-size: 13.5px; color: var(--ink-soft); }
+  .step.human { border-color: var(--sent-ink); }
+  .step.human .num, .step.human h3 { color: var(--sent-ink); }
+
+  .rules { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+  .rule-item {
+    border-left: 3px solid var(--flag-ink); padding-left: 12px; font-size: 14px;
+  }
+  .rule-item b {
+    display: block; font-family: var(--cond); text-transform: uppercase;
+    letter-spacing: .07em; font-size: 12px; color: var(--flag-ink);
+  }
+
+  section.block {
+    background: var(--surface); border: 1px solid var(--rule); border-radius: 4px;
+    padding: 20px 22px 24px; display: flex; flex-direction: column; gap: 14px;
+  }
+  section.block > h2 {
+    font-family: var(--cond); text-transform: uppercase; letter-spacing: .11em;
+    font-size: 13px; color: var(--structure); margin: 0;
+  }
+
+  footer { font-size: 13px; color: var(--ink-soft); border-top: 1px solid var(--rule); padding-top: 16px; }
+  footer p { margin: 0 0 6px; max-width: 78ch; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <p class="kicker">Prepared by zenprocess.ai for North American Shipping Agencies</p>
+    <h1>What the vessel reports portal looks like</h1>
+    <p class="lede">
+      A walkthrough of the Phase 1 pilot: the 8 AM and 4 PM reports drafted for you, and one screen
+      showing where every vessel stands.
+    </p>
+  </header>
+
+  <div class="banner">
+    <b>Illustrative only.</b>
+    Every vessel, file number, name and time on this page is invented to show the layout. None of it
+    is NASA data and none of it is a measurement of your operation. The working version is built on
+    your own reports and your own B/L Sheet during Phase 1.
+  </div>
+
+  <div class="app">
+    <div class="app-bar">
+      <span class="app-name">Vessel Reports</span>
+      <div class="app-meta">
+        <span>Thursday 3 September</span>
+        <span class="who"><span class="avatar">KF</span> Kasie Fernandez · Owner</span>
+      </div>
+    </div>
+
+    <div class="app-body">
+
+      <div class="stats">
+        <div class="stat"><div class="n">6</div><div class="k">Vessels in port</div></div>
+        <div class="stat"><div class="n">12</div><div class="k">Reports drafted today</div></div>
+        <div class="stat attn"><div class="n">2</div><div class="k">Waiting on review</div></div>
+        <div class="stat flag"><div class="n">3</div><div class="k">Fields flagged</div></div>
+      </div>
+
+      <div>
+        <p class="panel-title">Today's vessels</p>
+        <div class="tablewrap">
+          <table>
+            <thead>
+              <tr>
+                <th>File</th><th>Vessel</th><th>Voyage</th><th>Port</th>
+                <th>08:00 report</th><th>16:00 report</th><th>Flags</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="mono">25-0418</td><td class="vessel">Aegean Trader</td>
+                <td class="mono">V-114</td><td>Houston</td>
+                <td><span class="chip sent">Sent 07:58</span></td>
+                <td><span class="chip wait">Waiting review</span></td>
+                <td><span class="chip flag">2</span></td>
+              </tr>
+              <tr>
+                <td class="mono">25-0421</td><td class="vessel">Gulf Pioneer</td>
+                <td class="mono">V-087</td><td>Galveston</td>
+                <td><span class="chip sent">Sent 07:52</span></td>
+                <td><span class="chip sent">Sent 15:49</span></td>
+                <td><span class="chip idle">None</span></td>
+              </tr>
+              <tr>
+                <td class="mono">25-0423</td><td class="vessel">Bayou Spirit</td>
+                <td class="mono">V-203</td><td>Texas City</td>
+                <td><span class="chip sent">Sent 08:01</span></td>
+                <td><span class="chip sent">Sent 15:56</span></td>
+                <td><span class="chip idle">None</span></td>
+              </tr>
+              <tr>
+                <td class="mono">25-0427</td><td class="vessel">Nordic Aurora</td>
+                <td class="mono">V-046</td><td>Beaumont</td>
+                <td><span class="chip sent">Sent 07:55</span></td>
+                <td><span class="chip wait">Waiting review</span></td>
+                <td><span class="chip flag">1</span></td>
+              </tr>
+              <tr>
+                <td class="mono">25-0429</td><td class="vessel">Sabine Voyager</td>
+                <td class="mono">V-158</td><td>Port Arthur</td>
+                <td><span class="chip sent">Sent 07:47</span></td>
+                <td><span class="chip sent">Sent 15:51</span></td>
+                <td><span class="chip idle">None</span></td>
+              </tr>
+              <tr>
+                <td class="mono">25-0431</td><td class="vessel">Delta Mariner</td>
+                <td class="mono">V-092</td><td>Lake Charles</td>
+                <td><span class="chip sent">Sent 07:59</span></td>
+                <td><span class="chip idle">Drafts 15:30</span></td>
+                <td><span class="chip idle">None</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="split">
+
+        <div>
+          <p class="panel-title">The 4 PM draft, waiting in Outlook</p>
+          <div class="doc">
+            <h4>Aegean Trader — Daily Report</h4>
+            <p class="sub">File 25-0418 · Voyage V-114 · 3 Sep, 16:00</p>
+            <dl>
+              <dt>Master</dt><dd>Capt. A. Sorokin</dd>
+              <dt>IMO</dt><dd>9483712</dd>
+              <dt>Flag</dt><dd>Marshall Islands</dd>
+              <dt>Berth</dt><dd>Houston, Bayport Terminal 4</dd>
+            </dl>
+            <h5>Activities</h5>
+            <ul>
+              <li>02 Sep — Bunkers delivered, 340 MT MGO</li>
+              <li>03 Sep — Provisions delivered 09:20</li>
+              <li>03 Sep — Two crew off, flights confirmed IAH 18:40</li>
+              <li>03 Sep — Hotel booked, <span class="missing">nights not confirmed</span></li>
+              <li>03 Sep — Fresh water <span class="missing">quantity not stated</span></li>
+            </ul>
+            <p style="margin:14px 0 0"><span class="btn">Open in Outlook</span></p>
+          </div>
+        </div>
+
+        <div>
+          <p class="panel-title">What it could not confirm</p>
+          <div class="doc">
+            <div class="flagrow">
+              <span class="what">Hotel nights — Aegean Trader</span>
+              <span>The booking was confirmed but no number of nights was given.</span>
+              <span class="src">from: agent@portservices.example · 3 Sep 14:12 · "rooms held for the two joiners, will confirm duration"</span>
+            </div>
+            <div class="flagrow">
+              <span class="what">Fresh water quantity — Aegean Trader</span>
+              <span>Delivery mentioned, quantity never stated in writing.</span>
+              <span class="src">from: ops@barge.example · 3 Sep 11:40 · "water supplied this morning as requested"</span>
+            </div>
+            <div class="flagrow">
+              <span class="what">Sailing time — Nordic Aurora</span>
+              <span>Two different times given in the same thread. Left for a person to settle.</span>
+              <span class="src">from: master@vessel.example · 3 Sep 13:05 · "ETD 2200, possibly 2300 pending pilot"</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div>
+        <p class="panel-title">People and access — you add and remove your own</p>
+        <div class="tablewrap">
+          <table>
+            <thead>
+              <tr><th>Name</th><th>Role</th><th>Can do</th><th>Status</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="vessel">Rex</td><td>Operations</td>
+                <td>Create, edit and send report drafts</td>
+                <td><span class="chip sent">Active</span></td>
+              </tr>
+              <tr>
+                <td class="vessel">Kasie Fernandez</td><td>Owner</td>
+                <td>Everything, plus adding and removing people</td>
+                <td><span class="chip sent">Active</span></td>
+              </tr>
+              <tr>
+                <td class="vessel">Jake</td><td>Operations</td>
+                <td>Create, edit and send report drafts</td>
+                <td><span class="chip wait">Invited</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin:12px 0 0"><span class="btn">Invite someone</span></p>
+      </div>
+
+    </div>
+  </div>
+
+  <section class="block">
+    <h2>How a report gets written</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="num">01</span>
+        <h3>It wakes up early</h3>
+        <p>Half an hour before each deadline, at 7:30 and 3:30.</p>
+      </div>
+      <div class="step">
+        <span class="num">02</span>
+        <h3>It reads what you already have</h3>
+        <p>The B/L Sheet and the day's email for the vessels in the pilot. Nothing else.</p>
+      </div>
+      <div class="step">
+        <span class="num">03</span>
+        <h3>It pulls out the facts</h3>
+        <p>Deliveries, crew movements, flights, hotels, dates. Each one traced back to the email it came from.</p>
+      </div>
+      <div class="step">
+        <span class="num">04</span>
+        <h3>It writes the draft</h3>
+        <p>In your format, into the operator's Outlook drafts, flagging anything it could not confirm.</p>
+      </div>
+      <div class="step">
+        <span class="num">05</span>
+        <h3>It records what happened</h3>
+        <p>Which reports were drafted, what was flagged, how long preparation took.</p>
+      </div>
+      <div class="step human">
+        <span class="num">06</span>
+        <h3>A person sends it</h3>
+        <p>Your operator reads the draft, fixes what needs fixing, and decides. Always.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Four things it will never do</h2>
+    <div class="rules">
+      <div class="rule-item"><b>Never sends</b>No message reaches a customer unless one of your people chooses to send it.</div>
+      <div class="rule-item"><b>Never pays</b>It cannot submit a payment or move funds. Not Pay.gov, not the CBP vessel fee portal, not a bank.</div>
+      <div class="rule-item"><b>Never files</b>ENOA/D, AMS, VECS and customs entries can be prepared. A person submits them.</div>
+      <div class="rule-item"><b>Never guesses</b>Anything it cannot confirm is flagged in the draft, where your operator will see it.</div>
+    </div>
+  </section>
+
+  <footer>
+    <p><b>All data on this page is invented for illustration.</b> The vessels, file numbers, masters,
+      IMO numbers and times are made up to show the layout. The ports are real Gulf ports you serve.
+      Nothing here is a measurement of NASA's operation.</p>
+    <p>Phase 1 covers the 8 AM and 4 PM reports for one operator. The working version is built on your
+      own report format and your own B/L Sheet, and you approve the design before anything is built.</p>
+    <p>zenprocess.ai · 28 August 2026</p>
+  </footer>
+
+</div>
+
+</body>
+</html>

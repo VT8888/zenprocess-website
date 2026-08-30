@@ -16,6 +16,7 @@ import path from "node:path";
 const DEMOS = {
   owneros: "OwnerOS",
   inteldb: "ERP Intelligence",
+  nasa: "Vessel Reports",
 };
 
 const BOOKING = "https://links.zenprocess.ai/widget/booking/rcoKJifJJA46bRI9fTEr";

@@ -17,7 +17,7 @@
 
 import { createHmac } from "node:crypto";
 
-const NAMES = new Set(["owneros", "inteldb"]);
+const NAMES = new Set(["owneros", "inteldb", "nasa"]);
 const BASE = process.env.DEMO_BASE_URL || "https://zenprocess.ai";
 
 const name = (process.argv[2] || "").toLowerCase();

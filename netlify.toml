@@ -35,3 +35,15 @@
   from = "/inteldb_demo/*"
   to = "/.netlify/functions/demo/inteldb"
   status = 200
+
+# The pretty path Vinh hands out for the NASA sample. Token-less hits land on
+# the branded "link no longer valid" page, same as the other bare demo paths;
+# the live link is /d/nasa?t=<token>.
+[[redirects]]
+  from = "/nasa_sample"
+  to = "/.netlify/functions/demo/nasa"
+  status = 200
+[[redirects]]
+  from = "/nasa_sample/*"
+  to = "/.netlify/functions/demo/nasa"
+  status = 200
