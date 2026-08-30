@@ -12,23 +12,25 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
 
 <style>
+  /* Palette taken from NASA's own logo: navy #0C3C6C, red #C01830. */
   :root {
-    --ground: #EEF3F6;
+    --ground: #EEF2F7;
     --surface: #FFFFFF;
-    --surface-2: #E5EDF2;
-    --ink: #0F1F2C;
-    --ink-soft: #4A6072;
-    --ink-faint: #7A8FA0;
-    --rule: #C6D5DE;
-    --structure: #1B4F7A;
+    --surface-2: #E3EBF4;
+    --ink: #0B1B2B;
+    --ink-soft: #46586C;
+    --ink-faint: #7688A0;
+    --rule: #C4D2E0;
+    --structure: #0C3C6C;
+    --brand-red: #C01830;
     --sent-ink: #1E6A4C;
     --sent-bg: #DCEFE5;
-    --wait-ink: #94590C;
+    --wait-ink: #8F5709;
     --wait-bg: #FBEBD3;
-    --flag-ink: #96303A;
-    --flag-bg: #F8DEE0;
-    --idle-ink: #5A7183;
-    --idle-bg: #E1E9EE;
+    --flag-ink: #A81528;
+    --flag-bg: #FAE0E4;
+    --idle-ink: #56697F;
+    --idle-bg: #E1E8F0;
     --banner-bg: #FBEBD3;
     --banner-ink: #7A4708;
     --banner-rule: #D9A54A;
@@ -41,22 +43,23 @@
 
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --ground: #0B1620;
-      --surface: #12212D;
-      --surface-2: #1A2C3A;
-      --ink: #DCE7EE;
-      --ink-soft: #93A9B8;
-      --ink-faint: #6B8496;
-      --rule: #2B4254;
-      --structure: #7FB2D8;
+      --ground: #08131F;
+      --surface: #0F1F2E;
+      --surface-2: #17293A;
+      --ink: #DBE6F0;
+      --ink-soft: #93A8BE;
+      --ink-faint: #6E86A0;
+      --rule: #27405A;
+      --structure: #7FAEDC;
+      --brand-red: #EE7A88;
       --sent-ink: #6FC79E;
-      --sent-bg: #163D2E;
+      --sent-bg: #143B2C;
       --wait-ink: #E9B463;
-      --wait-bg: #3B2C12;
-      --flag-ink: #EE9099;
-      --flag-bg: #401B20;
-      --idle-ink: #90A6B5;
-      --idle-bg: #22323F;
+      --wait-bg: #392B12;
+      --flag-ink: #F0919C;
+      --flag-bg: #3E141C;
+      --idle-ink: #90A4BC;
+      --idle-bg: #1F3245;
       --banner-bg: #33260F;
       --banner-ink: #EFC780;
       --banner-rule: #8A6520;
@@ -95,6 +98,10 @@
   }
   .wrap { max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 26px; }
 
+  .logo { display: block; width: 208px; max-width: 62vw; height: auto; margin-bottom: 18px; }
+  .logo-sm { display: block; height: 24px; width: auto; }
+  .app-brand { display: flex; align-items: center; gap: 12px; }
+
   .kicker {
     font-family: var(--cond); font-weight: 700; text-transform: uppercase;
     letter-spacing: .15em; font-size: 12px; color: var(--structure); margin: 0;
@@ -115,7 +122,7 @@
   /* ---- the mock application chrome ---- */
   .app {
     background: var(--surface); border: 1px solid var(--rule); border-radius: 4px;
-    overflow: hidden;
+    border-top: 3px solid var(--brand-red); overflow: hidden;
   }
   .app-bar {
     display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between;
@@ -255,7 +262,8 @@
 <div class="wrap">
 
   <header>
-    <p class="kicker">Prepared by zenprocess.ai for North American Shipping Agencies</p>
+    <img class="logo" src="/vr-mark.png" alt="North American Shipping Agencies" width="240" height="53">
+    <p class="kicker">Prepared by zenprocess.ai</p>
     <h1>What the vessel reports portal looks like</h1>
     <p class="lede">
       A walkthrough of the Phase 1 pilot: the 8 AM and 4 PM reports drafted for you, and one screen
@@ -272,7 +280,10 @@
 
   <div class="app">
     <div class="app-bar">
-      <span class="app-name">Vessel Reports</span>
+      <span class="app-brand">
+        <img class="logo-sm" src="/vr-mark.png" alt="" width="240" height="53">
+        <span class="app-name">Vessel Reports</span>
+      </span>
       <div class="app-meta">
         <span>Thursday 3 September</span>
         <span class="who"><span class="avatar">KF</span> Kasie Fernandez · Owner</span>
