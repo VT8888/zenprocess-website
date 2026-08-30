@@ -1,17 +1,19 @@
 ---
 title: "What a Paid AI Audit Looks Like, And Why We Don't Do Free Assessments"
-description: "Most consultants offer free assessments to get in the door. We charge for ours. Here's what you get, why it's worth it, and what happens after."
+description: "The call is free. The audit is not. Here is what two to four weeks of diagnostic work actually covers, what you walk away owning, and why charging for it produces a better answer."
 date: "2026-04-14"
 author: "Vinh Truong"
 authorTitle: "Co-Founder & AI Architect"
 pillar: "proof_and_results"
-seoKeywords: ["AI audit building materials", "data audit distribution", "paid assessment consulting"]
+seoKeywords: ["paid AI audit", "AI readiness assessment", "data audit for small business", "distributor data audit", "diagnostic before implementation"]
 draft: false
 ---
 
 We charge for our audit. I know that's unusual. Most consulting firms will offer you a free assessment, come in, spend an hour or two, look around, and then present their findings along with a proposal for the project they'd like to sell you.
 
-I've sat through enough of those to know what they actually are. They're not assessments. They're sales calls with a clipboard.
+I've sat through enough of those to know what they actually are. They're sales calls with a clipboard.
+
+To be clear about what is and isn't free here, because the distinction matters. The first call is free. Thirty minutes, you tell me what's slipping, and I tell you whether we can help, including when the answer is no. That call is not an assessment and I don't pretend it is. Nobody learns where your numbers really come from in half an hour. The audit is the part you pay for, and the rest of this post is what that buys.
 
 A free assessment has one objective: close the deal. The consultant walks in with a predetermined set of recommendations, usually the exact services they sell, and spends the assessment looking for enough evidence to justify that recommendation. The "findings" are designed to create urgency. The "roadmap" conveniently requires their team. And the scope is almost always inflated, because a bigger project means bigger fees.
 
@@ -19,7 +21,7 @@ We do the opposite. Our audit is a standalone engagement that delivers value whe
 
 ## What a Real Audit Covers
 
-Our audit takes two to four weeks, depending on the complexity of the operation. For a building materials distributor with multiple warehouses, a mix of overseas and domestic suppliers, and 1,000+ SKUs, it's typically three weeks of deep work. Here's what we do.
+The audit takes two to four weeks, depending on the operation. A distributor with multiple warehouses, overseas and domestic suppliers, and 1,000+ SKUs is typically three weeks of deep work. An owner-led firm running on a CRM, an inbox, and accounting software is usually closer to two. The method is the same either way. Here is what we do.
 
 ### Week 1: Data Flow Mapping
 
@@ -118,7 +120,7 @@ The audit prevents all of that. It's the difference between a doctor running dia
 
 ## Who This Is For
 
-Our audit is designed for building materials distributors, and mid-market distribution companies more broadly, who are in one of these situations:
+The audit fits two kinds of company. Multi-warehouse distributors running SAP or a similar ERP, and owner-led firms where the business runs across a handful of disconnected tools. In both cases the problem is the same: nobody has ever mapped where the numbers actually come from. Typically you are in one of these situations:
 
 You've been acquired by a PE firm and the new ownership wants unified data across all locations. The audit tells you exactly what it will take to get there.
 
@@ -130,6 +132,6 @@ You tried a data project before and it didn't deliver. The audit identifies why 
 
 In every case, the audit gives you clarity. Not a sales pitch. Not a generic recommendation. A detailed, quantified, vendor-neutral analysis of your specific operation with specific recommendations for your specific situation.
 
-If you're curious whether an audit makes sense for your operation, that's what the discovery call is for. Thirty minutes, no commitment, and we'll tell you honestly whether we think the audit would find enough to justify the investment.
+If you're curious whether an audit makes sense for your operation, that's what the first call is for. Tell me what is slipping and I will tell you if we can help. Thirty minutes, and if the audit wouldn't find enough to justify what it costs, I would rather say so on that call than take the engagement.
 
-*Vinh Truong is the Co-Founder & AI Architect at [zenprocess.ai](https://zenprocess.ai), where he builds real-time operational dashboards and data pipelines for building materials distributors. With 20+ years of enterprise IT and CTO leadership and $80M+ in technology initiatives delivered, he brings Fortune 500 data architecture to mid-market operations. [Book a discovery call](https://zenprocess.ai/book) or [read the full case study](https://zenprocess.ai/case-study).*
+*Vinh Truong is the Co-Founder & AI Architect at [zenprocess.ai](https://zenprocess.ai). He builds OwnerOS for owner-led firms and ERP Intelligence for multi-warehouse distributors. CISSP, 20+ years of enterprise IT and CTO leadership, $80M+ in technology initiatives delivered. [Book a call](https://zenprocess.ai/book) or [read the full case study](https://zenprocess.ai/case-study).*
