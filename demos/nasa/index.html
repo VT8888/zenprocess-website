@@ -34,6 +34,7 @@
     --banner-bg: #FBEBD3;
     --banner-ink: #7A4708;
     --banner-rule: #D9A54A;
+    --logo-plate: transparent;
 
     --sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
     --cond: "IBM Plex Sans Condensed", "IBM Plex Sans", ui-sans-serif, sans-serif;
@@ -63,29 +64,32 @@
       --banner-bg: #33260F;
       --banner-ink: #EFC780;
       --banner-rule: #8A6520;
+      --logo-plate: #FFFFFF;
     }
   }
 
   :root[data-theme="dark"] {
-    --ground: #0B1620;
-    --surface: #12212D;
-    --surface-2: #1A2C3A;
-    --ink: #DCE7EE;
-    --ink-soft: #93A9B8;
-    --ink-faint: #6B8496;
-    --rule: #2B4254;
-    --structure: #7FB2D8;
+    --ground: #08131F;
+    --surface: #0F1F2E;
+    --surface-2: #17293A;
+    --ink: #DBE6F0;
+    --ink-soft: #93A8BE;
+    --ink-faint: #6E86A0;
+    --rule: #27405A;
+    --structure: #7FAEDC;
+    --brand-red: #EE7A88;
     --sent-ink: #6FC79E;
-    --sent-bg: #163D2E;
+    --sent-bg: #143B2C;
     --wait-ink: #E9B463;
-    --wait-bg: #3B2C12;
-    --flag-ink: #EE9099;
-    --flag-bg: #401B20;
-    --idle-ink: #90A6B5;
-    --idle-bg: #22323F;
+    --wait-bg: #392B12;
+    --flag-ink: #F0919C;
+    --flag-bg: #3E141C;
+    --idle-ink: #90A4BC;
+    --idle-bg: #1F3245;
     --banner-bg: #33260F;
     --banner-ink: #EFC780;
     --banner-rule: #8A6520;
+    --logo-plate: #FFFFFF;
   }
 
   body {
@@ -98,8 +102,16 @@
   }
   .wrap { max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 26px; }
 
-  .logo { display: block; width: 208px; max-width: 62vw; height: auto; margin-bottom: 18px; }
-  .logo-sm { display: block; height: 24px; width: auto; }
+  /* The logo's ink is navy and red, so it needs a light plate on a dark ground.
+     In light mode --logo-plate is transparent and the padding is invisible. */
+  .logo {
+    display: block; width: 208px; max-width: 62vw; height: auto; margin-bottom: 18px;
+    background: var(--logo-plate); padding: 7px 9px; border-radius: 3px;
+  }
+  .logo-sm {
+    display: block; height: 24px; width: auto;
+    background: var(--logo-plate); padding: 4px 6px; border-radius: 3px;
+  }
   .app-brand { display: flex; align-items: center; gap: 12px; }
 
   .kicker {
