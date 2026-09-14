@@ -4,7 +4,7 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout
   title="AI Assessment: Two to four weeks, fixed price, you own the output"
-  description="Before you build anything, find out where the numbers actually come from, what the current setup costs, and what to fix first. A paid assessment for owner-led firms, distributors, and organizations with an AI mandate and no plan."
+  description="Before you build anything, find out where the numbers actually come from, what the current setup costs, and what to fix first. A paid assessment for owner-led firms, distributors, healthcare organizations, and anyone with an AI mandate and no plan."
 >
   <section class="hero-section">
     <div class="wrap hero-grid">
@@ -40,10 +40,11 @@ import Layout from '../layouts/Layout.astro';
 
   <section class="section-familiar reveal">
     <div class="wrap">
-      <h2 class="section-title">Three kinds of company book this</h2>
+      <h2 class="section-title">Four kinds of organization book this</h2>
       <div class="familiar-grid">
         <div class="card familiar-card"><h3 class="familiar-title">A distributor whose ERP data nobody trusts</h3><p class="familiar-desc">SAP or NetSuite runs the transactions. Purchasing runs the day out of Excel. Three teams keep three spreadsheets and none of them agree.</p></div>
         <div class="card familiar-card"><h3 class="familiar-title">An owner-led firm running across too many tools</h3><p class="familiar-desc">The books, the CRM, the inbox, and the calendar each hold part of the picture. Every morning you reassemble it by hand, and things slip in the gaps.</p></div>
+        <div class="card familiar-card"><h3 class="familiar-title">A healthcare organization deciding where AI belongs</h3><p class="familiar-desc">A hospital, clinic group, or practice where leadership wants AI in the workflow and compliance wants to know what it can see. We inventory the systems and the data, talk to the people running corporate and clinical operations, and hand back a short list of where AI would actually pay, scoped to the data it's allowed to touch.</p></div>
         <div class="card familiar-card"><h3 class="familiar-title">An organization told to "do something with AI"</h3><p class="familiar-desc">There's a mandate and a budget, and no map of which processes are ready, which data can be trusted, or what the first project should be.</p></div>
       </div>
     </div>
@@ -79,7 +80,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="after-grid">
         <div class="card after-card">
           <h3 class="after-title">You build with us</h3>
-          <p class="after-desc">Phase 1 is the highest-return item from the report, scoped and priced from what the assessment found. Four to eight weeks, and you see real output before there's a Phase 2. For a distributor that's usually <a href="/for-distributors">ERP Intelligence</a>, for an owner-led firm it's usually <a href="/owner-os">OwnerOS</a>, and for an organization with an AI mandate it's the first project on the map.</p>
+          <p class="after-desc">Phase 1 is the highest-return item from the report, scoped and priced from what the assessment found. Four to eight weeks, and you see real output before there's a Phase 2. For a distributor that's usually <a href="/for-distributors">ERP Intelligence</a>, for an owner-led firm it's usually <a href="/owner-os">OwnerOS</a>, and for a healthcare organization or anyone with an AI mandate it's the first project on the map, scoped to the data it's allowed to touch.</p>
         </div>
         <div class="card after-card">
           <h3 class="after-title">You build with someone else, or nobody</h3>
@@ -174,8 +175,10 @@ import Layout from '../layouts/Layout.astro';
   }
   .familiar-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 24px;
+    max-width: 960px;
+    margin: 0 auto;
   }
   .familiar-card {
     padding: 28px;
